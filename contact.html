@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Alure.ai | Get in Touch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e6e6e6;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #6366f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #8b5cf6;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #6366f1;
+        }
+
+        /* Navigation button specific styling */
+        .nav-links .btn-primary {
+            color: white !important;
+            font-weight: 700 !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        .nav-links .btn-primary:hover {
+            color: white !important;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Contact Hero */
+        .contact-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-hero p {
+            font-size: 1.25rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-radius: 24px;
+            padding: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(50px, -50px);
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-methods {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .contact-details h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details p {
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f1f5f9;
+        }
+
+        .contact-form h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .contact-form p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+
+        .form-control[type="text"],
+        .form-control[type="email"],
+        .form-control[type="tel"] {
+            height: 50px;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: #666;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f8fafc;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #666;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Alure.ai</a>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#" class="btn btn-primary">Start Free Trial</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>Ready to transform your calling process? Our team is here to help you succeed with AI-powered sales automation.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Let's Start a Conversation</h2>
+                    <p>Whether you have questions about our platform, need a custom demo, or want to discuss your specific use case, we're here to help.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h4>Email Us</h4>
+                                <p>hello@alure.ai</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-details">
+                                <h4>Call Us</h4>
+                                <p>1-800-ALURE-AI (1-800-258-7324)</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">💬</div>
+                            <div class="contact-details">
+                                <h4>Live Chat</h4>
+                                <p>Available 9 AM - 6 PM EST</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">🏢</div>
+                            <div class="contact-details">
+                                <h4>Office</h4>
+                                <p>San Francisco, CA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2>Send us a Message</h2>
+                    <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+                    
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inquiry">Inquiry Type</label>
+                            <select id="inquiry" class="form-control form-select">
+                                <option value="">Select an option</option>
+                                <option value="demo">Request a Demo</option>
+                                <option value="pricing">Pricing Questions</option>
+                                <option value="support">Technical Support</option>
+                                <option value="partnership">Partnership Opportunities</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" class="form-control" placeholder="Tell us about your calling challenges and goals..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions about getting started with Alure.ai</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How quickly can I get started with Alure.ai?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        You can start your free trial immediately and be making AI-enhanced calls within 24 hours. Our onboarding team will help you set up your first campaign and import your prospects.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer custom demos?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! We provide personalized demos tailored to your specific industry and use case. Schedule a demo using the form above or call us directly.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What kind of support do you provide?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We offer comprehensive support including live chat, email support, phone support (for Enterprise customers), detailed documentation, and video tutorials. Our team is committed to your success.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can you help migrate data from our existing system?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely! Our team provides free data migration assistance to help you seamlessly transition from your current calling solution to Alure.ai.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer training for our team?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, we provide comprehensive training including live training sessions, recorded webinars, best practices guides, and ongoing coaching to ensure your team maximizes their results.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                <div class="footer-section">
+                    <h3 style="margin-bottom: 1rem; color: #6366f1;">Product</h3>
+                    <a href="index.html#features" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Features</a>
+                    <a href="pricing.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Pricing</a>
+                    <a href="demo.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Demo</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Integrations</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">API</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3 style="margin-bottom: 1rem; color: #6366f1;">Company</h3>
+                    <a href="about.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">About</a>
+                    <a href="blog.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Blog</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Careers</a>
+                    <a href="contact.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Contact</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3 style="margin-bottom: 1rem; color: #6366f1;">Resources</h3>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Help Center</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Documentation</a>
+                    <a href="case-studies.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Case Studies</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Webinars</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3 style="margin-bottom: 1rem; color: #6366f1;">Legal</h3>
+                    <a href="privacy-policy.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Privacy Policy</a>
+                    <a href="terms-of-service.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Terms of Service</a>
+                    <a href="cookie-policy.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Cookie Policy</a>
+                    <a href="data-processing.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Data Processing</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom" style="border-top: 1px solid #333; padding-top: 2rem;">
+                <p>&copy; 2024 Alure.ai. All rights reserved. | Ready to transform your calling process? Let's talk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('span:last-child');
+                const isOpen = answer.classList.contains('active');
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-question span:last-child').forEach(ic => {
+                    ic.textContent = '+';
+                });
+                
+                // Toggle current answer
+                if (!isOpen) {
+                    answer.classList.add('active');
+                    icon.textContent = '−';
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Demo - Alure.ai | See It In Action</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e6e6e6;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #6366f1;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #6366f1;
+        }
+
+        /* Navigation button specific styling */
+        .nav-links .btn-primary {
+            color: white !important;
+            font-weight: 700 !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        .nav-links .btn-primary:hover {
+            color: white !important;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Demo Hero */
+        .demo-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            text-align: center;
+        }
+
+        .demo-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .demo-hero p {
+            font-size: 1.25rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 6rem 0;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            position: relative;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .play-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 20px solid white;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 5px;
+        }
+
+        /* Features Demo */
+        .features-demo {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .demo-grid {
+            display: grid;
+            gap: 4rem;
+        }
+
+        .demo-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .demo-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .demo-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .demo-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .demo-content p {
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .demo-features {
+            list-style: none;
+        }
+
+        .demo-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+
+        .demo-features li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .demo-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .demo-image:hover {
+            transform: translateY(-8px);
+        }
+
+        .demo-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Screenshots Section */
+        .screenshots {
+            padding: 6rem 0;
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .screenshot-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f1f5f9;
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .screenshot-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .screenshot-info {
+            padding: 1.5rem;
+        }
+
+        .screenshot-info h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .screenshot-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-white {
+            background: white;
+            color: #6366f1;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #6366f1;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .demo-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .demo-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .demo-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Alure.ai</a>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#" class="btn btn-primary">Start Free Trial</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Demo Hero -->
+    <section class="demo-hero">
+        <div class="container">
+            <h1>See Alure.ai in Action</h1>
+            <p>Watch how our AI transforms your calling process from time-consuming manual work into a scalable, predictable revenue engine.</p>
+        </div>
+    </section>
+
+    <!-- Video Demo -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>3-Minute Product Walkthrough</h2>
+                <p>See exactly how Alure.ai generates personalized call scripts and automates your entire calling workflow</p>
+            </div>
+            
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <div class="play-button"></div>
+                    <div style="position: absolute; bottom: 2rem; left: 2rem; font-size: 1rem;">
+                        🎥 Interactive Product Demo • 3:24
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Demo -->
+    <section class="features-demo">
+        <div class="container">
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <div class="demo-content">
+                        <h3>AI-Powered Script Generation</h3>
+                        <p>Watch how our AI analyzes prospect data and generates completely personalized call scripts in seconds, not hours.</p>
+                        <ul class="demo-features">
+                            <li>Instant prospect research from LinkedIn and company data</li>
+                            <li>Industry-specific talking points and value propositions</li>
+                            <li>Personalized objection handling for each prospect</li>
+                            <li>Multiple script variations for A/B testing</li>
+                        </ul>
+                    </div>
+                    <div class="demo-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI script generation dashboard showing personalized call scripts">
+                    </div>
+                </div>
+
+                <div class="demo-item">
+                    <div class="demo-content">
+                        <h3>Advanced Analytics Dashboard</h3>
+                        <p>Track every metric that matters with comprehensive analytics that show you exactly what's working and what needs improvement.</p>
+                        <ul class="demo-features">
+                            <li>Real-time call performance tracking</li>
+                            <li>Conversion funnel analysis</li>
+                            <li>Script effectiveness scoring</li>
+                            <li>Team performance comparisons</li>
+                        </ul>
+                    </div>
+                    <div class="demo-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Advanced analytics dashboard with charts and metrics">
+                    </div>
+                </div>
+
+                <div class="demo-item">
+                    <div class="demo-content">
+                        <h3>Smart Campaign Management</h3>
+                        <p>Organize and execute multiple calling campaigns simultaneously with intelligent automation and optimization.</p>
+                        <ul class="demo-features">
+                            <li>Multi-campaign prospect segmentation</li>
+                            <li>Automated callback scheduling</li>
+                            <li>Follow-up sequence management</li>
+                            <li>CRM integration and sync</li>
+                        </ul>
+                    </div>
+                    <div class="demo-image">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Campaign management interface showing multiple active campaigns">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2>Product Screenshots</h2>
+                <p>Get a detailed look at the interface and features you'll be using every day</p>
+            </div>
+
+            <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <div class="screenshot-image">
+                        📊 Dashboard Overview
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Main Dashboard</h4>
+                        <p>Your command center showing daily metrics, active campaigns, and upcoming callbacks at a glance.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <div class="screenshot-image">
+                        🤖 AI Script Editor
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Script Generation</h4>
+                        <p>AI-powered script creation with real-time personalization based on prospect data and industry insights.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <div class="screenshot-image">
+                        📈 Analytics View
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Performance Analytics</h4>
+                        <p>Comprehensive reporting on call outcomes, conversion rates, and script effectiveness over time.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <div class="screenshot-image">
+                        👥 Campaign Manager
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Campaign Management</h4>
+                        <p>Organize prospects into targeted campaigns with custom objectives and automated follow-up sequences.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <div class="screenshot-image">
+                        📞 Call Interface
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Calling Interface</h4>
+                        <p>Clean, distraction-free calling experience with scripts, prospect info, and outcome tracking in one view.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <div class="screenshot-image">
+                        ⚙️ Settings Panel
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Customization Options</h4>
+                        <p>Flexible settings for script templates, calling schedules, integrations, and team management.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Experience It Yourself?</h2>
+            <p>Start your free trial today and see how Alure.ai can transform your calling results in just 14 days</p>
+            
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-white">Start Free Trial</a>
+                <a href="#" class="btn btn-outline">Schedule Live Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                <div class="footer-section">
+                    <h3 style="margin-bottom: 1rem; color: #6366f1;">Product</h3>
+                    <a href="index.html#features" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Features</a>
+                    <a href="pricing.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Pricing</a>
+                    <a href="demo.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Demo</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Integrations</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">API</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3 style="margin-bottom: 1rem; color: #6366f1;">Company</h3>
+                    <a href="about.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">About</a>
+                    <a href="blog.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Blog</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Careers</a>
+                    <a href="contact.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Contact</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3 style="margin-bottom: 1rem; color: #6366f1;">Resources</h3>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Help Center</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Documentation</a>
+                    <a href="case-studies.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Case Studies</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Webinars</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3 style="margin-bottom: 1rem; color: #6366f1;">Legal</h3>
+                    <a href="privacy-policy.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Privacy Policy</a>
+                    <a href="terms-of-service.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Terms of Service</a>
+                    <a href="cookie-policy.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Cookie Policy</a>
+                    <a href="data-processing.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Data Processing</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom" style="border-top: 1px solid #333; padding-top: 2rem;">
+                <p>&copy; 2024 Alure.ai. All rights reserved. | Experience the future of AI-powered calling today.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

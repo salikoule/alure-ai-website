@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Alure.ai | Sales & AI Insights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e6e6e6;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #6366f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #8b5cf6;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #6366f1;
+        }
+
+        /* Navigation button specific styling */
+        .nav-links .btn-primary {
+            color: white !important;
+            font-weight: 700 !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        .nav-links .btn-primary:hover {
+            color: white !important;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Blog Hero */
+        .blog-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            text-align: center;
+        }
+
+        .blog-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .blog-hero p {
+            font-size: 1.25rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Featured Post */
+        .featured-section {
+            padding: 6rem 0;
+        }
+
+        .featured-post {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-radius: 24px;
+            padding: 3rem;
+            color: white;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-post::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(100px, -100px);
+        }
+
+        .featured-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .featured-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .featured-post h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .featured-post p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .featured-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 3rem;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-category {
+            background: #6366f1;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .blog-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .blog-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #999;
+            font-size: 0.875rem;
+        }
+
+        .read-more {
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #8b5cf6;
+        }
+
+        /* Categories */
+        .categories-section {
+            padding: 3rem 0;
+            background: #f8fafc;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .category-tag {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .category-tag:hover {
+            border-color: #6366f1;
+            color: #6366f1;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .blog-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .featured-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .featured-post h2 {
+                font-size: 2rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Alure.ai</a>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#" class="btn btn-primary">Start Free Trial</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Sales & AI Insights</h1>
+            <p>Expert insights on AI-powered sales automation, cold calling strategies, and the future of sales technology.</p>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="featured-post">
+                <div class="featured-content">
+                    <div>
+                        <span class="featured-badge">Featured Article</span>
+                        <h2>The Future of Cold Calling: How AI is Revolutionizing Sales Outreach</h2>
+                        <div class="featured-meta">
+                            <div class="author-avatar">👨‍💼</div>
+                            <div>
+                                <div style="font-weight: 600;">Alex Richardson</div>
+                                <div style="opacity: 0.8; font-size: 0.9rem;">CEO & Co-Founder • 5 min read</div>
+                            </div>
+                        </div>
+                        <p>Discover how artificial intelligence is transforming traditional cold calling from a numbers game into a precision instrument for relationship building and revenue generation.</p>
+                        <a href="blog-ai-future-cold-calling.html" class="btn" style="background: white; color: #6366f1;">Read Full Article</a>
+                    </div>
+                    <div class="featured-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="AI and Sales Technology">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="featured-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Latest Articles</h2>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">📞</div>
+                    <div class="blog-content">
+                        <span class="blog-category">Strategy</span>
+                        <h3>10 Proven Call Scripts That Convert Prospects into Customers</h3>
+                        <p>Learn the exact frameworks and scripts our most successful customers use to achieve 40%+ appointment booking rates.</p>
+                        <div class="blog-meta">
+                            <span>January 15, 2024</span>
+                            <a href="blog-call-scripts-convert.html" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">🤖</div>
+                    <div class="blog-content">
+                        <span class="blog-category">AI Technology</span>
+                        <h3>How AI Personalization Increases Call Success Rates by 300%</h3>
+                        <p>Deep dive into the data science behind personalized call scripts and why generic approaches are failing in 2024.</p>
+                        <div class="blog-meta">
+                            <span>January 12, 2024</span>
+                            <a href="blog-ai-personalization-300-percent.html" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">📊</div>
+                    <div class="blog-content">
+                        <span class="blog-category">Analytics</span>
+                        <h3>The Metrics That Matter: Tracking Your Calling Performance</h3>
+                        <p>Beyond basic call volume - discover the KPIs that actually predict sales success and revenue growth.</p>
+                        <div class="blog-meta">
+                            <span>January 10, 2024</span>
+                            <a href="blog-metrics-that-matter.html" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">🎯</div>
+                    <div class="blog-content">
+                        <span class="blog-category">Best Practices</span>
+                        <h3>Cold Calling in 2024: What's Changed and What Still Works</h3>
+                        <p>A comprehensive analysis of modern cold calling strategies that respect prospects while driving real results.</p>
+                        <div class="blog-meta">
+                            <span>January 8, 2024</span>
+                            <a href="blog-cold-calling-2024.html" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">🚀</div>
+                    <div class="blog-content">
+                        <span class="blog-category">Case Study</span>
+                        <h3>From 50 to 500 Calls: How TechFlow Scaled Their Sales Team</h3>
+                        <p>Real results from a SaaS company that 10x their calling volume while improving their close rates using AI automation.</p>
+                        <div class="blog-meta">
+                            <span>January 5, 2024</span>
+                            <a href="blog-techflow-case-study.html" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">💡</div>
+                    <div class="blog-content">
+                        <span class="blog-category">Tips</span>
+                        <h3>Objection Handling Mastery: The AI-Powered Approach</h3>
+                        <p>Turn objections into opportunities with intelligent response frameworks that build trust and drive conversations forward.</p>
+                        <div class="blog-meta">
+                            <span>January 3, 2024</span>
+                            <a href="blog-objection-handling-ai.html" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories-section">
+        <div class="container">
+            <h3 style="text-align: center; margin-bottom: 2rem;">Browse by Category</h3>
+            <div class="categories-grid">
+                <a href="#" class="category-tag">AI Technology</a>
+                <a href="#" class="category-tag">Call Scripts</a>
+                <a href="#" class="category-tag">Sales Strategy</a>
+                <a href="#" class="category-tag">Case Studies</a>
+                <a href="#" class="category-tag">Best Practices</a>
+                <a href="#" class="category-tag">Industry Insights</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                <div class="footer-section">
+                    <h3 style="margin-bottom: 1rem; color: #6366f1;">Product</h3>
+                    <a href="index.html#features" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Features</a>
+                    <a href="pricing.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Pricing</a>
+                    <a href="demo.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Demo</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Integrations</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">API</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3 style="margin-bottom: 1rem; color: #6366f1;">Company</h3>
+                    <a href="about.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">About</a>
+                    <a href="blog.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Blog</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Careers</a>
+                    <a href="contact.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Contact</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3 style="margin-bottom: 1rem; color: #6366f1;">Resources</h3>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Help Center</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Documentation</a>
+                    <a href="case-studies.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Case Studies</a>
+                    <a href="#" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Webinars</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3 style="margin-bottom: 1rem; color: #6366f1;">Legal</h3>
+                    <a href="privacy-policy.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Privacy Policy</a>
+                    <a href="terms-of-service.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Terms of Service</a>
+                    <a href="cookie-policy.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Cookie Policy</a>
+                    <a href="data-processing.html" style="color: #ccc; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s ease;">Data Processing</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom" style="border-top: 1px solid #333; padding-top: 2rem;">
+                <p>&copy; 2024 Alure.ai. All rights reserved. | Stay ahead with the latest sales and AI insights.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
