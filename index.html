@@ -197,6 +197,27 @@
             margin-bottom: 3rem;
         }
 
+        .hero-image {
+            margin: 3rem auto 0;
+            max-width: 800px;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+            transform: perspective(1000px) rotateX(5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image:hover {
+            transform: perspective(1000px) rotateX(2deg) translateY(-5px);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -277,6 +298,13 @@
             padding: 6rem 0;
         }
 
+        .problem-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
         .problem-content {
             max-width: 800px;
             margin: 0 auto;
@@ -302,6 +330,42 @@
             margin: 2rem 0;
             font-weight: 500;
             color: #92400e;
+        }
+
+        .problem-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .pain-point {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid #ef4444;
+            transition: all 0.3s ease;
+        }
+
+        .pain-point:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .pain-icon {
+            font-size: 1.5rem;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .pain-point p {
+            margin: 0;
+            font-weight: 500;
+            color: #333;
+            font-size: 0.95rem;
         }
 
         /* Shift Section */
@@ -361,6 +425,21 @@
         .comparison-card p {
             color: #555;
             font-size: 0.95rem;
+        }
+
+        .comparison-card .rate-highlight {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-card.cold .rate-highlight {
+            color: #dc2626;
+        }
+
+        .comparison-card.warm .rate-highlight {
+            color: #16a34a;
         }
 
         /* Solution Section */
@@ -432,16 +511,24 @@
 
         .solution-result {
             text-align: center;
-            padding: 1.5rem 2rem;
-            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+            padding: 1.5rem 2.5rem;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .solution-result:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
         }
 
         .solution-result span {
             display: block;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #6366f1;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 0.3px;
         }
 
         /* How It Works Section */
@@ -768,7 +855,7 @@
 
         .audience-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(5, 1fr);
             gap: 1.5rem;
             margin: 3rem 0;
         }
@@ -1071,6 +1158,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .problem-layout {
+                grid-template-columns: 1fr;
+            }
+
             .comparison-grid {
                 grid-template-columns: 1fr;
             }
@@ -1085,6 +1176,10 @@
 
             .outcome-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .audience-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .cta-buttons {
@@ -1147,6 +1242,10 @@
                 </div>
             </div>
 
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Modern sales team using AI-powered tools to prepare personalised outreach">
+            </div>
+
             <div class="stats">
                 <div class="stat">
                     <span class="stat-number">4-5 hrs</span>
@@ -1178,13 +1277,37 @@
             <div class="section-header">
                 <h2>Booking the First Appointment Is the Hardest Part of B2B Sales</h2>
             </div>
-            <div class="problem-content">
-                <p>Most B2B businesses start by selling to their existing network. That works until the network is exhausted.</p>
-                <p>Once referrals and existing contacts slow down, sales become unpredictable. Cold outreach response rates drop below 1%. LinkedIn limits volume. Research takes hours. Sales reps spend more time preparing than selling.</p>
-                <p>Without a system, sales performance depends on luck.</p>
-                <p><strong>And luck does not scale.</strong></p>
-                <div class="callout">
-                    If your team is spending 4–5 hours per day researching prospects before making calls, you do not have a sales engine. You have a time problem.
+            <div class="problem-layout">
+                <div class="problem-content">
+                    <p>Most B2B businesses start by selling to their existing network. That works until the network is exhausted.</p>
+                    <p>Once referrals and existing contacts slow down, sales become unpredictable. Cold outreach response rates drop below 1%. LinkedIn limits volume. Research takes hours. Sales reps spend more time preparing than selling.</p>
+                    <p>Without a system, sales performance depends on luck.</p>
+                    <p><strong>And luck does not scale.</strong></p>
+                    <div class="callout">
+                        If your team is spending 4–5 hours per day researching prospects before making calls, you do not have a sales engine. You have a time problem.
+                    </div>
+                </div>
+                <div class="problem-visual">
+                    <div class="pain-point">
+                        <div class="pain-icon">📉</div>
+                        <p>Cold outreach response rates below 1%</p>
+                    </div>
+                    <div class="pain-point">
+                        <div class="pain-icon">⏰</div>
+                        <p>4-5 hours per day spent on manual research</p>
+                    </div>
+                    <div class="pain-point">
+                        <div class="pain-icon">🚫</div>
+                        <p>LinkedIn limits your outreach volume</p>
+                    </div>
+                    <div class="pain-point">
+                        <div class="pain-icon">🎲</div>
+                        <p>Sales performance depends on luck, not systems</p>
+                    </div>
+                    <div class="pain-point">
+                        <div class="pain-icon">😓</div>
+                        <p>Reps spend more time preparing than selling</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1202,12 +1325,14 @@
                 <p><strong>Alure.ai changes that.</strong></p>
                 <div class="comparison-grid">
                     <div class="comparison-card cold">
+                        <span class="rate-highlight">&lt; 1%</span>
                         <h4>Cold Calling</h4>
-                        <p>No research. No relevance. Below 1% response rates. Burned reps and wasted time.</p>
+                        <p>No research. No relevance. Burned reps and wasted time.</p>
                     </div>
                     <div class="comparison-card warm">
+                        <span class="rate-highlight">10–20%</span>
                         <h4>Warm Calling with Alure.ai</h4>
-                        <p>Deep research. Personalised scripts. Valid business reasons. 10–20% interest rates.</p>
+                        <p>Deep research. Personalised scripts. Valid business reasons.</p>
                     </div>
                 </div>
             </div>
@@ -1678,7 +1803,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.solution-feature, .step-card, .diff-card, .audience-card, .benefit-item, .outcome-item, .funnel-item').forEach(el => {
+        document.querySelectorAll('.solution-feature, .step-card, .diff-card, .audience-card, .benefit-item, .outcome-item, .funnel-item, .pain-point').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease-out';
