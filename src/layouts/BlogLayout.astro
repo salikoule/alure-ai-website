@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { BOOKING_URL } from '../config';
 
 interface Props {
   title: string;
@@ -90,7 +91,7 @@ const { title, description, date, author, authorInitials, readTime } = Astro.pro
       <div class="article-cta">
         <h3>Ready to Transform Your Results?</h3>
         <p>See how Alure.ai can help your team achieve better outcomes with AI-powered outreach.</p>
-        <a href="/contact" class="btn btn-white">Book a Strategy Session</a>
+        <a href={BOOKING_URL} class="btn btn-white" target="_blank" rel="noopener noreferrer">Book a Strategy Session</a>
       </div>
     </div>
   </div>

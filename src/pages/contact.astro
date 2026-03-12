@@ -1,6 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
+import FAQ from '../components/FAQ.astro';
+
+const contactFAQ = [
+  { question: "How quickly can I get started with Alure.ai?", answer: "You can start your free trial immediately and be making AI-enhanced calls within 24 hours. Our onboarding team will help you set up your first campaign and import your prospects." },
+  { question: "Do you offer custom demos?", answer: "Yes! We provide personalized demos tailored to your specific industry and use case. Schedule a demo using the form above or call us directly." },
+  { question: "What kind of support do you provide?", answer: "We offer comprehensive support including live chat, email support, phone support (for Enterprise customers), detailed documentation, and video tutorials. Our team is committed to your success." },
+  { question: "Can you help migrate data from our existing system?", answer: "Absolutely! Our team provides free data migration assistance to help you seamlessly transition from your current calling solution to Alure.ai." },
+  { question: "Do you offer training for our team?", answer: "Yes, we provide comprehensive training including live training sessions, recorded webinars, best practices guides, and ongoing coaching to ensure your team maximizes their results." },
+];
 ---
 <BaseLayout title="Contact" description="Get in touch with the Alure.ai team. Book a strategy session or ask us anything." currentPage="contact" footerTagline="Ready to transform your calling process? Let's talk.">
   <style>
@@ -254,81 +263,11 @@ import Icon from '../components/Icon.astro';
         <p>Quick answers to common questions about getting started with Alure.ai</p>
       </div>
 
-      <div class="faq-container">
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>How quickly can I get started with Alure.ai?</span>
-            <span>+</span>
-          </div>
-          <div class="faq-answer">
-            You can start your free trial immediately and be making AI-enhanced calls within 24 hours. Our onboarding team will help you set up your first campaign and import your prospects.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Do you offer custom demos?</span>
-            <span>+</span>
-          </div>
-          <div class="faq-answer">
-            Yes! We provide personalized demos tailored to your specific industry and use case. Schedule a demo using the form above or call us directly.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What kind of support do you provide?</span>
-            <span>+</span>
-          </div>
-          <div class="faq-answer">
-            We offer comprehensive support including live chat, email support, phone support (for Enterprise customers), detailed documentation, and video tutorials. Our team is committed to your success.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Can you help migrate data from our existing system?</span>
-            <span>+</span>
-          </div>
-          <div class="faq-answer">
-            Absolutely! Our team provides free data migration assistance to help you seamlessly transition from your current calling solution to Alure.ai.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Do you offer training for our team?</span>
-            <span>+</span>
-          </div>
-          <div class="faq-answer">
-            Yes, we provide comprehensive training including live training sessions, recorded webinars, best practices guides, and ongoing coaching to ensure your team maximizes their results.
-          </div>
-        </div>
-      </div>
+      <FAQ items={contactFAQ} idPrefix="contact-faq" />
     </div>
   </section>
 
   <script>
-    document.querySelectorAll('.faq-question').forEach(question => {
-      question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        const icon = question.querySelector('span:last-child');
-        const isOpen = answer.classList.contains('active');
-
-        document.querySelectorAll('.faq-answer').forEach(ans => {
-          ans.classList.remove('active');
-        });
-        document.querySelectorAll('.faq-question span:last-child').forEach(ic => {
-          ic.textContent = '+';
-        });
-
-        if (!isOpen) {
-          answer.classList.add('active');
-          icon.textContent = '−';
-        }
-      });
-    });
-
     const form = document.querySelector('.contact-form form');
     const submitBtn = form?.querySelector('button[type="submit"]');
 
@@ -361,7 +300,7 @@ import Icon from '../components/Icon.astro';
       }
 
       try {
-        const response = await fetch('/', {
+        const response = await fetch('/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams(formData).toString(),

@@ -1,0 +1,83 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+  idPrefix?: string;
+}
+
+const { items, idPrefix = 'faq' } = Astro.props;
+---
+
+<div class="faq-container" role="list">
+  {items.map((item, i) => {
+    const qId = `${idPrefix}-q-${i}`;
+    const aId = `${idPrefix}-a-${i}`;
+    return (
+      <div class="faq-item" role="listitem">
+        <div
+          class="faq-question"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-controls={aId}
+          id={qId}
+          data-answer-id={aId}
+        >
+          <span>{item.question}</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </div>
+        <div
+          class="faq-answer"
+          id={aId}
+          role="region"
+          aria-labelledby={qId}
+          hidden
+        >
+          {item.answer}
+        </div>
+      </div>
+    );
+  })}
+</div>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach((btn) => {
+    const answerId = btn.getAttribute('data-answer-id');
+    const answer = answerId ? document.getElementById(answerId) : null;
+    const icon = btn.querySelector('.faq-icon');
+
+    const toggle = () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      if (isOpen) {
+        btn.setAttribute('aria-expanded', 'false');
+        answer?.setAttribute('hidden', '');
+        if (icon) icon.textContent = '+';
+      } else {
+        document.querySelectorAll('.faq-question').forEach((b) => {
+          b.setAttribute('aria-expanded', 'false');
+          const aid = b.getAttribute('data-answer-id');
+          const ans = aid ? document.getElementById(aid) : null;
+          ans?.setAttribute('hidden', '');
+          const ic = b.querySelector('.faq-icon');
+          if (ic) ic.textContent = '+';
+        });
+        btn.setAttribute('aria-expanded', 'true');
+        answer?.removeAttribute('hidden');
+        if (icon) icon.textContent = '−';
+      }
+    };
+
+    btn.addEventListener('click', toggle);
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle();
+      }
+    });
+  });
+</script>

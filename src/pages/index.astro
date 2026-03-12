@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
+import { Image } from 'astro:assets';
+import { BOOKING_URL } from '../config';
+import heroScreenshot from '../assets/images/hero-screenshot.png';
 ---
 
 <BaseLayout title="Alure.ai - Automatically Turn Cold Outreach Into Warm Conversations" description="Alure.ai automatically conducts research and script personalisation — saving 4-5 hours per day per sales rep." currentPage="home">
@@ -849,13 +852,13 @@ import Icon from '../components/Icon.astro';
               <p>Alure.ai automatically conducts research and script personalisation — saving 4-5 hours per day per sales rep.</p>
 
               <div class="hero-cta">
-                  <a href="/contact" class="btn btn-primary">Book a Strategy Session</a>
+                  <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener noreferrer">Book a Strategy Session</a>
                   <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
               </div>
           </div>
 
           <div class="hero-image">
-              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Modern sales team using AI-powered tools to prepare personalised outreach" width="2070" height="1380" loading="lazy">
+              <Image src={heroScreenshot} alt="Alure.ai dashboard - AI-powered sales outreach" />
           </div>
 
           <div class="stats">
@@ -1247,7 +1250,7 @@ import Icon from '../components/Icon.astro';
           <p>If your sales team is spending hours researching instead of speaking to prospects, it is time to redesign the process. Book a Strategy &amp; Planning Session to see how Alure.ai fits into your B2B sales system.</p>
 
           <div class="cta-buttons">
-              <a href="/contact" class="btn btn-white">Book Your Strategy Session</a>
+              <a href={BOOKING_URL} class="btn btn-white" target="_blank" rel="noopener noreferrer">Book Your Strategy Session</a>
               <a href="/demo" class="btn btn-outline">Request a Demo</a>
           </div>
       </div>

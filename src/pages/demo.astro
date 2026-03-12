@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
+import { Image } from 'astro:assets';
+import { BOOKING_URL } from '../config';
+import demoScript from '../assets/images/demo-script.png';
+import demoAnalytics from '../assets/images/demo-analytics.png';
+import demoCampaign from '../assets/images/demo-campaign.png';
 ---
 <BaseLayout title="Demo" description="See Alure.ai in action — watch how AI-powered research and script personalisation transforms your sales outreach." currentPage="demo">
   <style>
@@ -246,7 +251,7 @@ import Icon from '../components/Icon.astro';
             </ul>
           </div>
           <div class="demo-image">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI script generation dashboard showing personalized call scripts" width="1000" height="667" loading="lazy">
+            <Image src={demoScript} alt="AI script generation dashboard showing personalized call scripts" />
           </div>
         </div>
 
@@ -262,7 +267,7 @@ import Icon from '../components/Icon.astro';
             </ul>
           </div>
           <div class="demo-image">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Advanced analytics dashboard with charts and metrics" width="1000" height="667" loading="lazy">
+            <Image src={demoAnalytics} alt="Advanced analytics dashboard with charts and metrics" />
           </div>
         </div>
 
@@ -278,7 +283,7 @@ import Icon from '../components/Icon.astro';
             </ul>
           </div>
           <div class="demo-image">
-            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Campaign management interface showing multiple active campaigns" width="1000" height="667" loading="lazy">
+            <Image src={demoCampaign} alt="Campaign management interface showing multiple active campaigns" />
           </div>
         </div>
       </div>
@@ -364,8 +369,8 @@ import Icon from '../components/Icon.astro';
       <p>Start your free trial today and see how Alure.ai can transform your calling results in just 14 days</p>
 
       <div class="cta-buttons">
-        <a href="#" class="btn btn-white">Start Free Trial</a>
-        <a href="#" class="btn btn-outline">Schedule Live Demo</a>
+        <a href="https://app.alure.ai" class="btn btn-white" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
+        <a href={BOOKING_URL} class="btn btn-outline" target="_blank" rel="noopener noreferrer">Schedule Live Demo</a>
       </div>
     </div>
   </section>

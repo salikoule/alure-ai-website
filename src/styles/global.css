@@ -2,6 +2,13 @@
    Alure.ai Global Styles
    ========================================================================== */
 
+/* --- Self-hosted Inter font --- */
+@import '@fontsource/inter/300.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+
 /* --- Reset & Base --- */
 
 *,
@@ -181,10 +188,26 @@ ul, ol {
   font-weight: 700;
   color: var(--primary);
   transition: color 0.3s;
+  display: flex;
+  align-items: center;
 }
 
 .logo:hover {
   color: var(--primary-light);
+}
+
+.logo .logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.logo .logo-text {
+  display: none;
+}
+
+.logo .logo-text.show {
+  display: inline;
 }
 
 .nav-links {
@@ -685,11 +708,25 @@ button:focus:not(:focus-visible) {
 .faq-answer {
   padding: 0 1.5rem 1.5rem;
   color: var(--text-secondary);
+}
+
+.faq-answer[hidden] {
   display: none;
+}
+
+.faq-answer:not([hidden]) {
+  display: block;
 }
 
 .faq-answer.active {
   display: block;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  font-weight: 400;
+  transition: transform 0.2s;
 }
 
 /* --- Form Components (shared pattern) --- */
@@ -792,20 +829,37 @@ textarea.form-control {
     left: 0;
     right: 0;
     bottom: 0;
-    background: white;
+    background: var(--bg);
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 1.5rem;
-    z-index: 1000;
+    gap: 0;
+    z-index: 999;
+    padding: 5rem 1.5rem 2rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-links.open {
     display: flex;
   }
 
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links li:last-of-type {
+    border-bottom: none;
+    margin-top: 1rem;
+  }
+
   .nav-links a {
     font-size: var(--font-lg);
+    display: block;
+    padding: 0.5rem;
   }
 
   .section-header h2 {

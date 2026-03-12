@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
+import { BOOKING_URL } from '../config';
 ---
 <BaseLayout title="About Alure.ai" description="Meet the team behind Alure.ai — transforming cold outreach into warm conversations with AI." currentPage="about">
   <style>
@@ -422,7 +423,7 @@ import Icon from '../components/Icon.astro';
         <p>Be part of the future of sales calling. Join the sales professionals who've already transformed their results with Alure.ai.</p>
 
         <div class="cta-buttons">
-          <a href="/contact" class="btn btn-primary">Book a Strategy Session</a>
+          <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener noreferrer">Book a Strategy Session</a>
           <a href="/demo" class="btn btn-secondary">Request a Demo</a>
         </div>
       </div>

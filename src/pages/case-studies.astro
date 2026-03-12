@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { BOOKING_URL } from '../config';
 ---
 <BaseLayout title="Case Studies" description="Real results from real companies using Alure.ai to transform their sales outreach." currentPage="case studies" footerTagline="Your success story could be next.">
   <style>
@@ -403,7 +404,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <h2>Ready to Write Your Success Story?</h2>
       <p>Join these successful companies and transform your calling results with AI-powered warm calling.</p>
-      <a href="/contact" class="btn btn-primary">Book a Strategy Session</a>
+      <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener noreferrer">Book a Strategy Session</a>
     </div>
   </section>
 </BaseLayout>
