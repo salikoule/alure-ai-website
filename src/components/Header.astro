@@ -1,0 +1,78 @@
+---
+interface Props {
+  currentPage?: string;
+}
+const { currentPage = '' } = Astro.props;
+
+const navLinks = [
+  { href: '/#features', label: 'Features' },
+  { href: '/#how-it-works', label: 'How It Works' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/about', label: 'About' },
+  { href: '/demo', label: 'Demo' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/case-studies', label: 'Case Studies' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<header class="site-header" id="site-header">
+  <nav class="container nav-container" aria-label="Main navigation">
+    <a href="/" class="logo">Alure.ai</a>
+
+    <button
+      class="mobile-menu-toggle"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-menu" role="menubar">
+      {navLinks.map(link => (
+        <li role="none">
+          <a
+            href={link.href}
+            role="menuitem"
+            class:list={[{ active: currentPage === link.label.toLowerCase() }]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li role="none">
+        <a href="https://app.alure.ai" role="menuitem">Login</a>
+      </li>
+      <li role="none">
+        <a href="https://app.alure.ai" class="btn btn-primary btn-nav" role="menuitem">Sign Up</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<script>
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const menu = document.getElementById('nav-menu');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    toggle.classList.toggle('active');
+    menu?.classList.toggle('open');
+    document.body.classList.toggle('menu-open');
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle?.setAttribute('aria-expanded', 'false');
+      toggle?.classList.remove('active');
+      menu?.classList.remove('open');
+      document.body.classList.remove('menu-open');
+    });
+  });
+</script>

@@ -1,0 +1,49 @@
+---
+interface Props {
+  tagline?: string;
+}
+const { tagline = 'Transforming cold outreach into warm conversations.' } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>Product</h3>
+        <a href="/#features">Features</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/demo">Demo</a>
+      </div>
+
+      <div class="footer-section">
+        <h3>Company</h3>
+        <a href="/about">About</a>
+        <a href="/blog">Blog</a>
+        <a href="/contact">Contact</a>
+      </div>
+
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <a href="/case-studies">Case Studies</a>
+      </div>
+
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+        <a href="/cookie-policy">Cookie Policy</a>
+        <a href="/data-processing">Data Processing</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span class="current-year"></span> Alure.ai. All rights reserved. | {tagline}</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.current-year').forEach(el => {
+    el.textContent = String(new Date().getFullYear());
+  });
+</script>

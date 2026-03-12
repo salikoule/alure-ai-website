@@ -1,0 +1,465 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Case Studies" description="Real results from real companies using Alure.ai to transform their sales outreach." currentPage="case studies" footerTagline="Your success story could be next.">
+  <style>
+    /* Hero */
+    .hero {
+      padding: 8rem 0 4rem;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #1a1a1a 0%, #6366f1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      padding: 3rem 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-item p {
+      opacity: 0.9;
+    }
+
+    /* Case Studies */
+    .case-studies {
+      padding: 6rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      font-size: 1.125rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .case-study {
+      margin-bottom: 6rem;
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid #f1f5f9;
+    }
+
+    .case-study-header {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .company-logo {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
+    }
+
+    .case-study-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .case-study-subtitle {
+      color: #666;
+      font-size: 1.125rem;
+    }
+
+    .case-study-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      padding: 3rem;
+    }
+
+    .challenge-solution {
+      padding-right: 2rem;
+    }
+
+    .results-metrics {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 16px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #6366f1;
+    }
+
+    .challenge-solution p {
+      margin-bottom: 1.5rem;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .metric {
+      text-align: center;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .metric-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #6366f1;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-label {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .quote {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      border-left: 4px solid #6366f1;
+      margin-top: 2rem;
+    }
+
+    .quote-text {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .quote-author {
+      font-weight: 600;
+      color: #6366f1;
+    }
+
+    .quote-role {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* Featured Case Study */
+    .featured-case {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-case::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    .featured-case .case-study-header {
+      background: transparent;
+      position: relative;
+      z-index: 2;
+    }
+
+    .featured-case .case-study-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .featured-case .results-metrics {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .featured-case .metric {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .featured-case .metric-value {
+      color: #ffffff;
+    }
+
+    .featured-case .metric-label {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .featured-case .challenge-solution p {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+    }
+
+    .featured-case .section-title {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 6rem 0;
+      background: #f8fafc;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.125rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .case-study-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .challenge-solution {
+        padding-right: 0;
+      }
+
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Customer Success Stories</h1>
+      <p>See how businesses like yours are achieving extraordinary results with AI-powered calling automation.</p>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="case-studies">
+    <div class="container">
+      <div class="section-header">
+        <h2>Real Results from Real Customers</h2>
+        <p>Discover how companies across industries are transforming their sales processes and achieving breakthrough results.</p>
+      </div>
+
+      <!-- Featured Case Study: oeDigital -->
+      <div class="case-study featured-case">
+        <div class="case-study-header">
+          <div class="company-logo">OE</div>
+          <h2 class="case-study-title">oeDigital</h2>
+          <p class="case-study-subtitle">IT Managed Services and Print Business • 5-person sales team • $12M</p>
+        </div>
+        <div class="case-study-content">
+          <div class="challenge-solution">
+            <h3 class="section-title">The Challenge</h3>
+            <p>oeDigital was struggling with its manual calling process. Their 5-person sales team was spending 70% of their time on call preparation and research, leaving little time for actual selling. With only 50 calls per week per rep, they were falling behind their growth targets.</p>
+
+            <h3 class="section-title">The Solution</h3>
+            <p>oeDigital implemented Alure.ai's complete calling automation platform. Within 30 days, they had AI-powered prospect research, personalized script generation, and automated follow-up sequences running across their entire team.</p>
+
+            <p>The AI system analyzed their existing successful call recordings to understand what worked, then generated personalized scripts that maintained their winning approach while scaling to hundreds of prospects daily.</p>
+          </div>
+
+          <div class="results-metrics">
+            <h3 class="section-title">Results in 90 Days</h3>
+
+            <div class="metrics-grid">
+              <div class="metric">
+                <span class="metric-value">10x</span>
+                <span class="metric-label">Call Volume Increase</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">300%</span>
+                <span class="metric-label">More Appointments</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">18%</span>
+                <span class="metric-label">Close Rate (vs 5%)</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">$2M</span>
+                <span class="metric-label">Additional Pipeline</span>
+              </div>
+            </div>
+
+            <div class="quote">
+              <p class="quote-text">"Alure.ai transformed our entire sales process. We went from making 50 calls a week to 500, and our close rate actually improved. The ROI was immediate - we paid for the entire year in just one month of increased sales."</p>
+              <div class="quote-author">Ivan Janssen</div>
+              <div class="quote-role">CEO, oeDigital</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 2: Smarte -->
+      <div class="case-study">
+        <div class="case-study-header">
+          <div class="company-logo">SM</div>
+          <h2 class="case-study-title">Smarte</h2>
+          <p class="case-study-subtitle">Software Development and MSP • 8-person team • $500K</p>
+        </div>
+        <div class="case-study-content">
+          <div class="challenge-solution">
+            <h3 class="section-title">The Challenge</h3>
+            <p>Smarte needed to consistently acquire new clients through outbound calling. However, their small team lacked the sales experience to handle objections effectively, and their generic scripts were yielding poor results.</p>
+
+            <h3 class="section-title">The Solution</h3>
+            <p>Smarte adopted Alure.ai to professionalize their outbound approach. The AI system created industry-specific scripts for different prospect types and provided intelligent objection handling frameworks.</p>
+          </div>
+
+          <div class="results-metrics">
+            <h3 class="section-title">Results in 60 Days</h3>
+
+            <div class="metrics-grid">
+              <div class="metric">
+                <span class="metric-value">400%</span>
+                <span class="metric-label">Appointment Rate</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">85%</span>
+                <span class="metric-label">Time Savings</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">25</span>
+                <span class="metric-label">New Clients</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">$400K</span>
+                <span class="metric-label">Added to the Sales Pipeline</span>
+              </div>
+            </div>
+
+            <div class="quote">
+              <p class="quote-text">"The AI-generated scripts made our team sound like seasoned sales professionals overnight. We're now booking 4x more meetings and our confidence on calls has skyrocketed."</p>
+              <div class="quote-author">Mike O'Loan</div>
+              <div class="quote-role">Founder, Smarte</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 3: Raedanai -->
+      <div class="case-study">
+        <div class="case-study-header">
+          <div class="company-logo">RA</div>
+          <h2 class="case-study-title">Raedanai</h2>
+          <p class="case-study-subtitle">Enterprise AI Solutions • 3-person team • $250K</p>
+        </div>
+        <div class="case-study-content">
+          <div class="challenge-solution">
+            <h3 class="section-title">The Challenge</h3>
+            <p>Sharyn, the principal, was spending 3-4 hours daily on prospect research and call preparation. This limited her to only 1-2 meaningful prospect calls per week, severely constraining her business growth potential.</p>
+
+            <h3 class="section-title">The Solution</h3>
+            <p>Sharyn started using Alure.ai's Starter plan to automate her prospect research and script generation. The AI created personalized talking points for each executive prospect based on their background and company challenges. As Alure created high-quality, personalized scripts, Sharyn was able to delegate calls to a part-time sales development representative (SDR), improving results and saving time.</p>
+          </div>
+
+          <div class="results-metrics">
+            <h3 class="section-title">Results in 30 Days</h3>
+
+            <div class="metrics-grid">
+              <div class="metric">
+                <span class="metric-value">5x</span>
+                <span class="metric-label">More Calls</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">19%</span>
+                <span class="metric-label">Meeting Rate</span>
+              </div>
+            </div>
+
+            <div class="quote">
+              <p class="quote-text">"I went from 8 calls per week to 40+ calls, and my meeting booking rate actually improved using a part-time appointment setter. Alure.ai gave me back 15 hours per week to focus on delivery and strategic thinking."</p>
+              <div class="quote-author">Sharyn Csanki</div>
+              <div class="quote-role">CEO, Raedanai</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Write Your Success Story?</h2>
+      <p>Join these successful companies and transform your calling results with AI-powered warm calling.</p>
+      <a href="/contact" class="btn btn-primary">Book a Strategy Session</a>
+    </div>
+  </section>
+</BaseLayout>

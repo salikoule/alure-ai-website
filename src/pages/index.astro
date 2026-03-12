@@ -1,0 +1,1538 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Alure.ai - Automatically Turn Cold Outreach Into Warm Conversations" description="Alure.ai automatically conducts research and script personalisation — saving 4-5 hours per day per sales rep." currentPage="home">
+  <style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .btn:hover::before {
+        left: 100%;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        color: white;
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        font-weight: 700;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        letter-spacing: 0.5px;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-secondary {
+        background: white;
+        color: #6366f1;
+        border: 2px solid #6366f1;
+    }
+
+    .btn-secondary:hover {
+        background: #6366f1;
+        color: white;
+    }
+
+    .btn-white {
+        background: white;
+        color: #6366f1;
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .btn-outline:hover {
+        background: white;
+        color: #6366f1;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 8rem 0 4rem;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+        background: linear-gradient(135deg, #1a1a1a 0%, #6366f1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero p {
+        font-size: 1.25rem;
+        color: #666;
+        margin-bottom: 2.5rem;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-cta {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-bottom: 3rem;
+    }
+
+    .hero-image {
+        margin: 3rem auto 0;
+        max-width: 800px;
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+        transform: perspective(1000px) rotateX(5deg);
+        transition: transform 0.3s ease;
+    }
+
+    .hero-image:hover {
+        transform: perspective(1000px) rotateX(2deg) translateY(-5px);
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 4rem;
+    }
+
+    .stat {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        padding: 2rem 1rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stat::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .stat:hover::before {
+        opacity: 1;
+    }
+
+    .stat:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #6366f1;
+        display: block;
+    }
+
+    .stat-label {
+        color: #666;
+        font-weight: 500;
+    }
+
+    .animated-counter {
+        display: inline-block;
+    }
+
+    /* Section Styles */
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .section-header p {
+        font-size: 1.125rem;
+        color: #666;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    /* Problem Section */
+    .problem-section {
+        padding: 6rem 0;
+    }
+
+    .problem-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .problem-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .problem-content p {
+        font-size: 1.125rem;
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+    }
+
+    .problem-content .highlight {
+        color: #6366f1;
+        font-weight: 600;
+    }
+
+    .problem-content .callout {
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        padding: 1.5rem 2rem;
+        border-radius: 12px;
+        border-left: 4px solid #f59e0b;
+        margin: 2rem 0;
+        font-weight: 500;
+        color: #92400e;
+    }
+
+    .problem-visual {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .pain-point {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.25rem 1.5rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        border-left: 4px solid #ef4444;
+        transition: all 0.3s ease;
+    }
+
+    .pain-point:hover {
+        transform: translateX(5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .pain-icon {
+        font-size: 1.5rem;
+        min-width: 40px;
+        text-align: center;
+    }
+
+    .pain-point p {
+        margin: 0;
+        font-weight: 500;
+        color: #333;
+        font-size: 0.95rem;
+    }
+
+    /* Shift Section */
+    .shift-section {
+        padding: 6rem 0;
+        background: #f8fafc;
+    }
+
+    .shift-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .shift-content p {
+        font-size: 1.125rem;
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+    }
+
+    .comparison-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .comparison-card {
+        padding: 2rem;
+        border-radius: 16px;
+        text-align: center;
+    }
+
+    .comparison-card.cold {
+        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+        border: 1px solid #fca5a5;
+    }
+
+    .comparison-card.warm {
+        background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+        border: 1px solid #86efac;
+    }
+
+    .comparison-card h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .comparison-card.cold h4 {
+        color: #dc2626;
+    }
+
+    .comparison-card.warm h4 {
+        color: #16a34a;
+    }
+
+    .comparison-card p {
+        color: #555;
+        font-size: 0.95rem;
+    }
+
+    .comparison-card .rate-highlight {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .comparison-card.cold .rate-highlight {
+        color: #dc2626;
+    }
+
+    .comparison-card.warm .rate-highlight {
+        color: #16a34a;
+    }
+
+    /* Solution Section */
+    .solution-section {
+        padding: 6rem 0;
+    }
+
+    .solution-content {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .solution-content > p {
+        font-size: 1.125rem;
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .solution-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 3rem 0;
+    }
+
+    .solution-feature {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid #f1f5f9;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .solution-feature:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .solution-feature-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+    }
+
+    .solution-feature p {
+        color: #333;
+        font-weight: 500;
+    }
+
+    .solution-results {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .solution-result {
+        text-align: center;
+        padding: 1.5rem 2.5rem;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .solution-result:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .solution-result span {
+        display: block;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: white;
+        letter-spacing: 0.3px;
+    }
+
+    /* How It Works Section */
+    .process {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        position: relative;
+        overflow: hidden;
+        color: white;
+    }
+
+    .process::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+        z-index: 1;
+    }
+
+    .process .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .step-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2.5rem 2rem;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .step-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-5px);
+    }
+
+    .step-number {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    .step-card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: white;
+    }
+
+    .step-card p {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.7;
+    }
+
+    .step-card ul {
+        list-style: none;
+        margin-top: 1rem;
+    }
+
+    .step-card ul li {
+        color: rgba(255, 255, 255, 0.8);
+        padding: 0.3rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .step-card ul li::before {
+        content: '\2192';
+        position: absolute;
+        left: 0;
+        color: #8b5cf6;
+    }
+
+    /* Benefits Section */
+    .benefits-section {
+        padding: 6rem 0;
+    }
+
+    .benefits-content {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .benefits-content > p {
+        font-size: 1.125rem;
+        color: #555;
+        line-height: 1.8;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .benefit-item {
+        text-align: center;
+        padding: 2rem 1rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        border: 1px solid #f1f5f9;
+        transition: all 0.3s ease;
+    }
+
+    .benefit-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .benefit-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #6366f1;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .benefit-label {
+        color: #555;
+        font-weight: 500;
+        font-size: 0.95rem;
+    }
+
+    .performance-comparison {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .perf-card {
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .perf-card.cold-rate {
+        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    }
+
+    .perf-card.warm-rate {
+        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    }
+
+    .perf-card.referral-rate {
+        background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+    }
+
+    .perf-card .rate {
+        font-size: 2rem;
+        font-weight: 700;
+        display: block;
+    }
+
+    .perf-card.cold-rate .rate { color: #dc2626; }
+    .perf-card.warm-rate .rate { color: #2563eb; }
+    .perf-card.referral-rate .rate { color: #16a34a; }
+
+    .perf-card .rate-label {
+        color: #555;
+        font-weight: 500;
+        margin-top: 0.5rem;
+    }
+
+    .benefit-goal {
+        text-align: center;
+        margin-top: 3rem;
+        padding: 2rem;
+        background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+        border-radius: 16px;
+    }
+
+    .benefit-goal p {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #6366f1;
+    }
+
+    /* Commercial Impact Section */
+    .commercial-section {
+        padding: 6rem 0;
+        background: #f8fafc;
+    }
+
+    .commercial-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .commercial-content > p {
+        font-size: 1.125rem;
+        color: #555;
+        line-height: 1.8;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .funnel-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin: 3rem 0;
+    }
+
+    .funnel-item {
+        text-align: center;
+        padding: 2rem;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        position: relative;
+    }
+
+    .funnel-item::after {
+        content: '\2192';
+        position: absolute;
+        right: -1.25rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: #6366f1;
+    }
+
+    .funnel-item:last-child::after {
+        display: none;
+    }
+
+    .funnel-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #6366f1;
+        display: block;
+    }
+
+    .funnel-label {
+        color: #555;
+        font-weight: 500;
+    }
+
+    .commercial-note {
+        text-align: center;
+        margin-top: 2rem;
+        padding: 2rem;
+        background: white;
+        border-radius: 12px;
+        border: 2px solid #e0e7ff;
+    }
+
+    .commercial-note p {
+        font-size: 1.1rem;
+        color: #333;
+        font-weight: 500;
+    }
+
+    /* Why Different Section */
+    .differentiator-section {
+        padding: 6rem 0;
+    }
+
+    .diff-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .diff-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid #f1f5f9;
+        transition: all 0.3s ease;
+    }
+
+    .diff-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .diff-card h3 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: #6366f1;
+    }
+
+    .diff-card p {
+        color: #555;
+        line-height: 1.6;
+    }
+
+    /* Who It's For Section */
+    .audience-section {
+        padding: 6rem 0;
+        background: #f8fafc;
+    }
+
+    .audience-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1.5rem;
+        margin: 3rem 0;
+    }
+
+    .audience-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        border: 1px solid #f1f5f9;
+        transition: all 0.3s ease;
+    }
+
+    .audience-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
+        border-color: #c7d2fe;
+    }
+
+    .audience-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .audience-card h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #1a1a1a;
+    }
+
+    .audience-note {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 1.125rem;
+        color: #555;
+    }
+
+    /* Strategic Outcome Section */
+    .strategic-section {
+        padding: 6rem 0;
+    }
+
+    .strategic-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .strategic-content > p {
+        font-size: 1.125rem;
+        color: #555;
+        line-height: 1.8;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .outcome-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .outcome-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+    }
+
+    .outcome-item:hover {
+        transform: translateX(8px);
+    }
+
+    .outcome-icon {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+    }
+
+    .outcome-item p {
+        font-weight: 500;
+        color: #333;
+    }
+
+    .strategic-closing {
+        text-align: center;
+        margin-top: 3rem;
+        padding: 2rem;
+        background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+        border-radius: 16px;
+    }
+
+    .strategic-closing p {
+        font-size: 1.15rem;
+        font-weight: 500;
+        color: #4c1d95;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        color: white;
+        text-align: center;
+    }
+
+    .cta-section h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+        font-size: 1.125rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    /* Scroll Progress */
+    .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+        z-index: 9999;
+        transition: width 0.1s ease;
+    }
+
+    /* Loading */
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.5s ease;
+    }
+
+    .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #f3f4f6;
+        border-top: 4px solid #6366f1;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-cta {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stats {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .problem-layout {
+            grid-template-columns: 1fr;
+        }
+
+        .comparison-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .funnel-stats {
+            grid-template-columns: 1fr;
+        }
+
+        .funnel-item::after {
+            display: none;
+        }
+
+        .outcome-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .audience-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+        }
+    }
+  </style>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress"></div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-spinner"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+      <div class="container">
+          <div class="hero-content">
+              <h1>Automatically Turn Cold Outreach<br>Into Warm Conversations</h1>
+              <p>Alure.ai automatically conducts research and script personalisation — saving 4-5 hours per day per sales rep.</p>
+
+              <div class="hero-cta">
+                  <a href="/contact" class="btn btn-primary">Book a Strategy Session</a>
+                  <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+              </div>
+          </div>
+
+          <div class="hero-image">
+              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Modern sales team using AI-powered tools to prepare personalised outreach" loading="lazy">
+          </div>
+
+          <div class="stats">
+              <div class="stat">
+                  <span class="stat-number">4-5 hrs</span>
+                  <span class="stat-label">Time Saved Per Day Per Sales Rep</span>
+              </div>
+              <div class="stat">
+                  <span class="stat-number"><span class="animated-counter" data-target="20">0</span>x</span>
+                  <span class="stat-label">More Effective Than Email</span>
+              </div>
+              <div class="stat">
+                  <span class="stat-number"><span class="animated-counter" data-target="5">0</span>x</span>
+                  <span class="stat-label">Higher Conversion Rates</span>
+              </div>
+              <div class="stat">
+                  <span class="stat-number"><span class="animated-counter" data-target="78">0</span>%</span>
+                  <span class="stat-label">Decision Makers Prefer Personalised Calls</span>
+              </div>
+              <div class="stat">
+                  <span class="stat-number"><span class="animated-counter" data-target="166">0</span>x</span>
+                  <span class="stat-label">Average ROI</span>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Section 1: The Problem -->
+  <section class="problem-section">
+      <div class="container">
+          <div class="section-header">
+              <h2>Booking the First Appointment Is the Hardest Part of B2B Sales</h2>
+          </div>
+          <div class="problem-layout">
+              <div class="problem-content">
+                  <p>Most B2B businesses start by selling to their existing network. That works until the network is exhausted.</p>
+                  <p>Once referrals and existing contacts slow down, sales become unpredictable. Cold outreach response rates drop below 1%. LinkedIn limits volume. Research takes hours. Sales reps spend more time preparing than selling.</p>
+                  <p>Without a system, sales performance depends on luck.</p>
+                  <p><strong>And luck does not scale.</strong></p>
+                  <div class="callout">
+                      If your team is spending 4–5 hours per day researching prospects before making calls, you do not have a sales engine. You have a time problem.
+                  </div>
+              </div>
+              <div class="problem-visual">
+                  <div class="pain-point">
+                      <div class="pain-icon">📉</div>
+                      <p>Cold outreach response rates below 1%</p>
+                  </div>
+                  <div class="pain-point">
+                      <div class="pain-icon">⏰</div>
+                      <p>4-5 hours per day spent on manual research</p>
+                  </div>
+                  <div class="pain-point">
+                      <div class="pain-icon">🚫</div>
+                      <p>LinkedIn limits your outreach volume</p>
+                  </div>
+                  <div class="pain-point">
+                      <div class="pain-icon">🎲</div>
+                      <p>Sales performance depends on luck, not systems</p>
+                  </div>
+                  <div class="pain-point">
+                      <div class="pain-icon">😓</div>
+                      <p>Reps spend more time preparing than selling</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Section 2: The Shift -->
+  <section class="shift-section">
+      <div class="container">
+          <div class="section-header">
+              <h2>Stop Cold Calling. Start Warm Calling.</h2>
+          </div>
+          <div class="shift-content">
+              <p>Cold calls fail because they lack relevance. Warm calls work because they show understanding.</p>
+              <p>The difference is research, personalisation, and a valid business reason for the call. But doing this manually for 50–70 prospects per day is impossible.</p>
+              <p><strong>Alure.ai changes that.</strong></p>
+              <div class="comparison-grid">
+                  <div class="comparison-card cold">
+                      <span class="rate-highlight">&lt; 1%</span>
+                      <h4>Cold Calling</h4>
+                      <p>No research. No relevance. Burned reps and wasted time.</p>
+                  </div>
+                  <div class="comparison-card warm">
+                      <span class="rate-highlight">10–20%</span>
+                      <h4>Warm Calling with Alure.ai</h4>
+                      <p>Deep research. Personalised scripts. Valid business reasons.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Section 3: The Solution -->
+  <section class="solution-section" id="features">
+      <div class="container">
+          <div class="section-header">
+              <h2>Alure.ai Performs the Research</h2>
+          </div>
+          <div class="solution-content">
+              <p>Alure.ai is built specifically for B2B sales teams who need to turn cold leads into warm prospects at scale.</p>
+
+              <div class="solution-features">
+                  <div class="solution-feature">
+                      <div class="solution-feature-icon">🔍</div>
+                      <p>Analyses LinkedIn profiles</p>
+                  </div>
+                  <div class="solution-feature">
+                      <div class="solution-feature-icon">🌐</div>
+                      <p>Reviews company websites</p>
+                  </div>
+                  <div class="solution-feature">
+                      <div class="solution-feature-icon">📊</div>
+                      <p>Extracts relevant business insights</p>
+                  </div>
+                  <div class="solution-feature">
+                      <div class="solution-feature-icon">🎯</div>
+                      <p>Identifies potential operational challenges</p>
+                  </div>
+                  <div class="solution-feature">
+                      <div class="solution-feature-icon">📝</div>
+                      <p>Generates personalised warm call scripts</p>
+                  </div>
+                  <div class="solution-feature">
+                      <div class="solution-feature-icon">🏗️</div>
+                      <p>Structures conversations using a proven sales framework</p>
+                  </div>
+              </div>
+
+              <p style="text-align: center; font-weight: 600; font-size: 1.2rem; color: #333;">Saving your BDM at least half a day every day. Every call is automatically prepared.</p>
+
+              <div class="solution-results">
+                  <div class="solution-result">
+                      <span>No guesswork.</span>
+                  </div>
+                  <div class="solution-result">
+                      <span>No scrambling.</span>
+                  </div>
+                  <div class="solution-result">
+                      <span>No wasted hours.</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Section 4: How It Works -->
+  <section class="process" id="how-it-works">
+      <div class="container">
+          <div class="section-header">
+              <h2>A Structured System, Not Random Automation</h2>
+          </div>
+
+          <div class="steps-grid">
+              <div class="step-card">
+                  <div class="step-number">1</div>
+                  <h3>Identify Your ICP</h3>
+                  <p>Define your Ideal Customer Profile and build a targeted list.</p>
+              </div>
+
+              <div class="step-card">
+                  <div class="step-number">2</div>
+                  <h3>Connect and Warm the Audience</h3>
+                  <p>To improve performance, we recommend using existing LinkedIn connections, as the prospects are slightly warmer. Otherwise, using a cold list will suffice.</p>
+              </div>
+
+              <div class="step-card">
+                  <div class="step-number">3</div>
+                  <h3>Personalisation</h3>
+                  <p>Alure.ai analyses each prospect and creates structured, personalised call scripts automatically.</p>
+              </div>
+
+              <div class="step-card">
+                  <div class="step-number">4</div>
+                  <h3>Execute with Discipline</h3>
+                  <p>Your team makes warm calls using a proven structure:</p>
+                  <ul>
+                      <li>Reference the warm connection</li>
+                      <li>Demonstrate research</li>
+                      <li>Present a valid business reason</li>
+                      <li>Ask a relevant question</li>
+                      <li>Push for a short appointment</li>
+                  </ul>
+              </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+              <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9); font-weight: 500;">The result is not just activity. It is a controlled, repeatable performance.</p>
+          </div>
+      </div>
+  </section>
+
+  <!-- Section 5: Benefits -->
+  <section class="benefits-section">
+      <div class="container">
+          <div class="section-header">
+              <h2>Save 4–5 Hours Per Day Per Sales Rep</h2>
+          </div>
+          <div class="benefits-content">
+              <p>Alure.ai eliminates manual prospect research and script preparation. That means:</p>
+
+              <div class="benefits-grid">
+                  <div class="benefit-item">
+                      <span class="benefit-number">20+</span>
+                      <span class="benefit-label">Hours saved per week</span>
+                  </div>
+                  <div class="benefit-item">
+                      <span class="benefit-number">80+</span>
+                      <span class="benefit-label">Hours saved per month</span>
+                  </div>
+                  <div class="benefit-item">
+                      <span class="benefit-number">More</span>
+                      <span class="benefit-label">Time speaking to decision-makers</span>
+                  </div>
+                  <div class="benefit-item">
+                      <span class="benefit-number">Higher</span>
+                      <span class="benefit-label">Confidence before every call</span>
+                  </div>
+                  <div class="benefit-item">
+                      <span class="benefit-number">Consistent</span>
+                      <span class="benefit-label">Script quality across the team</span>
+                  </div>
+              </div>
+
+              <p style="margin-top: 3rem;"><strong>Most importantly, it improves outcomes. Typical performance improvements:</strong></p>
+
+              <div class="performance-comparison">
+                  <div class="perf-card cold-rate">
+                      <span class="rate">&lt; 1%</span>
+                      <div class="rate-label">Cold response rate</div>
+                  </div>
+                  <div class="perf-card warm-rate">
+                      <span class="rate">10–20%</span>
+                      <div class="rate-label">Warm call interest rate</div>
+                  </div>
+                  <div class="perf-card referral-rate">
+                      <span class="rate">Up to 75%</span>
+                      <div class="rate-label">Referral-based appointment rates</div>
+                  </div>
+              </div>
+
+              <div class="benefit-goal">
+                  <p>The objective is simple: Book 1 qualified appointment per day.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Section 6: Commercial Impact -->
+  <section class="commercial-section">
+      <div class="container">
+          <div class="section-header">
+              <h2>From Activity to Appointments</h2>
+          </div>
+          <div class="commercial-content">
+              <p>A disciplined BDM making 60–70 calls per day typically reaches:</p>
+
+              <div class="funnel-stats">
+                  <div class="funnel-item">
+                      <span class="funnel-number">10</span>
+                      <span class="funnel-label">Live conversations</span>
+                  </div>
+                  <div class="funnel-item">
+                      <span class="funnel-number">5</span>
+                      <span class="funnel-label">Interested prospects</span>
+                  </div>
+                  <div class="funnel-item">
+                      <span class="funnel-number">1–2</span>
+                      <span class="funnel-label">Appointments booked</span>
+                  </div>
+              </div>
+
+              <p>With the right structure and preparation, this becomes <strong>predictable</strong>.</p>
+
+              <div class="commercial-note">
+                  <p>Alure.ai does not replace your sales team. It makes them <strong>sharper, faster, and more effective</strong>.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Section 7: Why Alure.ai Is Different -->
+  <section class="differentiator-section">
+      <div class="container">
+          <div class="section-header">
+              <h2>Built for B2B Sales Teams, Not General AI Writing</h2>
+          </div>
+
+          <div class="diff-grid">
+              <div class="diff-card">
+                  <h3>Designed for Professional Services and IT</h3>
+                  <p>Alure.ai understands the complexity of B2B selling.</p>
+              </div>
+              <div class="diff-card">
+                  <h3>Embedded in a Proven Sales Methodology</h3>
+                  <p>It aligns with a structured appointment-setting framework, not random outreach.</p>
+              </div>
+              <div class="diff-card">
+                  <h3>Enforces Sales Discipline</h3>
+                  <p>Prepared scripts. Batch calling. CRM integration. Daily rhythm.</p>
+              </div>
+              <div class="diff-card">
+                  <h3>Acts as a Pre-CRM Intelligence Layer</h3>
+                  <p>Optimises conversations before data even enters your CRM.</p>
+              </div>
+              <div class="diff-card">
+                  <h3>Focused on Conversations, Not Clicks</h3>
+                  <p>This is about booking meetings, not generating vanity engagement.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Section 8: Who It's For -->
+  <section class="audience-section">
+      <div class="container">
+          <div class="section-header">
+              <h2>Ideal For</h2>
+          </div>
+
+          <div class="audience-grid">
+              <div class="audience-card">
+                  <div class="audience-icon">💻</div>
+                  <h3>IT Service Providers</h3>
+              </div>
+              <div class="audience-card">
+                  <div class="audience-icon">🖥️</div>
+                  <h3>Managed Service Providers</h3>
+              </div>
+              <div class="audience-card">
+                  <div class="audience-icon">🚀</div>
+                  <h3>Software Companies</h3>
+              </div>
+              <div class="audience-card">
+                  <div class="audience-icon">📋</div>
+                  <h3>Professional Service Firms</h3>
+              </div>
+              <div class="audience-card">
+                  <div class="audience-icon">📞</div>
+                  <h3>B2B Sales Teams Booking First Appointments</h3>
+              </div>
+          </div>
+
+          <p class="audience-note">If your business relies on high-value conversations, Alure.ai gives your team a competitive edge.</p>
+      </div>
+  </section>
+
+  <!-- Section 9: Strategic Outcome -->
+  <section class="strategic-section">
+      <div class="container">
+          <div class="section-header">
+              <h2>Turn Luck Into a Reliable Process</h2>
+          </div>
+          <div class="strategic-content">
+              <p>New customer acquisition determines business stability. When appointment flow is predictable:</p>
+
+              <div class="outcome-grid">
+                  <div class="outcome-item">
+                      <div class="outcome-icon">📈</div>
+                      <p>Revenue becomes more stable</p>
+                  </div>
+                  <div class="outcome-item">
+                      <div class="outcome-icon">🔗</div>
+                      <p>Dependence on a few clients reduces</p>
+                  </div>
+                  <div class="outcome-item">
+                      <div class="outcome-icon">💪</div>
+                      <p>Negotiating power increases</p>
+                  </div>
+                  <div class="outcome-item">
+                      <div class="outcome-icon">🎯</div>
+                      <p>Growth becomes intentional</p>
+                  </div>
+              </div>
+
+              <div class="strategic-closing">
+                  <p>Alure.ai helps build a structured B2B sales engine that runs daily — not occasionally.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Section 10: Call to Action -->
+  <section class="cta-section">
+      <div class="container">
+          <h2>Build a System That Books 1 Appointment Per Day</h2>
+          <p>If your sales team is spending hours researching instead of speaking to prospects, it is time to redesign the process. Book a Strategy &amp; Planning Session to see how Alure.ai fits into your B2B sales system.</p>
+
+          <div class="cta-buttons">
+              <a href="/contact" class="btn btn-white">Book Your Strategy Session</a>
+              <a href="/demo" class="btn btn-outline">Request a Demo</a>
+          </div>
+      </div>
+  </section>
+
+  <script>
+      window.addEventListener('load', function() {
+          const loadingOverlay = document.getElementById('loadingOverlay');
+          setTimeout(() => {
+              loadingOverlay.style.opacity = '0';
+              setTimeout(() => {
+                  loadingOverlay.style.display = 'none';
+              }, 500);
+          }, 800);
+      });
+
+      window.addEventListener('scroll', function() {
+          const scrollProgress = document.querySelector('.scroll-progress');
+          const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollTop = window.pageYOffset;
+          const scrollPercent = (scrollTop / scrollHeight) * 100;
+          scrollProgress.style.width = scrollPercent + '%';
+      });
+
+      function animateCounters() {
+          const counters = document.querySelectorAll('.animated-counter');
+          counters.forEach(counter => {
+              const target = parseInt(counter.getAttribute('data-target'));
+              const duration = 2000;
+              const start = performance.now();
+
+              function updateCounter(timestamp) {
+                  const elapsed = timestamp - start;
+                  const progress = Math.min(elapsed / duration, 1);
+                  const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                  const current = Math.floor(target * easeOutQuart);
+                  counter.textContent = current;
+                  if (progress < 1) {
+                      requestAnimationFrame(updateCounter);
+                  } else {
+                      counter.textContent = target;
+                  }
+              }
+              requestAnimationFrame(updateCounter);
+          });
+      }
+
+      const statsObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  animateCounters();
+                  statsObserver.unobserve(entry.target);
+              }
+          });
+      }, { threshold: 0.5 });
+
+      const statsSection = document.querySelector('.stats');
+      if (statsSection) {
+          statsObserver.observe(statsSection);
+      }
+
+      document.querySelectorAll('.btn').forEach(button => {
+          button.addEventListener('click', function(e) {
+              const ripple = document.createElement('span');
+              const rect = this.getBoundingClientRect();
+              const size = Math.max(rect.width, rect.height);
+              const x = e.clientX - rect.left - size / 2;
+              const y = e.clientY - rect.top - size / 2;
+              ripple.style.cssText = `
+                  position: absolute;
+                  border-radius: 50%;
+                  background: rgba(255, 255, 255, 0.6);
+                  transform: scale(0);
+                  animation: ripple 0.6s linear;
+                  left: ${x}px;
+                  top: ${y}px;
+                  width: ${size}px;
+                  height: ${size}px;
+              `;
+              this.style.position = 'relative';
+              this.style.overflow = 'hidden';
+              this.appendChild(ripple);
+              setTimeout(() => { ripple.remove(); }, 600);
+          });
+      });
+
+      const rippleStyle = document.createElement('style');
+      rippleStyle.textContent = `
+          @keyframes ripple {
+              to { transform: scale(4); opacity: 0; }
+          }
+      `;
+      document.head.appendChild(rippleStyle);
+
+      const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.style.opacity = '1';
+                  entry.target.style.transform = 'translateY(0)';
+              }
+          });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.solution-feature, .step-card, .diff-card, .audience-card, .benefit-item, .outcome-item, .funnel-item, .pain-point').forEach(el => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 0.6s ease-out';
+          revealObserver.observe(el);
+      });
+  </script>
+</BaseLayout>

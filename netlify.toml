@@ -1,7 +1,120 @@
 [build]
-  publish = "."
+  command = "npm run build"
+  publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data:; connect-src 'self'; frame-ancestors 'none'"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirects from old HTML URLs to new clean URLs
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 404
+  from = "/about.html"
+  to = "/about"
+  status = 301
+
+[[redirects]]
+  from = "/pricing.html"
+  to = "/pricing"
+  status = 301
+
+[[redirects]]
+  from = "/blog.html"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/demo.html"
+  to = "/demo"
+  status = 301
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/case-studies.html"
+  to = "/case-studies"
+  status = 301
+
+[[redirects]]
+  from = "/blog-call-scripts-convert.html"
+  to = "/blog/call-scripts-convert"
+  status = 301
+
+[[redirects]]
+  from = "/blog-ai-personalization-300-percent.html"
+  to = "/blog/ai-personalization-300-percent"
+  status = 301
+
+[[redirects]]
+  from = "/blog-metrics-that-matter.html"
+  to = "/blog/metrics-that-matter"
+  status = 301
+
+[[redirects]]
+  from = "/blog-cold-calling-2024.html"
+  to = "/blog/cold-calling-in-2026"
+  status = 301
+
+[[redirects]]
+  from = "/blog-techflow-case-study.html"
+  to = "/blog/techflow-case-study"
+  status = 301
+
+[[redirects]]
+  from = "/blog-objection-handling-ai.html"
+  to = "/blog/objection-handling-ai"
+  status = 301
+
+[[redirects]]
+  from = "/blog-ai-future-cold-calling.html"
+  to = "/blog/ai-future-cold-calling"
+  status = 301
+
+[[redirects]]
+  from = "/privacy-policy.html"
+  to = "/privacy-policy"
+  status = 301
+
+[[redirects]]
+  from = "/terms-of-service.html"
+  to = "/terms-of-service"
+  status = 301
+
+[[redirects]]
+  from = "/cookie-policy.html"
+  to = "/cookie-policy"
+  status = 301
+
+[[redirects]]
+  from = "/data-processing.html"
+  to = "/data-processing"
+  status = 301

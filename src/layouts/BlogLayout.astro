@@ -1,0 +1,106 @@
+---
+import Header from '../components/Header.astro';
+import SEO from '../components/SEO.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  date: string;
+  author: string;
+  authorInitials: string;
+  readTime: string;
+}
+
+const { title, description, date, author, authorInitials, readTime } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <SEO
+    title={title}
+    description={description}
+    ogType="article"
+    articleDate={date}
+    articleAuthor={author}
+  />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": description,
+    "datePublished": date,
+    "author": { "@type": "Person", "name": author },
+    "publisher": { "@type": "Organization", "name": "Alure.ai" },
+  })} />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav-container" aria-label="Blog navigation">
+      <a href="/" class="logo">Alure.ai</a>
+      <div class="blog-nav-actions">
+        <a href="/blog" class="btn-back">&larr; Back to Blog</a>
+        <a href="https://app.alure.ai" class="btn-back">Login</a>
+        <a href="https://app.alure.ai" class="btn btn-primary btn-sm">Sign Up</a>
+      </div>
+    </nav>
+  </header>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <main id="main-content" class="article-content">
+    <div class="container container--narrow">
+      <header class="article-header">
+        <div class="article-meta">
+          <div class="author-avatar">{authorInitials}</div>
+          <span>{author}</span>
+          <span aria-hidden="true">&bull;</span>
+          <time datetime={date}>{new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+          <span aria-hidden="true">&bull;</span>
+          <span>{readTime}</span>
+        </div>
+        <h1>{title}</h1>
+        <p class="article-subtitle">{description}</p>
+      </header>
+
+      <article class="article-body">
+        <slot />
+      </article>
+
+      <div class="article-cta">
+        <h3>Ready to Transform Your Results?</h3>
+        <p>See how Alure.ai can help your team achieve better outcomes with AI-powered outreach.</p>
+        <a href="/contact" class="btn btn-white">Book a Strategy Session</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="blog-footer">
+    <div class="container container--narrow">
+      <div class="blog-footer-links">
+        <a href="/blog">&larr; Back to Blog</a>
+        <a href="/">Home</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <p class="footer-text">&copy; <span class="current-year"></span> Alure.ai. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.current-year').forEach(el => {
+      el.textContent = String(new Date().getFullYear());
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Cookie Policy" description="Alure.ai cookie policy - how we use cookies and tracking technologies." noindex={true}>
+  <style>
+    .legal-content .container {
+      max-width: 800px;
+    }
+
+    .legal-content {
+      padding: 8rem 0 4rem;
+    }
+
+    .legal-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .legal-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+    }
+
+    .legal-header p {
+      color: #666;
+      font-size: 1.125rem;
+    }
+
+    .last-updated {
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .legal-section {
+      margin-bottom: 3rem;
+    }
+
+    .legal-section h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+    }
+
+    .legal-section h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 2rem 0 1rem;
+      color: #333;
+    }
+
+    .legal-section p {
+      margin-bottom: 1rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .legal-section ul {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+    }
+
+    .legal-section li {
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cookie-table th {
+      background: #6366f1;
+      color: white;
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .cookie-table td {
+      padding: 1rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .cookie-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cookie-category {
+      background: #f8fafc;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      border-left: 4px solid #6366f1;
+    }
+
+    .cookie-category h4 {
+      color: #6366f1;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+
+    .contact-info h3 {
+      margin-top: 0;
+      color: #6366f1;
+    }
+
+    @media (max-width: 768px) {
+      .legal-header h1 {
+        font-size: 2rem;
+      }
+
+      .cookie-table {
+        font-size: 0.9rem;
+      }
+
+      .cookie-table th,
+      .cookie-table td {
+        padding: 0.75rem;
+      }
+    }
+  </style>
+
+  <main class="legal-content">
+    <div class="container">
+      <div class="legal-header">
+        <h1>Cookie Policy</h1>
+        <p>How we use cookies and similar tracking technologies</p>
+      </div>
+
+      <div class="last-updated">
+        <strong>Last Updated:</strong> January 1, 2024
+      </div>
+
+      <div class="legal-section">
+        <h2>1. What Are Cookies?</h2>
+        <p>Cookies are small text files that are stored on your computer or mobile device when you visit a website. They allow the website to recognize your device and remember information about your visit, such as your preferred language and other settings.</p>
+        <p>Similar technologies include:</p>
+        <ul>
+          <li><strong>Web beacons:</strong> Small graphic images that track user behavior</li>
+          <li><strong>Local storage:</strong> Data stored locally in your browser</li>
+          <li><strong>Session storage:</strong> Temporary data stored during your session</li>
+          <li><strong>Pixels:</strong> Tracking codes embedded in emails or web pages</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <h2>2. How We Use Cookies</h2>
+        <p>Alure.ai uses cookies and similar technologies to:</p>
+        <ul>
+          <li>Provide and maintain our services</li>
+          <li>Authenticate users and prevent fraud</li>
+          <li>Remember your preferences and settings</li>
+          <li>Analyze how our platform is used</li>
+          <li>Improve our services and user experience</li>
+          <li>Provide personalized content and features</li>
+          <li>Measure the effectiveness of our marketing</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <h2>3. Types of Cookies We Use</h2>
+
+        <div class="cookie-category">
+          <h4>Essential Cookies</h4>
+          <p>These cookies are necessary for the website to function and cannot be disabled. They are usually set in response to actions you take, such as logging in or filling out forms.</p>
+        </div>
+
+        <div class="cookie-category">
+          <h4>Functional Cookies</h4>
+          <p>These cookies enable enhanced functionality and personalization, such as remembering your preferences and settings.</p>
+        </div>
+
+        <div class="cookie-category">
+          <h4>Analytics Cookies</h4>
+          <p>These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.</p>
+        </div>
+
+        <div class="cookie-category">
+          <h4>Marketing Cookies</h4>
+          <p>These cookies are used to deliver relevant advertisements and track the effectiveness of our marketing campaigns.</p>
+        </div>
+      </div>
+
+      <div class="legal-section">
+        <h2>4. Specific Cookies We Use</h2>
+        
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Cookie Name</th>
+              <th>Purpose</th>
+              <th>Type</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>alure_session</td>
+              <td>Maintains user session and authentication</td>
+              <td>Essential</td>
+              <td>Session</td>
+            </tr>
+            <tr>
+              <td>alure_preferences</td>
+              <td>Stores user preferences and settings</td>
+              <td>Functional</td>
+              <td>1 year</td>
+            </tr>
+            <tr>
+              <td>alure_analytics</td>
+              <td>Tracks usage patterns and performance</td>
+              <td>Analytics</td>
+              <td>2 years</td>
+            </tr>
+            <tr>
+              <td>alure_security</td>
+              <td>Prevents fraud and unauthorized access</td>
+              <td>Essential</td>
+              <td>Session</td>
+            </tr>
+            <tr>
+              <td>alure_marketing</td>
+              <td>Tracks marketing campaign effectiveness</td>
+              <td>Marketing</td>
+              <td>30 days</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="legal-section">
+        <h2>5. Third-Party Cookies</h2>
+        <p>We may also use third-party services that set their own cookies:</p>
+
+        <h3>5.1 Analytics Services</h3>
+        <ul>
+          <li><strong>Google Analytics:</strong> Helps us understand website usage patterns</li>
+          <li><strong>Mixpanel:</strong> Tracks user interactions within our platform</li>
+          <li><strong>Hotjar:</strong> Provides heatmaps and user session recordings</li>
+        </ul>
+
+        <h3>5.2 Marketing Services</h3>
+        <ul>
+          <li><strong>Google Ads:</strong> Delivers targeted advertisements</li>
+          <li><strong>Facebook Pixel:</strong> Tracks conversions from social media</li>
+          <li><strong>LinkedIn Insight Tag:</strong> Measures professional audience engagement</li>
+        </ul>
+
+        <h3>5.3 Support Services</h3>
+        <ul>
+          <li><strong>Intercom:</strong> Powers our customer support chat</li>
+          <li><strong>Zendesk:</strong> Manages our help desk and ticketing system</li>
+        </ul>
+
+        <h3>5.4 Infrastructure Services</h3>
+        <ul>
+          <li><strong>Cloudflare:</strong> Provides security and performance optimization</li>
+          <li><strong>AWS:</strong> Supports our cloud infrastructure</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <h2>6. Managing Your Cookie Preferences</h2>
+
+        <h3>6.1 Browser Settings</h3>
+        <p>Most web browsers allow you to control cookies through their settings. You can:</p>
+        <ul>
+          <li>Block all cookies</li>
+          <li>Block only third-party cookies</li>
+          <li>Delete existing cookies</li>
+          <li>Receive notifications when cookies are set</li>
+        </ul>
+
+        <h3>6.2 Cookie Consent Management</h3>
+        <p>When you first visit our website, you'll see a cookie consent banner allowing you to:</p>
+        <ul>
+          <li>Accept all cookies</li>
+          <li>Reject non-essential cookies</li>
+          <li>Customize your preferences</li>
+          <li>Learn more about specific cookie types</li>
+        </ul>
+
+        <h3>6.3 Opt-Out Options</h3>
+        <p>You can opt out of specific tracking services:</p>
+        <ul>
+          <li><strong>Google Analytics:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out</a></li>
+          <li><strong>Google Ads:</strong> <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">Google Ad Settings</a></li>
+          <li><strong>Facebook:</strong> <a href="https://www.facebook.com/settings?tab=ads" target="_blank" rel="noopener noreferrer">Facebook Ad Preferences</a></li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <h2>7. Impact of Disabling Cookies</h2>
+        <p>Disabling cookies may affect your experience on our platform:</p>
+
+        <h3>7.1 Essential Cookies</h3>
+        <p>Disabling essential cookies will prevent you from:</p>
+        <ul>
+          <li>Logging into your account</li>
+          <li>Accessing secure areas of the platform</li>
+          <li>Maintaining your session while using the service</li>
+          <li>Using certain security features</li>
+        </ul>
+
+        <h3>7.2 Functional Cookies</h3>
+        <p>Disabling functional cookies may result in:</p>
+        <ul>
+          <li>Loss of saved preferences</li>
+          <li>Reduced personalization</li>
+          <li>Having to reconfigure settings frequently</li>
+        </ul>
+
+        <h3>7.3 Analytics and Marketing Cookies</h3>
+        <p>Disabling these cookies will:</p>
+        <ul>
+          <li>Prevent us from improving our services based on usage data</li>
+          <li>Result in less relevant advertising</li>
+          <li>Reduce our ability to measure marketing effectiveness</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <h2>8. Mobile Applications</h2>
+        <p>Our mobile applications may use similar tracking technologies:</p>
+        <ul>
+          <li><strong>Device identifiers:</strong> Unique identifiers for your device</li>
+          <li><strong>App analytics:</strong> Usage patterns within our mobile apps</li>
+          <li><strong>Push notifications:</strong> Delivery of relevant updates</li>
+          <li><strong>Location data:</strong> If enabled, for location-based features</li>
+        </ul>
+        <p>You can manage these settings through your device's privacy settings or within our mobile application.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>9. Data Retention</h2>
+        <p>We retain cookie data for different periods based on the cookie type:</p>
+        <ul>
+          <li><strong>Session cookies:</strong> Deleted when you close your browser</li>
+          <li><strong>Persistent cookies:</strong> Stored for the duration specified in the cookie</li>
+          <li><strong>Analytics data:</strong> Typically retained for 26 months</li>
+          <li><strong>Marketing data:</strong> Usually retained for 13 months</li>
+        </ul>
+        <p>You can delete cookies at any time through your browser settings.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>10. International Transfers</h2>
+        <p>Some of our third-party cookie providers may transfer data internationally. We ensure appropriate safeguards are in place through:</p>
+        <ul>
+          <li>Standard contractual clauses</li>
+          <li>Adequacy decisions</li>
+          <li>Privacy Shield frameworks (where applicable)</li>
+          <li>Other approved transfer mechanisms</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <h2>11. Updates to This Policy</h2>
+        <p>We may update this Cookie Policy from time to time to reflect:</p>
+        <ul>
+          <li>Changes in our cookie usage</li>
+          <li>New technologies and tracking methods</li>
+          <li>Updates to applicable laws and regulations</li>
+          <li>Improvements to our services</li>
+        </ul>
+        <p>We'll notify you of significant changes through our website and other communication channels.</p>
+      </div>
+
+      <div class="contact-info">
+        <h3>12. Contact Us</h3>
+        <p>If you have questions about our use of cookies or this Cookie Policy, please contact us:</p>
+        <p><strong>Email:</strong> privacy@alure.ai<br>
+        <strong>Address:</strong> Alure.ai, Inc.<br>
+        123 Privacy Street, Suite 100<br>
+        San Francisco, CA 94105<br>
+        <strong>Phone:</strong> 1-800-ALURE-AI (1-800-258-7324)</p>
+        
+        <p><strong>Data Protection Officer:</strong> dpo@alure.ai</p>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

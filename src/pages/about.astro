@@ -1,0 +1,501 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="About Alure.ai" description="Meet the team behind Alure.ai — transforming cold outreach into warm conversations with AI." currentPage="about">
+  <style>
+    /* About Hero */
+    .about-hero {
+      padding: 8rem 0 4rem;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      text-align: center;
+    }
+
+    .about-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #1a1a1a 0%, #6366f1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .about-hero p {
+      font-size: 1.25rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Story Section */
+    .story-section {
+      padding: 6rem 0;
+    }
+
+    .story-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .story-text h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1a1a1a;
+    }
+
+    .story-text p {
+      font-size: 1.125rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .story-image {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .story-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .story-image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Mission Section */
+    .mission-section {
+      padding: 6rem 0;
+      background: #f8fafc;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .mission-card {
+      background: white;
+      padding: 3rem;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid #f1f5f9;
+      transition: transform 0.3s ease;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .mission-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 2rem;
+      color: white;
+    }
+
+    .mission-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+    }
+
+    .mission-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Team Section */
+    .team-section {
+      padding: 6rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      font-size: 1.125rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .team-member {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid #f1f5f9;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .team-member:hover {
+      transform: translateY(-8px);
+    }
+
+    .member-photo {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: white;
+    }
+
+    .member-info {
+      padding: 2rem;
+    }
+
+    .member-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #1a1a1a;
+    }
+
+    .member-role {
+      color: #6366f1;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .member-bio {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Stats Section */
+    .stats-section {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1.125rem;
+      opacity: 0.9;
+    }
+
+    /* Values Section */
+    .values-section {
+      padding: 6rem 0;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .value-item {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .value-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 1.5rem;
+      color: white;
+    }
+
+    .value-item h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .value-item p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 6rem 0;
+      background: #f8fafc;
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.125rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #6366f1;
+      border: 2px solid #6366f1;
+    }
+
+    .btn-secondary:hover {
+      background: #6366f1;
+      color: white;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .about-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .story-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .story-text h2 {
+        font-size: 2rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="container">
+      <h1>Transforming Sales Through AI Innovation</h1>
+      <p>We're on a mission to revolutionize how businesses approach cold calling by combining cutting-edge artificial intelligence with proven sales methodologies to create the most effective calling automation platform in the world.</p>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="story-section">
+    <div class="container">
+      <div class="story-content">
+        <div class="story-text">
+          <h2>Our Story</h2>
+          <p>Founded in 2025 by a team combining decades of B2B sales expertise with deep AI engineering knowledge, Alure.ai was born from a practical problem: sales teams were spending 4–5 hours per day researching prospects before they could even pick up the phone.</p>
+          <p>We knew the answer wasn't more automation of bad outreach. It was intelligent preparation — turning every cold call into a warm conversation backed by genuine research, personalisation, and a valid business reason.</p>
+          <p>That insight became Alure.ai: a platform that combines a proven B2B sales methodology with AI-powered research and script generation, helping sales teams book more qualified appointments every day.</p>
+        </div>
+        <div class="story-image">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern office with diverse team collaborating" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="mission-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Mission & Vision</h2>
+        <p>We believe every business deserves access to enterprise-level sales technology that drives real results.</p>
+      </div>
+
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="mission-icon">🎯</div>
+          <h3>Our Mission</h3>
+          <p>To democratize high-performance sales calling by making AI-powered personalization accessible to businesses of all sizes, helping them build meaningful relationships and achieve predictable revenue growth.</p>
+        </div>
+
+        <div class="mission-card">
+          <div class="mission-icon">🔮</div>
+          <h3>Our Vision</h3>
+          <p>To become the global standard for intelligent sales automation, where every business interaction is perfectly personalized, precisely timed, and genuinely valuable to both the caller and prospect.</p>
+        </div>
+
+        <div class="mission-card">
+          <div class="mission-icon">⚡</div>
+          <h3>Our Impact</h3>
+          <p>We've already helped thousands of sales professionals 10x their calling effectiveness, generate millions in new revenue, and transform their approach to customer engagement forever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Meet Our Leadership Team</h2>
+        <p>A diverse group of sales experts, engineers, and visionaries united by one goal: making sales calling more effective for everyone.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-photo">👨‍💼</div>
+          <div class="member-info">
+            <div class="member-name">Chris Harasty</div>
+            <div class="member-role">Founder & Director</div>
+            <div class="member-bio">Chris is a B2B sales strategist with over 40 years' experience building scalable, high-performance sales systems. He is currently undertaking a PhD in Artificial Intelligence, specialising in Generative AI. His work focuses on combining disciplined sales methodology with intelligent automation to create predictable appointment flow and revenue growth.</div>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="member-photo">👨‍💻</div>
+          <div class="member-info">
+            <div class="member-name">Sali Koule</div>
+            <div class="member-role">Founder & Director</div>
+            <div class="member-bio">Sali is the Chief AI Officer, leading the architecture and development of Alure.ai's intelligent automation systems. He specialises in building scalable AI solutions that transform complex sales processes into efficient, high-performance workflows.</div>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="member-photo">👨‍🎯</div>
+          <div class="member-info">
+            <div class="member-name">Kevin Refugio</div>
+            <div class="member-role">Sales Director</div>
+            <div class="member-bio">Kevin is an experienced Sales Director who leads and mentors business development teams to implement structured sales systems that drive consistent appointment flow and revenue growth. He focuses on building high-performance teams that consistently book qualified appointments.</div>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="member-photo">👩‍📊</div>
+          <div class="member-info">
+            <div class="member-name">Shafaq Batool</div>
+            <div class="member-role">Learning & Development</div>
+            <div class="member-bio">Shafaq specialises in Learning Management Systems, instructional design, and the creation of structured, outcome-focused training programs. She translates complex business and sales concepts into clear, scalable digital learning experiences. Her work ensures learning platforms are practical, engaging, and aligned with measurable performance outcomes.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Core Values</h2>
+        <p>The principles that guide everything we do and every decision we make.</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-item">
+          <div class="value-icon">🚀</div>
+          <h3>Innovation First</h3>
+          <p>We constantly push the boundaries of what's possible in sales technology, always looking for better ways to serve our customers.</p>
+        </div>
+
+        <div class="value-item">
+          <div class="value-icon">🤝</div>
+          <h3>Customer Obsession</h3>
+          <p>Every feature, every update, every decision is made with one question: "How does this help our customers succeed?"</p>
+        </div>
+
+        <div class="value-item">
+          <div class="value-icon">📈</div>
+          <h3>Results-Driven</h3>
+          <p>We measure success by our customers' success. If they're not seeing 10x improvements, we're not doing our job.</p>
+        </div>
+
+        <div class="value-item">
+          <div class="value-icon">🛡️</div>
+          <h3>Trust & Transparency</h3>
+          <p>We build products and relationships based on honesty, reliability, and respect for our customers' data and privacy.</p>
+        </div>
+
+        <div class="value-item">
+          <div class="value-icon">⚡</div>
+          <h3>Continuous Learning</h3>
+          <p>The sales landscape evolves rapidly. We stay ahead by constantly learning, adapting, and improving our platform.</p>
+        </div>
+
+        <div class="value-item">
+          <div class="value-icon">🌟</div>
+          <h3>Excellence</h3>
+          <p>We don't settle for "good enough." Everything we create must be exceptional and worthy of our customers' trust.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Transform Your Sales Process?</h2>
+        <p>Be part of the future of sales calling. Join the sales professionals who've already transformed their results with Alure.ai.</p>
+
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn-primary">Book a Strategy Session</a>
+          <a href="/demo" class="btn btn-secondary">Request a Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

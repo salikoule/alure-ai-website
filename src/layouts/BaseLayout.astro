@@ -1,0 +1,63 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  currentPage?: string;
+  footerTagline?: string;
+  ogType?: 'website' | 'article';
+  articleDate?: string;
+  articleAuthor?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  currentPage = '',
+  footerTagline,
+  ogType,
+  articleDate,
+  articleAuthor,
+  noindex,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    as="style"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <SEO
+    title={title}
+    description={description}
+    ogType={ogType}
+    articleDate={articleDate}
+    articleAuthor={articleAuthor}
+    noindex={noindex}
+  />
+</head>
+<body>
+  <Header currentPage={currentPage} />
+  <main id="main-content">
+    <slot />
+  </main>
+  <Footer tagline={footerTagline} />
+</body>
+</html>
