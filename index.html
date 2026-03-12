@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alure.ai - AI-Powered Call Script Generation & Sales Automation</title>
+    <title>Alure.ai - Automatically Turn Cold Outreach Into Warm Conversations</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -75,7 +75,6 @@
             color: #6366f1;
         }
 
-        /* Navigation button specific styling */
         .nav-links .btn-primary {
             color: white !important;
             font-weight: 700 !important;
@@ -97,6 +96,23 @@
             cursor: pointer;
             display: inline-block;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
@@ -124,6 +140,22 @@
             color: white;
         }
 
+        .btn-white {
+            background: white;
+            color: #6366f1;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #6366f1;
+        }
+
         /* Hero Section */
         .hero {
             padding: 8rem 0 4rem;
@@ -136,27 +168,6 @@
         .hero-content {
             position: relative;
             z-index: 2;
-        }
-
-        .hero-image {
-            margin: 4rem auto 0;
-            max-width: 800px;
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
-            transform: perspective(1000px) rotateX(10deg);
-            transition: transform 0.3s ease;
-        }
-
-        .hero-image:hover {
-            transform: perspective(1000px) rotateX(5deg) translateY(-10px);
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            display: block;
         }
 
         .hero h1 {
@@ -174,7 +185,7 @@
             font-size: 1.25rem;
             color: #666;
             margin-bottom: 2.5rem;
-            max-width: 600px;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -195,6 +206,35 @@
 
         .stat {
             text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 2rem 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat:hover::before {
+            opacity: 1;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
         }
 
         .stat-number {
@@ -209,11 +249,11 @@
             font-weight: 500;
         }
 
-        /* Features Section */
-        .features {
-            padding: 6rem 0;
+        .animated-counter {
+            display: inline-block;
         }
 
+        /* Section Styles */
         .section-header {
             text-align: center;
             margin-bottom: 4rem;
@@ -228,54 +268,183 @@
         .section-header p {
             font-size: 1.125rem;
             color: #666;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        /* Problem Section */
+        .problem-section {
+            padding: 6rem 0;
         }
 
-        .feature-card {
-            background: white;
+        .problem-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .problem-content p {
+            font-size: 1.125rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-content .highlight {
+            color: #6366f1;
+            font-weight: 600;
+        }
+
+        .problem-content .callout {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            border-left: 4px solid #f59e0b;
+            margin: 2rem 0;
+            font-weight: 500;
+            color: #92400e;
+        }
+
+        /* Shift Section */
+        .shift-section {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .shift-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .shift-content p {
+            font-size: 1.125rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .comparison-card {
             padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .comparison-card.cold {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border: 1px solid #fca5a5;
+        }
+
+        .comparison-card.warm {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            border: 1px solid #86efac;
+        }
+
+        .comparison-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-card.cold h4 {
+            color: #dc2626;
+        }
+
+        .comparison-card.warm h4 {
+            color: #16a34a;
+        }
+
+        .comparison-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 6rem 0;
+        }
+
+        .solution-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .solution-content > p {
+            font-size: 1.125rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .solution-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .solution-feature {
+            background: white;
+            padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             border: 1px solid #f1f5f9;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
         }
 
-        .feature-card:hover {
+        .solution-feature:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
         }
 
-        .feature-icon {
-            width: 60px;
-            height: 60px;
+        .solution-feature-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
             background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
-        .feature-card h3 {
-            font-size: 1.25rem;
+        .solution-feature p {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .solution-results {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .solution-result {
+            text-align: center;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+            border-radius: 12px;
+        }
+
+        .solution-result span {
+            display: block;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            color: #6366f1;
         }
 
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Modern Interactive Workflow Section */
+        /* How It Works Section */
         .process {
             padding: 6rem 0;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -302,329 +471,412 @@
             z-index: 2;
         }
 
-        .workflow-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        /* Interactive Workflow Carousel */
-        .workflow-carousel {
-            position: relative;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            margin: 3rem 0;
-        }
-
-        .workflow-steps-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .workflow-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
-            flex: 1;
-        }
-
-        .workflow-step.active .step-circle {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            color: white;
-            box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
-            transform: scale(1.2);
-        }
-
-        .workflow-step.completed .step-circle {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-        }
-
-        .step-circle {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.6);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            z-index: 3;
-        }
-
-        .step-circle::before {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: -8px;
-            right: -8px;
-            bottom: -8px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-
-        .workflow-step.active .step-circle::before {
-            opacity: 0.2;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .step-title {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.8);
-            transition: color 0.3s ease;
-            text-align: center;
-        }
-
-        .workflow-step.active .step-title {
-            color: #6366f1;
-        }
-
-        /* Connecting Lines */
-        .workflow-connector {
-            position: absolute;
-            top: 35px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 1;
-        }
-
-        .workflow-progress {
-            height: 100%;
-            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
-            width: 0%;
-            transition: width 0.8s ease;
-            border-radius: 1px;
-        }
-
-        /* Content Display Area */
-        .workflow-content {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2.5rem;
-            min-height: 250px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .workflow-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .workflow-content.active::before {
-            opacity: 1;
-        }
-
-        .step-content {
-            display: none;
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .step-content.active {
-            display: block;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .step-content h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .step-icon {
-            font-size: 2.5rem;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .step-content p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .step-features {
+        .steps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .step-feature {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .step-feature:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-2px);
-        }
-
-        .step-feature-title {
-            font-weight: 600;
-            color: #6366f1;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .step-feature-desc {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Navigation Controls */
-        .workflow-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .workflow-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .workflow-btn:hover {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            border-color: transparent;
-        }
-
-        .workflow-btn.auto-play {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            border-color: transparent;
-        }
-
-        /* Stats Section */
-        .workflow-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .workflow-stat {
-            text-align: center;
-            padding: 2rem;
+        .step-card {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem 2rem;
             transition: all 0.3s ease;
+            position: relative;
         }
 
-        .workflow-stat:hover {
+        .step-card:hover {
             background: rgba(255, 255, 255, 0.08);
             transform: translateY(-5px);
         }
 
-        .workflow-stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
+        .step-number {
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .step-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+
+        .step-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .step-card ul li {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .step-card ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #8b5cf6;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 6rem 0;
+        }
+
+        .benefits-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .benefits-content > p {
+            font-size: 1.125rem;
+            color: #555;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #6366f1;
             display: block;
             margin-bottom: 0.5rem;
         }
 
-        .workflow-stat-label {
-            color: rgba(255, 255, 255, 0.8);
+        .benefit-label {
+            color: #555;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .performance-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .perf-card {
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .perf-card.cold-rate {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+        }
+
+        .perf-card.warm-rate {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        }
+
+        .perf-card.referral-rate {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+        }
+
+        .perf-card .rate {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .perf-card.cold-rate .rate { color: #dc2626; }
+        .perf-card.warm-rate .rate { color: #2563eb; }
+        .perf-card.referral-rate .rate { color: #16a34a; }
+
+        .perf-card .rate-label {
+            color: #555;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .benefit-goal {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+            border-radius: 16px;
+        }
+
+        .benefit-goal p {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #6366f1;
+        }
+
+        /* Commercial Impact Section */
+        .commercial-section {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .commercial-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .commercial-content > p {
+            font-size: 1.125rem;
+            color: #555;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .funnel-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .funnel-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+
+        .funnel-item::after {
+            content: '→';
+            position: absolute;
+            right: -1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #6366f1;
+        }
+
+        .funnel-item:last-child::after {
+            display: none;
+        }
+
+        .funnel-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #6366f1;
+            display: block;
+        }
+
+        .funnel-label {
+            color: #555;
             font-weight: 500;
         }
 
-        /* Testimonials */
-        .testimonials {
+        .commercial-note {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            border: 2px solid #e0e7ff;
+        }
+
+        .commercial-note p {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Why Different Section */
+        .differentiator-section {
             padding: 6rem 0;
         }
 
-        .testimonials-grid {
+        .diff-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .testimonial {
+        .diff-card {
             background: white;
             padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
         }
 
-        .testimonial-content {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: #333;
+        .diff-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
         }
 
-        .testimonial-author {
+        .diff-card h3 {
+            font-size: 1.15rem;
             font-weight: 600;
+            margin-bottom: 0.75rem;
             color: #6366f1;
         }
 
-        .testimonial-role {
-            color: #666;
-            font-size: 0.9rem;
+        .diff-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Who It's For Section */
+        .audience-section {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .audience-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
+            border-color: #c7d2fe;
+        }
+
+        .audience-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .audience-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .audience-note {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.125rem;
+            color: #555;
+        }
+
+        /* Strategic Outcome Section */
+        .strategic-section {
+            padding: 6rem 0;
+        }
+
+        .strategic-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .strategic-content > p {
+            font-size: 1.125rem;
+            color: #555;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .outcome-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .outcome-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .outcome-item:hover {
+            transform: translateX(8px);
+        }
+
+        .outcome-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .outcome-item p {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .strategic-closing {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+            border-radius: 16px;
+        }
+
+        .strategic-closing p {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #4c1d95;
         }
 
         /* CTA Section */
@@ -645,28 +897,15 @@
             font-size: 1.125rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
-        }
-
-        .btn-white {
-            background: white;
-            color: #6366f1;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-outline:hover {
-            background: white;
-            color: #6366f1;
         }
 
         /* Footer */
@@ -707,85 +946,6 @@
             color: #999;
         }
 
-        /* Animated Counters */
-        .animated-counter {
-            display: inline-block;
-        }
-
-        /* Interactive Feature Cards Enhancement */
-        .feature-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .feature-card:hover::before {
-            left: 100%;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        .feature-icon {
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .feature-card:hover .feature-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        /* Enhanced Statistics with Glassmorphism */
-        .stat {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 2rem 1rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .stat:hover::before {
-            opacity: 1;
-        }
-
-        .stat:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
-        }
-
         /* Floating Action Button */
         .floating-cta {
             position: fixed;
@@ -814,73 +974,11 @@
         }
 
         @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        /* Enhanced Testimonials */
-        .testimonial {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonial::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-size: 6rem;
-            color: rgba(99, 102, 241, 0.1);
-            font-family: serif;
-            z-index: 1;
-        }
-
-        .testimonial-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .testimonial:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.15);
-            background: rgba(255, 255, 255, 0.95);
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Button Enhancements */
-        .btn {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        /* Progress Indicator */
+        /* Scroll Progress */
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -892,7 +990,7 @@
             transition: width 0.1s ease;
         }
 
-        /* Loading Animation */
+        /* Loading */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -921,7 +1019,7 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Enhanced Mobile Menu */
+        /* Mobile Menu */
         .mobile-menu-toggle {
             display: none;
             flex-direction: column;
@@ -950,7 +1048,11 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* Responsive Design */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -965,13 +1067,29 @@
                 align-items: center;
             }
 
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .funnel-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .funnel-item::after {
+                display: none;
+            }
+
+            .outcome-grid {
+                grid-template-columns: 1fr;
+            }
+
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
-            }
-
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
             }
 
             .floating-cta {
@@ -986,54 +1104,8 @@
                 display: flex;
             }
 
-            .workflow-carousel {
-                padding: 2rem 1rem;
-            }
-
-            .workflow-steps-container {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-
-            .workflow-step {
-                flex: 0 0 calc(50% - 0.5rem);
-                margin-bottom: 1rem;
-            }
-
-            .step-circle {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-
-            .workflow-content {
-                padding: 1.5rem;
-                min-height: 200px;
-            }
-
-            .step-content h3 {
-                font-size: 1.4rem;
-                flex-direction: column;
-                gap: 0.5rem;
-                text-align: center;
-            }
-
-            .step-features {
-                grid-template-columns: 1fr;
-            }
-
-            .workflow-controls {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .workflow-stats {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .workflow-connector {
-                display: none;
+            .section-header h2 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -1052,7 +1124,7 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="case-studies.html">Case Studies</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="#" class="btn btn-primary">Start Free Trial</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Book a Strategy Session</a></li>
             </ul>
             <div class="mobile-menu-toggle">
                 <span></span>
@@ -1066,22 +1138,22 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Transform Cold Calls Into<br>Revenue-Generating Conversations</h1>
-                <p>AI-powered call script generation and sales automation that helps your team make 10x more effective calls with personalized, intelligent preparation.</p>
+                <h1>Automatically Turn Cold Outreach<br>Into Warm Conversations</h1>
+                <p>Alure.ai automatically conducts research and script personalisation — saving 4-5 hours per day per sales rep.</p>
                 
                 <div class="hero-cta">
-                    <a href="#" class="btn btn-primary">Start Your Free Trial</a>
-                    <a href="demo.html" class="btn btn-secondary">Watch Demo</a>
+                    <a href="contact.html" class="btn btn-primary">Book a Strategy Session</a>
+                    <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
                 </div>
-            </div>
-
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Modern sales dashboard showing AI-powered call analytics and performance metrics">
             </div>
 
             <div class="stats">
                 <div class="stat">
-                    <span class="stat-number"><span class="animated-counter" data-target="10">0</span>x</span>
+                    <span class="stat-number">4-5 hrs</span>
+                    <span class="stat-label">Time Saved Per Day Per Sales Rep</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number"><span class="animated-counter" data-target="20">0</span>x</span>
                     <span class="stat-label">More Effective Than Email</span>
                 </div>
                 <div class="stat">
@@ -1090,326 +1162,356 @@
                 </div>
                 <div class="stat">
                     <span class="stat-number"><span class="animated-counter" data-target="78">0</span>%</span>
-                    <span class="stat-label">Decision Makers Prefer Calls</span>
+                    <span class="stat-label">Decision Makers Prefer Personalised Calls</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number"><span class="animated-counter" data-target="572">0</span>x</span>
+                    <span class="stat-number"><span class="animated-counter" data-target="166">0</span>x</span>
                     <span class="stat-label">Average ROI</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
+    <!-- Section 1: The Problem -->
+    <section class="problem-section">
         <div class="container">
             <div class="section-header">
-                <h2>Everything You Need to Dominate Your Market</h2>
-                <p>Powerful AI-driven features that transform your calling process from time-consuming manual work into a scalable, predictable revenue engine.</p>
+                <h2>Booking the First Appointment Is the Hardest Part of B2B Sales</h2>
             </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <h3>AI-Powered Script Generation</h3>
-                    <p>Generate personalized call scripts for each prospect using advanced AI that analyzes their background, industry, and business challenges.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
-                    <h3>Automated Prospect Research</h3>
-                    <p>Deep prospect insights without manual research time. AI gathers LinkedIn profiles, company data, and industry insights automatically.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Advanced Analytics Dashboard</h3>
-                    <p>Track call performance, conversion rates, and script effectiveness with comprehensive analytics and real-time insights.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Multi-Campaign Management</h3>
-                    <p>Run multiple calling campaigns simultaneously with A/B testing capabilities and prospect segmentation.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3>Intelligent Callback Scheduling</h3>
-                    <p>Automated callback scheduling based on prospect responses with optimal timing predictions and follow-up sequences.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Professional Standards</h3>
-                    <p>Maintains professional communication standards with compliant call techniques and consistent brand messaging.</p>
+            <div class="problem-content">
+                <p>Most B2B businesses start by selling to their existing network. That works until the network is exhausted.</p>
+                <p>Once referrals and existing contacts slow down, sales become unpredictable. Cold outreach response rates drop below 1%. LinkedIn limits volume. Research takes hours. Sales reps spend more time preparing than selling.</p>
+                <p>Without a system, sales performance depends on luck.</p>
+                <p><strong>And luck does not scale.</strong></p>
+                <div class="callout">
+                    If your team is spending 4–5 hours per day researching prospects before making calls, you do not have a sales engine. You have a time problem.
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
+    <!-- Section 2: The Shift -->
+    <section class="shift-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Stop Cold Calling. Start Warm Calling.</h2>
+            </div>
+            <div class="shift-content">
+                <p>Cold calls fail because they lack relevance. Warm calls work because they show understanding.</p>
+                <p>The difference is research, personalisation, and a valid business reason for the call. But doing this manually for 50–70 prospects per day is impossible.</p>
+                <p><strong>Alure.ai changes that.</strong></p>
+                <div class="comparison-grid">
+                    <div class="comparison-card cold">
+                        <h4>Cold Calling</h4>
+                        <p>No research. No relevance. Below 1% response rates. Burned reps and wasted time.</p>
+                    </div>
+                    <div class="comparison-card warm">
+                        <h4>Warm Calling with Alure.ai</h4>
+                        <p>Deep research. Personalised scripts. Valid business reasons. 10–20% interest rates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: The Solution -->
+    <section class="solution-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Alure.ai Performs the Research</h2>
+            </div>
+            <div class="solution-content">
+                <p>Alure.ai is built specifically for B2B sales teams who need to turn cold leads into warm prospects at scale.</p>
+                
+                <div class="solution-features">
+                    <div class="solution-feature">
+                        <div class="solution-feature-icon">🔍</div>
+                        <p>Analyses LinkedIn profiles</p>
+                    </div>
+                    <div class="solution-feature">
+                        <div class="solution-feature-icon">🌐</div>
+                        <p>Reviews company websites</p>
+                    </div>
+                    <div class="solution-feature">
+                        <div class="solution-feature-icon">📊</div>
+                        <p>Extracts relevant business insights</p>
+                    </div>
+                    <div class="solution-feature">
+                        <div class="solution-feature-icon">🎯</div>
+                        <p>Identifies potential operational challenges</p>
+                    </div>
+                    <div class="solution-feature">
+                        <div class="solution-feature-icon">📝</div>
+                        <p>Generates personalised warm call scripts</p>
+                    </div>
+                    <div class="solution-feature">
+                        <div class="solution-feature-icon">🏗️</div>
+                        <p>Structures conversations using a proven sales framework</p>
+                    </div>
+                </div>
+
+                <p style="text-align: center; font-weight: 600; font-size: 1.2rem; color: #333;">Saving your BDM at least half a day every day. Every call is automatically prepared.</p>
+
+                <div class="solution-results">
+                    <div class="solution-result">
+                        <span>No guesswork.</span>
+                    </div>
+                    <div class="solution-result">
+                        <span>No scrambling.</span>
+                    </div>
+                    <div class="solution-result">
+                        <span>No wasted hours.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: How It Works -->
     <section class="process" id="how-it-works">
         <div class="container">
             <div class="section-header">
-                <h2>How Alure.ai Works</h2>
-                <p>Experience our intelligent workflow that transforms prospects into revenue-generating conversations in minutes, not hours.</p>
+                <h2>A Structured System, Not Random Automation</h2>
             </div>
 
-            <div class="workflow-container">
-                <div class="workflow-carousel">
-                    <!-- Step Navigation -->
-                    <div class="workflow-steps-container">
-                        <div class="workflow-connector">
-                            <div class="workflow-progress" id="workflowProgress"></div>
-                        </div>
-                        
-                        <div class="workflow-step active" data-step="1">
-                            <div class="step-circle">1</div>
-                            <div class="step-title">Import Prospects</div>
-                        </div>
-                        
-                        <div class="workflow-step" data-step="2">
-                            <div class="step-circle">2</div>
-                            <div class="step-title">AI Research</div>
-                        </div>
-                        
-                        <div class="workflow-step" data-step="3">
-                            <div class="step-circle">3</div>
-                            <div class="step-title">Generate Scripts</div>
-                        </div>
-                        
-                        <div class="workflow-step" data-step="4">
-                            <div class="step-circle">4</div>
-                            <div class="step-title">Execute Calls</div>
-                        </div>
-                        
-                        <div class="workflow-step" data-step="5">
-                            <div class="step-circle">5</div>
-                            <div class="step-title">Optimize & Scale</div>
-                        </div>
-                    </div>
-
-                    <!-- Content Display -->
-                    <div class="workflow-content active" id="workflowContent">
-                        <!-- Step 1 Content -->
-                        <div class="step-content active" data-step="1">
-                            <h3>
-                                <span class="step-icon">📁</span>
-                                Import & Organize Prospects
-                            </h3>
-                            <p>Upload your prospect lists from any source and let our AI automatically organize them into targeted campaigns. Whether it's from CRM exports, LinkedIn lists, or Excel files - we handle it all seamlessly.</p>
-                            
-                            <div class="step-features">
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>⚡</span> Instant Upload
-                                    </div>
-                                    <div class="step-feature-desc">CSV, Excel, CRM exports supported</div>
-                                </div>
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>🎯</span> Smart Segmentation
-                                    </div>
-                                    <div class="step-feature-desc">Auto-organize by industry, role, company size</div>
-                                </div>
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>🔄</span> Data Validation
-                                    </div>
-                                    <div class="step-feature-desc">Automatic duplicate removal and validation</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Step 2 Content -->
-                        <div class="step-content" data-step="2">
-                            <h3>
-                                <span class="step-icon">🔍</span>
-                                AI-Powered Research
-                            </h3>
-                            <p>Our advanced AI engine automatically researches each prospect, gathering rich insights from LinkedIn profiles, company data, recent news, and industry information to create comprehensive prospect profiles.</p>
-                            
-                            <div class="step-features">
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>🌐</span> LinkedIn Analysis
-                                    </div>
-                                    <div class="step-feature-desc">Professional background and connections</div>
-                                </div>
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>🏢</span> Company Intelligence
-                                    </div>
-                                    <div class="step-feature-desc">Funding, growth, recent developments</div>
-                                </div>
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>📈</span> Market Insights
-                                    </div>
-                                    <div class="step-feature-desc">Industry trends and pain points</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Step 3 Content -->
-                        <div class="step-content" data-step="3">
-                            <h3>
-                                <span class="step-icon">🤖</span>
-                                Generate Personalized Scripts
-                            </h3>
-                            <p>AI crafts unique, highly personalized call scripts for each prospect using gathered insights. Every script includes custom openings, relevant value propositions, and tailored objection handling strategies.</p>
-                            
-                            <div class="step-features">
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>✨</span> Custom Openings
-                                    </div>
-                                    <div class="step-feature-desc">Personalized conversation starters</div>
-                                </div>
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>💎</span> Value Props
-                                    </div>
-                                    <div class="step-feature-desc">Industry-specific benefits and solutions</div>
-                                </div>
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>🛡️</span> Objection Handling
-                                    </div>
-                                    <div class="step-feature-desc">Pre-built responses to common concerns</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Step 4 Content -->
-                        <div class="step-content" data-step="4">
-                            <h3>
-                                <span class="step-icon">📞</span>
-                                Execute High-Quality Calls
-                            </h3>
-                            <p>Make professional, effective calls with AI-generated scripts and real-time guidance. Track outcomes, schedule callbacks, and manage your entire calling workflow from one intuitive interface.</p>
-                            
-                            <div class="step-features">
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>🎯</span> Call Interface
-                                    </div>
-                                    <div class="step-feature-desc">Clean, distraction-free calling experience</div>
-                                </div>
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>📊</span> Real-time Tracking
-                                    </div>
-                                    <div class="step-feature-desc">Outcome logging and performance metrics</div>
-                                </div>
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>🔄</span> Smart Follow-up
-                                    </div>
-                                    <div class="step-feature-desc">Automated callback scheduling</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Step 5 Content -->
-                        <div class="step-content" data-step="5">
-                            <h3>
-                                <span class="step-icon">📈</span>
-                                Optimize & Scale Performance
-                            </h3>
-                            <p>Our AI continuously learns from your call results to improve future scripts and strategies. Scale your calling volume while maintaining quality through intelligent automation and optimization.</p>
-                            
-                            <div class="step-features">
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>🧠</span> Machine Learning
-                                    </div>
-                                    <div class="step-feature-desc">Continuous script improvement</div>
-                                </div>
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>📊</span> Performance Analytics
-                                    </div>
-                                    <div class="step-feature-desc">Detailed success metrics and insights</div>
-                                </div>
-                                <div class="step-feature">
-                                    <div class="step-feature-title">
-                                        <span>🚀</span> Scaling Tools
-                                    </div>
-                                    <div class="step-feature-desc">Team management and automation</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Identify Your ICP</h3>
+                    <p>Define your Ideal Customer Profile and build a targeted list.</p>
                 </div>
 
-                <!-- Stats -->
-                <div class="workflow-stats">
-                    <div class="workflow-stat">
-                        <span class="workflow-stat-number">< 60s</span>
-                        <span class="workflow-stat-label">Average Setup Time</span>
-                    </div>
-                    <div class="workflow-stat">
-                        <span class="workflow-stat-number">10x</span>
-                        <span class="workflow-stat-label">Faster Than Manual</span>
-                    </div>
-                    <div class="workflow-stat">
-                        <span class="workflow-stat-number">99%</span>
-                        <span class="workflow-stat-label">Accuracy Rate</span>
-                    </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Connect and Warm the Audience</h3>
+                    <p>To improve performance, we recommend using existing LinkedIn connections, as the prospects are slightly warmer. Otherwise, using a cold list will suffice.</p>
                 </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Personalisation</h3>
+                    <p>Alure.ai analyses each prospect and creates structured, personalised call scripts automatically.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Execute with Discipline</h3>
+                    <p>Your team makes warm calls using a proven structure:</p>
+                    <ul>
+                        <li>Reference the warm connection</li>
+                        <li>Demonstrate research</li>
+                        <li>Present a valid business reason</li>
+                        <li>Ask a relevant question</li>
+                        <li>Push for a short appointment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+                <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9); font-weight: 500;">The result is not just activity. It is a controlled, repeatable performance.</p>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimonials">
+    <!-- Section 5: Benefits -->
+    <section class="benefits-section">
         <div class="container">
             <div class="section-header">
-                <h2>Trusted by Sales Teams Worldwide</h2>
-                <p>See how Alure.ai is transforming calling results for sales professionals across industries.</p>
+                <h2>Save 4–5 Hours Per Day Per Sales Rep</h2>
             </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        "As a solo consultant, Alure.ai helped me book 5x more discovery calls in my first month. The $97 investment paid for itself after just 2 new clients."
+            <div class="benefits-content">
+                <p>Alure.ai eliminates manual prospect research and script preparation. That means:</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <span class="benefit-number">20+</span>
+                        <span class="benefit-label">Hours saved per week</span>
                     </div>
-                    <div class="testimonial-author">Sarah Mitchell</div>
-                    <div class="testimonial-role">Business Consultant</div>
+                    <div class="benefit-item">
+                        <span class="benefit-number">80+</span>
+                        <span class="benefit-label">Hours saved per month</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-number">More</span>
+                        <span class="benefit-label">Time speaking to decision-makers</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-number">Higher</span>
+                        <span class="benefit-label">Confidence before every call</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-number">Consistent</span>
+                        <span class="benefit-label">Script quality across the team</span>
+                    </div>
                 </div>
 
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        "Our 3-person sales team went from 15 appointments/month to 45 appointments/month. We closed an extra $150K in the first quarter."
+                <p style="margin-top: 3rem;"><strong>Most importantly, it improves outcomes. Typical performance improvements:</strong></p>
+
+                <div class="performance-comparison">
+                    <div class="perf-card cold-rate">
+                        <span class="rate">&lt; 1%</span>
+                        <div class="rate-label">Cold response rate</div>
                     </div>
-                    <div class="testimonial-author">Mike Rodriguez</div>
-                    <div class="testimonial-role">Sales Director</div>
+                    <div class="perf-card warm-rate">
+                        <span class="rate">10–20%</span>
+                        <div class="rate-label">Warm call interest rate</div>
+                    </div>
+                    <div class="perf-card referral-rate">
+                        <span class="rate">Up to 75%</span>
+                        <div class="rate-label">Referral-based appointment rates</div>
+                    </div>
                 </div>
 
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        "With 12 sales reps, Alure.ai standardized our calling process and increased our team's close rate from 18% to 32%. ROI was immediate."
-                    </div>
-                    <div class="testimonial-author">Jennifer Liu</div>
-                    <div class="testimonial-role">VP of Sales</div>
+                <div class="benefit-goal">
+                    <p>The objective is simple: Book 1 qualified appointment per day.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Section 6: Commercial Impact -->
+    <section class="commercial-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>From Activity to Appointments</h2>
+            </div>
+            <div class="commercial-content">
+                <p>A disciplined BDM making 60–70 calls per day typically reaches:</p>
+                
+                <div class="funnel-stats">
+                    <div class="funnel-item">
+                        <span class="funnel-number">10</span>
+                        <span class="funnel-label">Live conversations</span>
+                    </div>
+                    <div class="funnel-item">
+                        <span class="funnel-number">5</span>
+                        <span class="funnel-label">Interested prospects</span>
+                    </div>
+                    <div class="funnel-item">
+                        <span class="funnel-number">1–2</span>
+                        <span class="funnel-label">Appointments booked</span>
+                    </div>
+                </div>
+
+                <p>With the right structure and preparation, this becomes <strong>predictable</strong>.</p>
+
+                <div class="commercial-note">
+                    <p>Alure.ai does not replace your sales team. It makes them <strong>sharper, faster, and more effective</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Why Alure.ai Is Different -->
+    <section class="differentiator-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Built for B2B Sales Teams, Not General AI Writing</h2>
+            </div>
+
+            <div class="diff-grid">
+                <div class="diff-card">
+                    <h3>Designed for Professional Services and IT</h3>
+                    <p>Alure.ai understands the complexity of B2B selling.</p>
+                </div>
+                <div class="diff-card">
+                    <h3>Embedded in a Proven Sales Methodology</h3>
+                    <p>It aligns with a structured appointment-setting framework, not random outreach.</p>
+                </div>
+                <div class="diff-card">
+                    <h3>Enforces Sales Discipline</h3>
+                    <p>Prepared scripts. Batch calling. CRM integration. Daily rhythm.</p>
+                </div>
+                <div class="diff-card">
+                    <h3>Acts as a Pre-CRM Intelligence Layer</h3>
+                    <p>Optimises conversations before data even enters your CRM.</p>
+                </div>
+                <div class="diff-card">
+                    <h3>Focused on Conversations, Not Clicks</h3>
+                    <p>This is about booking meetings, not generating vanity engagement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Who It's For -->
+    <section class="audience-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ideal For</h2>
+            </div>
+
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="audience-icon">💻</div>
+                    <h3>IT Service Providers</h3>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">🖥️</div>
+                    <h3>Managed Service Providers</h3>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">🚀</div>
+                    <h3>Software Companies</h3>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">📋</div>
+                    <h3>Professional Service Firms</h3>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">📞</div>
+                    <h3>B2B Sales Teams Booking First Appointments</h3>
+                </div>
+            </div>
+
+            <p class="audience-note">If your business relies on high-value conversations, Alure.ai gives your team a competitive edge.</p>
+        </div>
+    </section>
+
+    <!-- Section 9: Strategic Outcome -->
+    <section class="strategic-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Turn Luck Into a Reliable Process</h2>
+            </div>
+            <div class="strategic-content">
+                <p>New customer acquisition determines business stability. When appointment flow is predictable:</p>
+
+                <div class="outcome-grid">
+                    <div class="outcome-item">
+                        <div class="outcome-icon">📈</div>
+                        <p>Revenue becomes more stable</p>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="outcome-icon">🔗</div>
+                        <p>Dependence on a few clients reduces</p>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="outcome-icon">💪</div>
+                        <p>Negotiating power increases</p>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="outcome-icon">🎯</div>
+                        <p>Growth becomes intentional</p>
+                    </div>
+                </div>
+
+                <div class="strategic-closing">
+                    <p>Alure.ai helps build a structured B2B sales engine that runs daily — not occasionally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 10: Call to Action -->
     <section class="cta-section">
         <div class="container">
-            <h2>Ready to 10x Your Calling Results?</h2>
-            <p>Join thousands of sales professionals who've transformed their calling process with Alure.ai</p>
+            <h2>Build a System That Books 1 Appointment Per Day</h2>
+            <p>If your sales team is spending hours researching instead of speaking to prospects, it is time to redesign the process. Book a Strategy &amp; Planning Session to see how Alure.ai fits into your B2B sales system.</p>
             
             <div class="cta-buttons">
-                <a href="#" class="btn btn-white">Start Free Trial</a>
-                <a href="pricing.html" class="btn btn-outline">View Pricing</a>
+                <a href="contact.html" class="btn btn-white">Book Your Strategy Session</a>
+                <a href="demo.html" class="btn btn-outline">Request a Demo</a>
             </div>
         </div>
     </section>
@@ -1453,7 +1555,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 Alure.ai. All rights reserved. | Transforming cold calls into revenue-generating conversations.</p>
+                <p>&copy; 2025 Alure.ai. All rights reserved. | Transforming cold outreach into warm conversations.</p>
             </div>
         </div>
     </footer>
@@ -1462,8 +1564,8 @@
     <div class="scroll-progress"></div>
 
     <!-- Floating Action Button -->
-    <button class="floating-cta" title="Start Your Free Trial">
-        🚀
+    <button class="floating-cta" title="Book a Strategy Session" onclick="window.location.href='contact.html'">
+        📞
     </button>
 
     <!-- Loading Overlay -->
@@ -1471,9 +1573,7 @@
         <div class="loading-spinner"></div>
     </div>
 
-    <!-- JavaScript for Interactive Features -->
     <script>
-        // Loading Animation
         window.addEventListener('load', function() {
             const loadingOverlay = document.getElementById('loadingOverlay');
             setTimeout(() => {
@@ -1484,7 +1584,6 @@
             }, 800);
         });
 
-        // Scroll Progress Indicator
         window.addEventListener('scroll', function() {
             const scrollProgress = document.querySelector('.scroll-progress');
             const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -1493,37 +1592,29 @@
             scrollProgress.style.width = scrollPercent + '%';
         });
 
-        // Animated Counters
         function animateCounters() {
             const counters = document.querySelectorAll('.animated-counter');
-            
             counters.forEach(counter => {
                 const target = parseInt(counter.getAttribute('data-target'));
-                const duration = 2000; // 2 seconds
+                const duration = 2000;
                 const start = performance.now();
                 
                 function updateCounter(timestamp) {
                     const elapsed = timestamp - start;
                     const progress = Math.min(elapsed / duration, 1);
-                    
-                    // Easing function for smooth animation
                     const easeOutQuart = 1 - Math.pow(1 - progress, 4);
                     const current = Math.floor(target * easeOutQuart);
-                    
                     counter.textContent = current;
-                    
                     if (progress < 1) {
                         requestAnimationFrame(updateCounter);
                     } else {
                         counter.textContent = target;
                     }
                 }
-                
                 requestAnimationFrame(updateCounter);
             });
         }
 
-        // Intersection Observer for Counter Animation
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1533,40 +1624,18 @@
             });
         }, { threshold: 0.5 });
 
-        // Observe stats section
         const statsSection = document.querySelector('.stats');
         if (statsSection) {
             statsObserver.observe(statsSection);
         }
 
-        // Floating Action Button
-        const floatingCta = document.querySelector('.floating-cta');
-        floatingCta.addEventListener('click', function() {
-            // Scroll to top or trigger CTA action
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Mobile Menu Toggle
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const navLinks = document.querySelector('.nav-links');
-
         mobileMenuToggle.addEventListener('click', function() {
             this.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
 
-        // Parallax Effect for Hero Image
-        window.addEventListener('scroll', function() {
-            const heroImage = document.querySelector('.hero-image');
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            
-            if (heroImage) {
-                heroImage.style.transform = `perspective(1000px) rotateX(10deg) translateY(${rate}px)`;
-            }
-        });
-
-        // Enhanced Button Click Effects
         document.querySelectorAll('.btn').forEach(button => {
             button.addEventListener('click', function(e) {
                 const ripple = document.createElement('span');
@@ -1574,7 +1643,6 @@
                 const size = Math.max(rect.width, rect.height);
                 const x = e.clientX - rect.left - size / 2;
                 const y = e.clientY - rect.top - size / 2;
-                
                 ripple.style.cssText = `
                     position: absolute;
                     border-radius: 50%;
@@ -1586,30 +1654,21 @@
                     width: ${size}px;
                     height: ${size}px;
                 `;
-                
                 this.style.position = 'relative';
                 this.style.overflow = 'hidden';
                 this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
+                setTimeout(() => { ripple.remove(); }, 600);
             });
         });
 
-        // Add ripple animation CSS
         const rippleStyle = document.createElement('style');
         rippleStyle.textContent = `
             @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
+                to { transform: scale(4); opacity: 0; }
             }
         `;
         document.head.appendChild(rippleStyle);
 
-        // Smooth reveal animations for elements
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1619,148 +1678,12 @@
             });
         }, { threshold: 0.1 });
 
-        // Apply reveal animation to sections
-        document.querySelectorAll('.feature-card, .testimonial, .workflow-stat').forEach(el => {
+        document.querySelectorAll('.solution-feature, .step-card, .diff-card, .audience-card, .benefit-item, .outcome-item, .funnel-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease-out';
             revealObserver.observe(el);
         });
-
-        // Performance optimization: Debounce scroll events
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        // Apply debouncing to scroll-heavy functions
-        const debouncedScrollHandler = debounce(() => {
-            // Handle scroll-based animations here if needed
-        }, 10);
-
-        window.addEventListener('scroll', debouncedScrollHandler);
-
-        // Interactive Workflow Carousel
-        class WorkflowCarousel {
-            constructor() {
-                this.currentStep = 1;
-                this.totalSteps = 5;
-                this.init();
-            }
-
-            init() {
-                this.bindEvents();
-                this.updateProgress();
-            }
-
-            bindEvents() {
-                // Step clicking
-                document.querySelectorAll('.workflow-step').forEach(step => {
-                    step.addEventListener('click', () => {
-                        const stepNumber = parseInt(step.getAttribute('data-step'));
-                        this.goToStep(stepNumber);
-                    });
-                });
-
-                // Keyboard navigation (optional - keep arrow keys for convenience)
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'ArrowLeft') this.previousStep();
-                    if (e.key === 'ArrowRight') this.nextStep();
-                });
-            }
-
-            goToStep(stepNumber) {
-                if (stepNumber < 1 || stepNumber > this.totalSteps) return;
-                
-                this.currentStep = stepNumber;
-                this.updateUI();
-                this.updateProgress();
-            }
-
-            nextStep() {
-                this.goToStep(this.currentStep + 1);
-            }
-
-            previousStep() {
-                this.goToStep(this.currentStep - 1);
-            }
-
-            updateUI() {
-                // Update step indicators
-                document.querySelectorAll('.workflow-step').forEach((step, index) => {
-                    const stepNumber = index + 1;
-                    step.classList.remove('active', 'completed');
-                    
-                    if (stepNumber === this.currentStep) {
-                        step.classList.add('active');
-                    } else if (stepNumber < this.currentStep) {
-                        step.classList.add('completed');
-                    }
-                });
-
-                // Update content
-                document.querySelectorAll('.step-content').forEach(content => {
-                    content.classList.remove('active');
-                });
-                
-                const activeContent = document.querySelector(`.step-content[data-step="${this.currentStep}"]`);
-                if (activeContent) {
-                    activeContent.classList.add('active');
-                }
-
-
-            }
-
-            updateProgress() {
-                const progressBar = document.getElementById('workflowProgress');
-                const progressPercentage = ((this.currentStep - 1) / (this.totalSteps - 1)) * 100;
-                progressBar.style.width = `${progressPercentage}%`;
-            }
-
-
-        }
-
-        // Initialize workflow carousel when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            new WorkflowCarousel();
-        });
-
-        // Enhanced intersection observer for workflow section
-        const workflowObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Add entrance animations
-                    const carousel = entry.target.querySelector('.workflow-carousel');
-                    if (carousel) {
-                        carousel.style.opacity = '1';
-                        carousel.style.transform = 'translateY(0)';
-                    }
-                }
-            });
-        }, { threshold: 0.3 });
-
-        // Observe workflow section
-        const workflowSection = document.querySelector('.process');
-        if (workflowSection) {
-            workflowObserver.observe(workflowSection);
-            
-            // Initial state
-            const carousel = workflowSection.querySelector('.workflow-carousel');
-            if (carousel) {
-                carousel.style.opacity = '0';
-                carousel.style.transform = 'translateY(30px)';
-                carousel.style.transition = 'all 0.8s ease-out';
-            }
-        }
-
-        window.addEventListener('scroll', debouncedScrollHandler);
     </script>
 </body>
 </html>
