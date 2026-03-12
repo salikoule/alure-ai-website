@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -54,6 +55,7 @@ const {
     noindex={noindex}
   />
   <ClientRouter />
+  <script defer data-domain="alure-ai.netlify.app" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <Header currentPage={currentPage} />
@@ -61,5 +63,6 @@ const {
     <slot />
   </main>
   <Footer tagline={footerTagline} />
+  <CookieConsent />
 </body>
 </html>

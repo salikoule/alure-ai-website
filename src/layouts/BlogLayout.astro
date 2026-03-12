@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import SEO from '../components/SEO.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -43,6 +44,7 @@ const { title, description, date, author, authorInitials, readTime } = Astro.pro
     "author": { "@type": "Person", "name": author },
     "publisher": { "@type": "Organization", "name": "Alure.ai" },
   })} />
+  <script defer data-domain="alure-ai.netlify.app" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -102,5 +104,6 @@ const { title, description, date, author, authorInitials, readTime } = Astro.pro
       el.textContent = String(new Date().getFullYear());
     });
   </script>
+  <CookieConsent />
 </body>
 </html>
