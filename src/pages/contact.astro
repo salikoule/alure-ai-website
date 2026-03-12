@@ -345,7 +345,7 @@ import Icon from '../components/Icon.astro';
           <h2>Send us a Message</h2>
           <p>Fill out the form below and we'll get back to you within 24 hours.</p>
 
-          <form>
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name *</label>
@@ -390,9 +390,10 @@ import Icon from '../components/Icon.astro';
               <textarea id="message" name="message" class="form-control" placeholder="Tell us about your calling challenges and goals..." required></textarea>
             </div>
 
+            <input type="hidden" name="form-name" value="contact" />
             <div style="position: absolute; left: -9999px;" aria-hidden="true">
-              <label for="website">Website</label>
-              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+              <label for="bot-field">Don't fill this out</label>
+              <input type="text" id="bot-field" name="bot-field" tabindex="-1" autocomplete="off">
             </div>
 
             <button type="submit" class="btn-submit">Send Message</button>
@@ -487,11 +488,11 @@ import Icon from '../components/Icon.astro';
 
     const form = document.querySelector('.contact-form form');
     const submitBtn = form?.querySelector('button[type="submit"]');
-    const honeypot = form?.querySelector('input[name="website"]');
 
-    form?.addEventListener('submit', (e) => {
+    form?.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      const honeypot = form.querySelector('input[name="bot-field"]');
       if (honeypot?.value) return;
 
       const formData = new FormData(form);
@@ -516,13 +517,29 @@ import Icon from '../components/Icon.astro';
         submitBtn.textContent = 'Sending...';
       }
 
-      setTimeout(() => {
-        form.innerHTML = `
-          <div style="text-align: center; padding: 3rem;">
-            <h3 style="color: #10b981; margin-bottom: 1rem; font-size: 1.5rem;">Message Sent!</h3>
-            <p style="color: #666; font-size: 1.1rem;">Thank you for reaching out. We'll get back to you within 24 hours.</p>
-          </div>`;
-      }, 1000);
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString(),
+        });
+
+        if (response.ok) {
+          form.innerHTML = `
+            <div style="text-align: center; padding: 3rem;">
+              <h3 style="color: #10b981; margin-bottom: 1rem; font-size: 1.5rem;">Message Sent!</h3>
+              <p style="color: #666; font-size: 1.1rem;">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+            </div>`;
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        }
+        alert('Something went wrong. Please try again or email us at hello@alure.ai');
+      }
     });
   </script>
 </BaseLayout>
