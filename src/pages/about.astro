@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
 ---
 <BaseLayout title="About Alure.ai" description="Meet the team behind Alure.ai — transforming cold outreach into warm conversations with AI." currentPage="about">
   <style>
@@ -368,19 +369,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="mission-grid">
         <div class="mission-card">
-          <div class="mission-icon">🎯</div>
+          <div class="mission-icon"><Icon name="target" size={32} /></div>
           <h3>Our Mission</h3>
           <p>To democratize high-performance sales calling by making AI-powered personalization accessible to businesses of all sizes, helping them build meaningful relationships and achieve predictable revenue growth.</p>
         </div>
 
         <div class="mission-card">
-          <div class="mission-icon">🔮</div>
+          <div class="mission-icon"><Icon name="lightbulb" size={32} /></div>
           <h3>Our Vision</h3>
           <p>To become the global standard for intelligent sales automation, where every business interaction is perfectly personalized, precisely timed, and genuinely valuable to both the caller and prospect.</p>
         </div>
 
         <div class="mission-card">
-          <div class="mission-icon">⚡</div>
+          <div class="mission-icon"><Icon name="zap" size={32} /></div>
           <h3>Our Impact</h3>
           <p>We've already helped thousands of sales professionals 10x their calling effectiveness, generate millions in new revenue, and transform their approach to customer engagement forever.</p>
         </div>
@@ -398,7 +399,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="team-grid">
         <div class="team-member">
-          <div class="member-photo">👨‍💼</div>
+          <div class="member-photo"><Icon name="briefcase" size={48} /></div>
           <div class="member-info">
             <div class="member-name">Chris Harasty</div>
             <div class="member-role">Founder & Director</div>
@@ -407,7 +408,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <div class="team-member">
-          <div class="member-photo">👨‍💻</div>
+          <div class="member-photo"><Icon name="cpu" size={48} /></div>
           <div class="member-info">
             <div class="member-name">Sali Koule</div>
             <div class="member-role">Founder & Director</div>
@@ -416,7 +417,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <div class="team-member">
-          <div class="member-photo">👨‍🎯</div>
+          <div class="member-photo"><Icon name="target" size={48} /></div>
           <div class="member-info">
             <div class="member-name">Kevin Refugio</div>
             <div class="member-role">Sales Director</div>
@@ -425,7 +426,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <div class="team-member">
-          <div class="member-photo">👩‍📊</div>
+          <div class="member-photo"><Icon name="bar-chart" size={48} /></div>
           <div class="member-info">
             <div class="member-name">Shafaq Batool</div>
             <div class="member-role">Learning & Development</div>
@@ -446,37 +447,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="values-grid">
         <div class="value-item">
-          <div class="value-icon">🚀</div>
+          <div class="value-icon"><Icon name="rocket" size={24} /></div>
           <h3>Innovation First</h3>
           <p>We constantly push the boundaries of what's possible in sales technology, always looking for better ways to serve our customers.</p>
         </div>
 
         <div class="value-item">
-          <div class="value-icon">🤝</div>
+          <div class="value-icon"><Icon name="users" size={24} /></div>
           <h3>Customer Obsession</h3>
           <p>Every feature, every update, every decision is made with one question: "How does this help our customers succeed?"</p>
         </div>
 
         <div class="value-item">
-          <div class="value-icon">📈</div>
+          <div class="value-icon"><Icon name="trending-up" size={24} /></div>
           <h3>Results-Driven</h3>
           <p>We measure success by our customers' success. If they're not seeing 10x improvements, we're not doing our job.</p>
         </div>
 
         <div class="value-item">
-          <div class="value-icon">🛡️</div>
+          <div class="value-icon"><Icon name="shield" size={24} /></div>
           <h3>Trust & Transparency</h3>
           <p>We build products and relationships based on honesty, reliability, and respect for our customers' data and privacy.</p>
         </div>
 
         <div class="value-item">
-          <div class="value-icon">⚡</div>
+          <div class="value-icon"><Icon name="zap" size={24} /></div>
           <h3>Continuous Learning</h3>
           <p>The sales landscape evolves rapidly. We stay ahead by constantly learning, adapting, and improving our platform.</p>
         </div>
 
         <div class="value-item">
-          <div class="value-icon">🌟</div>
+          <div class="value-icon"><Icon name="star" size={24} /></div>
           <h3>Excellence</h3>
           <p>We don't settle for "good enough." Everything we create must be exceptional and worthy of our customers' trust.</p>
         </div>

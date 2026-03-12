@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
 ---
 <BaseLayout title="Demo" description="See Alure.ai in action — watch how AI-powered research and script personalisation transforms your sales outreach." currentPage="demo">
   <style>
@@ -206,6 +207,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 0.5rem;
       color: #64748b;
       font-size: 0.9rem;
     }
@@ -308,8 +310,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="video-container">
         <div class="video-placeholder">
           <div class="play-button"></div>
-          <div style="position: absolute; bottom: 2rem; left: 2rem; font-size: 1rem;">
-            🎥 Interactive Product Demo • 3:24
+          <div style="position: absolute; bottom: 2rem; left: 2rem; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <Icon name="monitor" size={20} /> Interactive Product Demo • 3:24
           </div>
         </div>
       </div>
@@ -382,7 +384,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="screenshots-grid">
         <div class="screenshot-card">
           <div class="screenshot-image">
-            📊 Dashboard Overview
+            <Icon name="bar-chart" size={24} /> Dashboard Overview
           </div>
           <div class="screenshot-info">
             <h4>Main Dashboard</h4>
@@ -392,7 +394,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div class="screenshot-card">
           <div class="screenshot-image">
-            🤖 AI Script Editor
+            <Icon name="cpu" size={24} /> AI Script Editor
           </div>
           <div class="screenshot-info">
             <h4>Script Generation</h4>
@@ -402,7 +404,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div class="screenshot-card">
           <div class="screenshot-image">
-            📈 Analytics View
+            <Icon name="trending-up" size={24} /> Analytics View
           </div>
           <div class="screenshot-info">
             <h4>Performance Analytics</h4>
@@ -412,7 +414,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div class="screenshot-card">
           <div class="screenshot-image">
-            👥 Campaign Manager
+            <Icon name="users" size={24} /> Campaign Manager
           </div>
           <div class="screenshot-info">
             <h4>Campaign Management</h4>
@@ -422,7 +424,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div class="screenshot-card">
           <div class="screenshot-image">
-            📞 Call Interface
+            <Icon name="phone" size={24} /> Call Interface
           </div>
           <div class="screenshot-info">
             <h4>Calling Interface</h4>
@@ -432,7 +434,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div class="screenshot-card">
           <div class="screenshot-image">
-            ⚙️ Settings Panel
+            <Icon name="settings" size={24} /> Settings Panel
           </div>
           <div class="screenshot-info">
             <h4>Customization Options</h4>

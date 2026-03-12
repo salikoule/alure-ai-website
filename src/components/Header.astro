@@ -1,4 +1,6 @@
 ---
+import DarkModeToggle from './DarkModeToggle.astro';
+
 interface Props {
   currentPage?: string;
 }
@@ -20,6 +22,7 @@ const navLinks = [
   <nav class="container nav-container" aria-label="Main navigation">
     <a href="/" class="logo">Alure.ai</a>
 
+    <DarkModeToggle />
     <button
       class="mobile-menu-toggle"
       aria-label="Toggle navigation menu"

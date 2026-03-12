@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
 ---
 <BaseLayout title="Contact" description="Get in touch with the Alure.ai team. Book a strategy session or ask us anything." currentPage="contact" footerTagline="Ready to transform your calling process? Let's talk.">
   <style>
@@ -306,7 +307,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
           <div class="contact-methods">
             <div class="contact-method">
-              <div class="contact-icon">📧</div>
+              <div class="contact-icon"><Icon name="mail" size={24} /></div>
               <div class="contact-details">
                 <h4>Email Us</h4>
                 <p>hello@alure.ai</p>
@@ -314,7 +315,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
 
             <div class="contact-method">
-              <div class="contact-icon">📞</div>
+              <div class="contact-icon"><Icon name="phone" size={24} /></div>
               <div class="contact-details">
                 <h4>Call Us</h4>
                 <p>1-800-ALURE-AI (1-800-258-7324)</p>
@@ -322,7 +323,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
 
             <div class="contact-method">
-              <div class="contact-icon">💬</div>
+              <div class="contact-icon"><Icon name="message" size={24} /></div>
               <div class="contact-details">
                 <h4>Live Chat</h4>
                 <p>Available 9 AM - 6 PM EST</p>
@@ -330,7 +331,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
 
             <div class="contact-method">
-              <div class="contact-icon">🏢</div>
+              <div class="contact-icon"><Icon name="briefcase" size={24} /></div>
               <div class="contact-details">
                 <h4>Office</h4>
                 <p>San Francisco, CA</p>
@@ -348,33 +349,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name *</label>
-                <input type="text" id="firstName" class="form-control" required>
+                <input type="text" id="firstName" name="firstName" class="form-control" required>
               </div>
               <div class="form-group">
                 <label for="lastName">Last Name *</label>
-                <input type="text" id="lastName" class="form-control" required>
+                <input type="text" id="lastName" name="lastName" class="form-control" required>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="email">Email Address *</label>
-                <input type="email" id="email" class="form-control" required>
+                <input type="email" id="email" name="email" class="form-control" required>
               </div>
               <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" class="form-control">
+                <input type="tel" id="phone" name="phone" class="form-control">
               </div>
             </div>
 
             <div class="form-group">
               <label for="company">Company Name</label>
-              <input type="text" id="company" class="form-control">
+              <input type="text" id="company" name="company" class="form-control">
             </div>
 
             <div class="form-group">
               <label for="inquiry">Inquiry Type</label>
-              <select id="inquiry" class="form-control form-select">
+              <select id="inquiry" name="inquiry" class="form-control form-select">
                 <option value="">Select an option</option>
                 <option value="demo">Request a Demo</option>
                 <option value="pricing">Pricing Questions</option>
@@ -386,7 +387,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
             <div class="form-group">
               <label for="message">Message *</label>
-              <textarea id="message" class="form-control" placeholder="Tell us about your calling challenges and goals..." required></textarea>
+              <textarea id="message" name="message" class="form-control" placeholder="Tell us about your calling challenges and goals..." required></textarea>
+            </div>
+
+            <div style="position: absolute; left: -9999px;" aria-hidden="true">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
             </div>
 
             <button type="submit" class="btn-submit">Send Message</button>
@@ -479,9 +485,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       });
     });
 
-    document.querySelector('form').addEventListener('submit', function(e) {
+    const form = document.querySelector('.contact-form form');
+    const submitBtn = form?.querySelector('button[type="submit"]');
+    const honeypot = form?.querySelector('input[name="website"]');
+
+    form?.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+
+      if (honeypot?.value) return;
+
+      const formData = new FormData(form);
+      const firstName = formData.get('firstName')?.toString().trim();
+      const lastName = formData.get('lastName')?.toString().trim();
+      const email = formData.get('email')?.toString().trim();
+      const message = formData.get('message')?.toString().trim();
+
+      if (!firstName || !lastName || !email || !message) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      setTimeout(() => {
+        form.innerHTML = `
+          <div style="text-align: center; padding: 3rem;">
+            <h3 style="color: #10b981; margin-bottom: 1rem; font-size: 1.5rem;">Message Sent!</h3>
+            <p style="color: #666; font-size: 1.1rem;">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+          </div>`;
+      }, 1000);
     });
   </script>
 </BaseLayout>

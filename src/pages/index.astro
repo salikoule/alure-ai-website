@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
 ---
 
 <BaseLayout title="Alure.ai - Automatically Turn Cold Outreach Into Warm Conversations" description="Alure.ai automatically conducts research and script personalisation — saving 4-5 hours per day per sales rep." currentPage="home">
@@ -1078,23 +1079,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </div>
               <div class="problem-visual">
                   <div class="pain-point">
-                      <div class="pain-icon">📉</div>
+                      <div class="pain-icon"><Icon name="chart-down" size={24} /></div>
                       <p>Cold outreach response rates below 1%</p>
                   </div>
                   <div class="pain-point">
-                      <div class="pain-icon">⏰</div>
+                      <div class="pain-icon"><Icon name="clock" size={24} /></div>
                       <p>4-5 hours per day spent on manual research</p>
                   </div>
                   <div class="pain-point">
-                      <div class="pain-icon">🚫</div>
+                      <div class="pain-icon"><Icon name="block" size={24} /></div>
                       <p>LinkedIn limits your outreach volume</p>
                   </div>
                   <div class="pain-point">
-                      <div class="pain-icon">🎲</div>
+                      <div class="pain-icon"><Icon name="dice" size={24} /></div>
                       <p>Sales performance depends on luck, not systems</p>
                   </div>
                   <div class="pain-point">
-                      <div class="pain-icon">😓</div>
+                      <div class="pain-icon"><Icon name="tired" size={24} /></div>
                       <p>Reps spend more time preparing than selling</p>
                   </div>
               </div>
@@ -1139,27 +1140,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
               <div class="solution-features">
                   <div class="solution-feature">
-                      <div class="solution-feature-icon">🔍</div>
+                      <div class="solution-feature-icon"><Icon name="search" size={20} /></div>
                       <p>Analyses LinkedIn profiles</p>
                   </div>
                   <div class="solution-feature">
-                      <div class="solution-feature-icon">🌐</div>
+                      <div class="solution-feature-icon"><Icon name="globe" size={20} /></div>
                       <p>Reviews company websites</p>
                   </div>
                   <div class="solution-feature">
-                      <div class="solution-feature-icon">📊</div>
+                      <div class="solution-feature-icon"><Icon name="bar-chart" size={20} /></div>
                       <p>Extracts relevant business insights</p>
                   </div>
                   <div class="solution-feature">
-                      <div class="solution-feature-icon">🎯</div>
+                      <div class="solution-feature-icon"><Icon name="target" size={20} /></div>
                       <p>Identifies potential operational challenges</p>
                   </div>
                   <div class="solution-feature">
-                      <div class="solution-feature-icon">📝</div>
+                      <div class="solution-feature-icon"><Icon name="edit" size={20} /></div>
                       <p>Generates personalised warm call scripts</p>
                   </div>
                   <div class="solution-feature">
-                      <div class="solution-feature-icon">🏗️</div>
+                      <div class="solution-feature-icon"><Icon name="layers" size={20} /></div>
                       <p>Structures conversations using a proven sales framework</p>
                   </div>
               </div>
@@ -1357,23 +1358,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
           <div class="audience-grid">
               <div class="audience-card">
-                  <div class="audience-icon">💻</div>
+                  <div class="audience-icon"><Icon name="cpu" size={32} /></div>
                   <h3>IT Service Providers</h3>
               </div>
               <div class="audience-card">
-                  <div class="audience-icon">🖥️</div>
+                  <div class="audience-icon"><Icon name="server" size={32} /></div>
                   <h3>Managed Service Providers</h3>
               </div>
               <div class="audience-card">
-                  <div class="audience-icon">🚀</div>
+                  <div class="audience-icon"><Icon name="rocket" size={32} /></div>
                   <h3>Software Companies</h3>
               </div>
               <div class="audience-card">
-                  <div class="audience-icon">📋</div>
+                  <div class="audience-icon"><Icon name="clipboard" size={32} /></div>
                   <h3>Professional Service Firms</h3>
               </div>
               <div class="audience-card">
-                  <div class="audience-icon">📞</div>
+                  <div class="audience-icon"><Icon name="phone" size={32} /></div>
                   <h3>B2B Sales Teams Booking First Appointments</h3>
               </div>
           </div>
@@ -1393,19 +1394,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
               <div class="outcome-grid">
                   <div class="outcome-item">
-                      <div class="outcome-icon">📈</div>
+                      <div class="outcome-icon"><Icon name="trending-up" size={20} /></div>
                       <p>Revenue becomes more stable</p>
                   </div>
                   <div class="outcome-item">
-                      <div class="outcome-icon">🔗</div>
+                      <div class="outcome-icon"><Icon name="link" size={20} /></div>
                       <p>Dependence on a few clients reduces</p>
                   </div>
                   <div class="outcome-item">
-                      <div class="outcome-icon">💪</div>
+                      <div class="outcome-icon"><Icon name="zap" size={20} /></div>
                       <p>Negotiating power increases</p>
                   </div>
                   <div class="outcome-item">
-                      <div class="outcome-icon">🎯</div>
+                      <div class="outcome-icon"><Icon name="target" size={20} /></div>
                       <p>Growth becomes intentional</p>
                   </div>
               </div>
@@ -1534,5 +1535,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           el.style.transition = 'all 0.6s ease-out';
           revealObserver.observe(el);
       });
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Alure.ai",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "AI-powered sales outreach automation that turns cold leads into warm conversations.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
   </script>
 </BaseLayout>
