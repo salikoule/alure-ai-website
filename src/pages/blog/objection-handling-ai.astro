@@ -12,7 +12,7 @@ import Icon from '../../components/Icon.astro';
 >
   <style>
     .objection-framework {
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      background: var(--gradient-bg);
       border-radius: 16px;
       padding: 2rem;
       margin: 3rem 0;
@@ -22,7 +22,7 @@ import Icon from '../../components/Icon.astro';
     .framework-title {
       font-size: 1.5rem;
       font-weight: 700;
-      color: #1a1a1a;
+      color: var(--text);
       margin-bottom: 1.5rem;
       text-align: center;
       display: flex;
@@ -46,7 +46,7 @@ import Icon from '../../components/Icon.astro';
     }
 
     .step-number {
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      background: var(--gradient-primary);
       color: white;
       width: 40px;
       height: 40px;
@@ -60,18 +60,18 @@ import Icon from '../../components/Icon.astro';
 
     .step-title {
       font-weight: 700;
-      color: #6366f1;
+      color: var(--primary);
       margin-bottom: 0.5rem;
     }
 
     .step-desc {
       font-size: 0.9rem;
-      color: #666;
+      color: var(--text-secondary);
     }
 
     .objection-scenario {
       background: white;
-      border: 1px solid #e5e7eb;
+      border: 1px solid var(--border);
       border-radius: 12px;
       margin: 2rem 0;
       overflow: hidden;
@@ -79,7 +79,7 @@ import Icon from '../../components/Icon.astro';
     }
 
     .scenario-header {
-      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      background: linear-gradient(135deg, var(--error) 0%, #dc2626 100%);
       color: white;
       padding: 1.5rem;
       font-weight: 700;
@@ -92,7 +92,7 @@ import Icon from '../../components/Icon.astro';
 
     .objection-text {
       background: #fef2f2;
-      border-left: 4px solid #ef4444;
+      border-left: 4px solid var(--error);
       padding: 1rem;
       margin: 1rem 0;
       border-radius: 8px;
@@ -125,7 +125,7 @@ import Icon from '../../components/Icon.astro';
       padding: 1rem;
       border-radius: 8px;
       margin-bottom: 1rem;
-      border-left: 4px solid #ef4444;
+      border-left: 4px solid var(--error);
     }
 
     .psychology-insight {
@@ -154,7 +154,7 @@ import Icon from '../../components/Icon.astro';
 
     .technique-card {
       background: white;
-      border: 1px solid #e5e7eb;
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 2rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -162,7 +162,7 @@ import Icon from '../../components/Icon.astro';
 
     .technique-title {
       font-weight: 700;
-      color: #6366f1;
+      color: var(--primary);
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
@@ -180,7 +180,7 @@ import Icon from '../../components/Icon.astro';
     }
 
     .comparison-table th {
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      background: var(--gradient-primary);
       color: white;
       padding: 1rem;
       text-align: left;
@@ -189,7 +189,7 @@ import Icon from '../../components/Icon.astro';
 
     .comparison-table td {
       padding: 1rem;
-      border-bottom: 1px solid #e5e7eb;
+      border-bottom: 1px solid var(--border);
       vertical-align: top;
     }
 

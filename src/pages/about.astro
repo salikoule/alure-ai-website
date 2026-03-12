@@ -4,28 +4,12 @@ import Icon from '../components/Icon.astro';
 ---
 <BaseLayout title="About Alure.ai" description="Meet the team behind Alure.ai — transforming cold outreach into warm conversations with AI." currentPage="about">
   <style>
-    /* About Hero */
-    .about-hero {
-      padding: 8rem 0 4rem;
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-      text-align: center;
-    }
-
-    .about-hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
+    .page-hero h1 {
       margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, #1a1a1a 0%, #6366f1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
 
-    .about-hero p {
-      font-size: 1.25rem;
-      color: #666;
+    .page-hero p {
       max-width: 700px;
-      margin: 0 auto;
     }
 
     /* Story Section */
@@ -45,12 +29,12 @@ import Icon from '../components/Icon.astro';
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
-      color: #1a1a1a;
+      color: var(--text);
     }
 
     .story-text p {
       font-size: 1.125rem;
-      color: #666;
+      color: var(--text-secondary);
       margin-bottom: 1.5rem;
       line-height: 1.8;
     }
@@ -76,7 +60,7 @@ import Icon from '../components/Icon.astro';
     /* Mission Section */
     .mission-section {
       padding: 6rem 0;
-      background: #f8fafc;
+      background: var(--bg-subtle);
     }
 
     .mission-grid {
@@ -90,8 +74,8 @@ import Icon from '../components/Icon.astro';
       padding: 3rem;
       border-radius: 16px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      border: 1px solid #f1f5f9;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-light);
       transition: transform 0.3s ease;
     }
 
@@ -102,7 +86,7 @@ import Icon from '../components/Icon.astro';
     .mission-icon {
       width: 80px;
       height: 80px;
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      background: var(--gradient-primary);
       border-radius: 16px;
       display: flex;
       align-items: center;
@@ -116,35 +100,17 @@ import Icon from '../components/Icon.astro';
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 1rem;
-      color: #1a1a1a;
+      color: var(--text);
     }
 
     .mission-card p {
-      color: #666;
+      color: var(--text-secondary);
       line-height: 1.6;
     }
 
     /* Team Section */
     .team-section {
       padding: 6rem 0;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-header h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .section-header p {
-      font-size: 1.125rem;
-      color: #666;
-      max-width: 600px;
-      margin: 0 auto;
     }
 
     .team-grid {
@@ -157,8 +123,8 @@ import Icon from '../components/Icon.astro';
       background: white;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      border: 1px solid #f1f5f9;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-light);
       transition: transform 0.3s ease;
       text-align: center;
     }
@@ -170,7 +136,7 @@ import Icon from '../components/Icon.astro';
     .member-photo {
       width: 100%;
       height: 280px;
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      background: var(--gradient-primary);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -186,17 +152,17 @@ import Icon from '../components/Icon.astro';
       font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
-      color: #1a1a1a;
+      color: var(--text);
     }
 
     .member-role {
-      color: #6366f1;
+      color: var(--primary);
       font-weight: 600;
       margin-bottom: 1rem;
     }
 
     .member-bio {
-      color: #666;
+      color: var(--text-secondary);
       font-size: 0.95rem;
       line-height: 1.6;
     }
@@ -204,7 +170,7 @@ import Icon from '../components/Icon.astro';
     /* Stats Section */
     .stats-section {
       padding: 6rem 0;
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      background: var(--gradient-primary);
       color: white;
       text-align: center;
     }
@@ -250,7 +216,7 @@ import Icon from '../components/Icon.astro';
     .value-icon {
       width: 60px;
       height: 60px;
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      background: var(--gradient-primary);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -267,15 +233,16 @@ import Icon from '../components/Icon.astro';
     }
 
     .value-item p {
-      color: #666;
+      color: var(--text-secondary);
       line-height: 1.6;
     }
 
-    /* CTA Section */
     .cta-section {
-      padding: 6rem 0;
-      background: #f8fafc;
-      text-align: center;
+      background: var(--bg-subtle);
+    }
+
+    .cta-section p {
+      color: var(--text-secondary);
     }
 
     .cta-content {
@@ -283,41 +250,8 @@ import Icon from '../components/Icon.astro';
       margin: 0 auto;
     }
 
-    .cta-section h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .cta-section p {
-      font-size: 1.125rem;
-      color: #666;
-      margin-bottom: 2rem;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .btn-secondary {
-      background: white;
-      color: #6366f1;
-      border: 2px solid #6366f1;
-    }
-
-    .btn-secondary:hover {
-      background: #6366f1;
-      color: white;
-    }
-
     /* Responsive Design */
     @media (max-width: 768px) {
-      .about-hero h1 {
-        font-size: 2.5rem;
-      }
-
       .story-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -326,16 +260,11 @@ import Icon from '../components/Icon.astro';
       .story-text h2 {
         font-size: 2rem;
       }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
     }
   </style>
 
   <!-- About Hero -->
-  <section class="about-hero">
+  <section class="page-hero">
     <div class="container">
       <h1>Transforming Sales Through AI Innovation</h1>
       <p>We're on a mission to revolutionize how businesses approach cold calling by combining cutting-edge artificial intelligence with proven sales methodologies to create the most effective calling automation platform in the world.</p>
@@ -353,7 +282,7 @@ import Icon from '../components/Icon.astro';
           <p>That insight became Alure.ai: a platform that combines a proven B2B sales methodology with AI-powered research and script generation, helping sales teams book more qualified appointments every day.</p>
         </div>
         <div class="story-image">
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern office with diverse team collaborating" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern office with diverse team collaborating" width="1000" height="667" loading="lazy" />
         </div>
       </div>
     </div>

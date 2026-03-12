@@ -4,8 +4,8 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
 <BlogLayout title="10 Proven Call Scripts That Convert Prospects into Customers" description="Learn the exact frameworks and scripts our most successful customers use to achieve 20%+ appointment booking rates consistently." date="2026-02-15" author="Kevin Refugio" authorInitials="KR" readTime="11 min read">
   <style>
     .script-box {
-      background: #f8fafc;
-      border: 1px solid #e5e7eb;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 2rem;
       margin: 2rem 0;
@@ -16,7 +16,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
       position: absolute;
       top: -15px;
       left: 20px;
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      background: var(--gradient-primary);
       color: white;
       width: 30px;
       height: 30px;
@@ -32,14 +32,14 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
       font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 1rem;
-      color: #6366f1;
+      color: var(--primary);
     }
 
     .script-content {
       background: white;
       padding: 1.5rem;
       border-radius: 8px;
-      border-left: 4px solid #6366f1;
+      border-left: 4px solid var(--primary);
       font-style: italic;
       margin: 1rem 0;
     }
@@ -73,13 +73,13 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     .stat-number {
       font-size: 1.5rem;
       font-weight: 700;
-      color: #6366f1;
+      color: var(--primary);
       display: block;
     }
 
     .stat-label {
       font-size: 0.8rem;
-      color: #666;
+      color: var(--text-secondary);
     }
 
     @media (max-width: 768px) {

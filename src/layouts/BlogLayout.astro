@@ -1,8 +1,5 @@
 ---
-import Header from '../components/Header.astro';
-import SEO from '../components/SEO.astro';
-import CookieConsent from '../components/CookieConsent.astro';
-import '../styles/global.css';
+import BaseLayout from './BaseLayout.astro';
 
 interface Props {
   title: string;
@@ -16,25 +13,14 @@ interface Props {
 const { title, description, date, author, authorInitials, readTime } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <SEO
-    title={title}
-    description={description}
-    ogType="article"
-    articleDate={date}
-    articleAuthor={author}
-  />
+<BaseLayout
+  title={title}
+  description={description}
+  currentPage="blog"
+  ogType="article"
+  articleDate={date}
+  articleAuthor={author}
+>
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -44,23 +30,45 @@ const { title, description, date, author, authorInitials, readTime } = Astro.pro
     "author": { "@type": "Person", "name": author },
     "publisher": { "@type": "Organization", "name": "Alure.ai" },
   })} />
-  <script defer data-domain="alure-ai.netlify.app" src="https://plausible.io/js/script.js"></script>
-</head>
-<body>
-  <header class="site-header">
-    <nav class="container nav-container" aria-label="Blog navigation">
-      <a href="/" class="logo">Alure.ai</a>
-      <div class="blog-nav-actions">
-        <a href="/blog" class="btn-back">&larr; Back to Blog</a>
-        <a href="https://app.alure.ai" class="btn-back">Login</a>
-        <a href="https://app.alure.ai" class="btn btn-primary btn-sm">Sign Up</a>
-      </div>
-    </nav>
-  </header>
 
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <style>
+    .blog-subheader {
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 0;
+    }
 
-  <main id="main-content" class="article-content">
+    .blog-subheader-inner {
+      max-width: 800px;
+      margin-inline: auto;
+      padding-inline: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .blog-subheader a {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .blog-subheader a:hover {
+      text-decoration: underline;
+    }
+
+    .article-wrapper {
+      padding: 4rem 0;
+    }
+  </style>
+
+  <div class="blog-subheader">
+    <div class="blog-subheader-inner">
+      <a href="/blog">&larr; Back to Blog</a>
+    </div>
+  </div>
+
+  <div class="article-wrapper">
     <div class="container container--narrow">
       <header class="article-header">
         <div class="article-meta">
@@ -85,25 +93,5 @@ const { title, description, date, author, authorInitials, readTime } = Astro.pro
         <a href="/contact" class="btn btn-white">Book a Strategy Session</a>
       </div>
     </div>
-  </main>
-
-  <footer class="blog-footer">
-    <div class="container container--narrow">
-      <div class="blog-footer-links">
-        <a href="/blog">&larr; Back to Blog</a>
-        <a href="/">Home</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/contact">Contact</a>
-      </div>
-      <p class="footer-text">&copy; <span class="current-year"></span> Alure.ai. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script>
-    document.querySelectorAll('.current-year').forEach(el => {
-      el.textContent = String(new Date().getFullYear());
-    });
-  </script>
-  <CookieConsent />
-</body>
-</html>
+  </div>
+</BaseLayout>

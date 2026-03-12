@@ -14,7 +14,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .error-code {
       font-size: 8rem;
       font-weight: 700;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -25,10 +25,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       font-size: 1.75rem;
       font-weight: 600;
       margin-bottom: 1rem;
-      color: #1a1a1a;
+      color: var(--text);
     }
     .error-text {
-      color: #666;
+      color: var(--text-secondary);
       font-size: 1.125rem;
       margin-bottom: 2rem;
       max-width: 450px;
@@ -53,9 +53,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       cursor: pointer;
     }
     .btn-primary {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      background: var(--gradient-primary);
       color: white;
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+      box-shadow: var(--shadow-primary);
     }
     .btn-primary:hover {
       transform: translateY(-2px);
@@ -63,11 +63,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
     .btn-secondary {
       background: white;
-      color: #6366f1;
-      border: 2px solid #6366f1;
+      color: var(--primary);
+      border: 2px solid var(--primary);
     }
     .btn-secondary:hover {
-      background: #6366f1;
+      background: var(--primary);
       color: white;
     }
   </style>

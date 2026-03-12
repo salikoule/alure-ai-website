@@ -12,14 +12,14 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
   <style>
     .highlight-box {
       background: #f0f9ff;
-      border-left: 4px solid #6366f1;
+      border-left: 4px solid var(--primary);
       padding: 1.5rem;
       margin: 2rem 0;
       border-radius: 8px;
     }
 
     .highlight-box h4 {
-      color: #6366f1;
+      color: var(--primary);
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
@@ -37,19 +37,19 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
       border-radius: 12px;
       text-align: center;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      border: 1px solid #e5e7eb;
+      border: 1px solid var(--border);
     }
 
     .stat-number {
       font-size: 2rem;
       font-weight: 700;
-      color: #6366f1;
+      color: var(--primary);
       display: block;
       margin-bottom: 0.5rem;
     }
 
     .stat-label {
-      color: #666;
+      color: var(--text-secondary);
       font-size: 0.9rem;
     }
 

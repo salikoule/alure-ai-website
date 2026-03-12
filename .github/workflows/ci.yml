@@ -52,10 +52,9 @@ jobs:
 
       - name: Run Lighthouse
         run: |
-          lhci autorun --collect.staticDistDir=./dist --collect.url=http://localhost/index.html --collect.url=http://localhost/pricing.html --collect.url=http://localhost/blog.html --assert.preset=lighthouse:recommended --assert.assertions.csp-xss=off --assert.assertions.unused-javascript=off --assert.assertions.render-blocking-resources=off --assert.assertions.uses-responsive-images=off --upload.target=temporary-public-storage
+          lhci autorun --collect.staticDistDir=./dist --collect.url=http://localhost/index.html --collect.url=http://localhost/pricing.html --collect.url=http://localhost/blog.html --upload.target=temporary-public-storage
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-        continue-on-error: true
 
   html-validate:
     needs: build
@@ -79,4 +78,4 @@ jobs:
 
       - name: Validate HTML
         run: |
-          html-validate "dist/**/*.html" --config '{"extends":["html-validate:recommended"],"rules":{"no-trailing-whitespace":"off","attr-quotes":"off","void-style":"off","no-inline-style":"off","script-type":"off","no-raw-characters":"off","element-permitted-content":"off","svg-focusable":"off"}}' || true
+          html-validate "dist/**/*.html" --config '{"extends":["html-validate:recommended"],"rules":{"no-trailing-whitespace":"off","attr-quotes":"off","void-style":"off","no-inline-style":"off","script-type":"off","no-raw-characters":"off","element-permitted-content":"off","svg-focusable":"off"}}'

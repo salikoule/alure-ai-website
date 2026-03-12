@@ -5,86 +5,10 @@ import Icon from '../components/Icon.astro';
 
 <BaseLayout title="Alure.ai - Automatically Turn Cold Outreach Into Warm Conversations" description="Alure.ai automatically conducts research and script personalisation — saving 4-5 hours per day per sales rep." currentPage="home">
   <style>
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    .btn {
-        padding: 0.75rem 1.5rem;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        border: none;
-        cursor: pointer;
-        display: inline-block;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.5s ease;
-    }
-
-    .btn:hover::before {
-        left: 100%;
-    }
-
-    .btn-primary {
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-        color: white;
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-        font-weight: 700;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        letter-spacing: 0.5px;
-    }
-
-    .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
-    }
-
-    .btn-secondary {
-        background: white;
-        color: #6366f1;
-        border: 2px solid #6366f1;
-    }
-
-    .btn-secondary:hover {
-        background: #6366f1;
-        color: white;
-    }
-
-    .btn-white {
-        background: white;
-        color: #6366f1;
-    }
-
-    .btn-outline {
-        background: transparent;
-        color: white;
-        border: 2px solid white;
-    }
-
-    .btn-outline:hover {
-        background: white;
-        color: #6366f1;
-    }
-
     /* Hero Section */
     .hero {
         padding: 8rem 0 4rem;
-        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        background: var(--gradient-bg);
         text-align: center;
         position: relative;
         overflow: hidden;
@@ -100,7 +24,7 @@ import Icon from '../components/Icon.astro';
         font-weight: 700;
         margin-bottom: 1.5rem;
         line-height: 1.1;
-        background: linear-gradient(135deg, #1a1a1a 0%, #6366f1 100%);
+        background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -108,7 +32,7 @@ import Icon from '../components/Icon.astro';
 
     .hero p {
         font-size: 1.25rem;
-        color: #666;
+        color: var(--text-secondary);
         margin-bottom: 2.5rem;
         max-width: 650px;
         margin-left: auto;
@@ -186,36 +110,17 @@ import Icon from '../components/Icon.astro';
     .stat-number {
         font-size: 2.5rem;
         font-weight: 700;
-        color: #6366f1;
+        color: var(--primary);
         display: block;
     }
 
     .stat-label {
-        color: #666;
+        color: var(--text-secondary);
         font-weight: 500;
     }
 
     .animated-counter {
         display: inline-block;
-    }
-
-    /* Section Styles */
-    .section-header {
-        text-align: center;
-        margin-bottom: 4rem;
-    }
-
-    .section-header h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-    }
-
-    .section-header p {
-        font-size: 1.125rem;
-        color: #666;
-        max-width: 700px;
-        margin: 0 auto;
     }
 
     /* Problem Section */
@@ -237,13 +142,13 @@ import Icon from '../components/Icon.astro';
 
     .problem-content p {
         font-size: 1.125rem;
-        color: #555;
+        color: var(--text-secondary);
         line-height: 1.8;
         margin-bottom: 1.5rem;
     }
 
     .problem-content .highlight {
-        color: #6366f1;
+        color: var(--primary);
         font-weight: 600;
     }
 
@@ -251,7 +156,7 @@ import Icon from '../components/Icon.astro';
         background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
         padding: 1.5rem 2rem;
         border-radius: 12px;
-        border-left: 4px solid #f59e0b;
+        border-left: 4px solid var(--warning);
         margin: 2rem 0;
         font-weight: 500;
         color: #92400e;
@@ -271,7 +176,7 @@ import Icon from '../components/Icon.astro';
         background: white;
         border-radius: 12px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-        border-left: 4px solid #ef4444;
+        border-left: 4px solid var(--error);
         transition: all 0.3s ease;
     }
 
@@ -289,14 +194,14 @@ import Icon from '../components/Icon.astro';
     .pain-point p {
         margin: 0;
         font-weight: 500;
-        color: #333;
+        color: var(--text);
         font-size: 0.95rem;
     }
 
     /* Shift Section */
     .shift-section {
         padding: 6rem 0;
-        background: #f8fafc;
+        background: var(--bg-subtle);
     }
 
     .shift-content {
@@ -306,7 +211,7 @@ import Icon from '../components/Icon.astro';
 
     .shift-content p {
         font-size: 1.125rem;
-        color: #555;
+        color: var(--text-secondary);
         line-height: 1.8;
         margin-bottom: 1.5rem;
     }
@@ -348,7 +253,7 @@ import Icon from '../components/Icon.astro';
     }
 
     .comparison-card p {
-        color: #555;
+        color: var(--text-secondary);
         font-size: 0.95rem;
     }
 
@@ -379,7 +284,7 @@ import Icon from '../components/Icon.astro';
 
     .solution-content > p {
         font-size: 1.125rem;
-        color: #555;
+        color: var(--text-secondary);
         line-height: 1.8;
         margin-bottom: 1.5rem;
         text-align: center;
@@ -396,8 +301,8 @@ import Icon from '../components/Icon.astro';
         background: white;
         padding: 1.5rem;
         border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        border: 1px solid #f1f5f9;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-light);
         display: flex;
         align-items: flex-start;
         gap: 1rem;
@@ -413,7 +318,7 @@ import Icon from '../components/Icon.astro';
         width: 40px;
         height: 40px;
         min-width: 40px;
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        background: var(--gradient-primary);
         border-radius: 10px;
         display: flex;
         align-items: center;
@@ -422,7 +327,7 @@ import Icon from '../components/Icon.astro';
     }
 
     .solution-feature p {
-        color: #333;
+        color: var(--text);
         font-weight: 500;
     }
 
@@ -437,9 +342,9 @@ import Icon from '../components/Icon.astro';
     .solution-result {
         text-align: center;
         padding: 1.5rem 2.5rem;
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        background: var(--gradient-primary);
         border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        box-shadow: var(--shadow-primary);
         transition: all 0.3s ease;
     }
 
@@ -508,7 +413,7 @@ import Icon from '../components/Icon.astro';
     .step-number {
         width: 50px;
         height: 50px;
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        background: var(--gradient-primary);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -546,7 +451,7 @@ import Icon from '../components/Icon.astro';
         content: '\2192';
         position: absolute;
         left: 0;
-        color: #8b5cf6;
+        color: var(--primary-light);
     }
 
     /* Benefits Section */
@@ -561,7 +466,7 @@ import Icon from '../components/Icon.astro';
 
     .benefits-content > p {
         font-size: 1.125rem;
-        color: #555;
+        color: var(--text-secondary);
         line-height: 1.8;
         text-align: center;
         margin-bottom: 2rem;
@@ -580,7 +485,7 @@ import Icon from '../components/Icon.astro';
         background: white;
         border-radius: 12px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-        border: 1px solid #f1f5f9;
+        border: 1px solid var(--border-light);
         transition: all 0.3s ease;
     }
 
@@ -592,13 +497,13 @@ import Icon from '../components/Icon.astro';
     .benefit-number {
         font-size: 2rem;
         font-weight: 700;
-        color: #6366f1;
+        color: var(--primary);
         display: block;
         margin-bottom: 0.5rem;
     }
 
     .benefit-label {
-        color: #555;
+        color: var(--text-secondary);
         font-weight: 500;
         font-size: 0.95rem;
     }
@@ -639,7 +544,7 @@ import Icon from '../components/Icon.astro';
     .perf-card.referral-rate .rate { color: #16a34a; }
 
     .perf-card .rate-label {
-        color: #555;
+        color: var(--text-secondary);
         font-weight: 500;
         margin-top: 0.5rem;
     }
@@ -655,13 +560,13 @@ import Icon from '../components/Icon.astro';
     .benefit-goal p {
         font-size: 1.25rem;
         font-weight: 600;
-        color: #6366f1;
+        color: var(--primary);
     }
 
     /* Commercial Impact Section */
     .commercial-section {
         padding: 6rem 0;
-        background: #f8fafc;
+        background: var(--bg-subtle);
     }
 
     .commercial-content {
@@ -671,7 +576,7 @@ import Icon from '../components/Icon.astro';
 
     .commercial-content > p {
         font-size: 1.125rem;
-        color: #555;
+        color: var(--text-secondary);
         line-height: 1.8;
         text-align: center;
         margin-bottom: 1.5rem;
@@ -700,7 +605,7 @@ import Icon from '../components/Icon.astro';
         top: 50%;
         transform: translateY(-50%);
         font-size: 1.5rem;
-        color: #6366f1;
+        color: var(--primary);
     }
 
     .funnel-item:last-child::after {
@@ -710,12 +615,12 @@ import Icon from '../components/Icon.astro';
     .funnel-number {
         font-size: 2.5rem;
         font-weight: 700;
-        color: #6366f1;
+        color: var(--primary);
         display: block;
     }
 
     .funnel-label {
-        color: #555;
+        color: var(--text-secondary);
         font-weight: 500;
     }
 
@@ -725,12 +630,12 @@ import Icon from '../components/Icon.astro';
         padding: 2rem;
         background: white;
         border-radius: 12px;
-        border: 2px solid #e0e7ff;
+        border: 2px solid var(--border);
     }
 
     .commercial-note p {
         font-size: 1.1rem;
-        color: #333;
+        color: var(--text);
         font-weight: 500;
     }
 
@@ -750,8 +655,8 @@ import Icon from '../components/Icon.astro';
         background: white;
         padding: 2rem;
         border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        border: 1px solid #f1f5f9;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-light);
         transition: all 0.3s ease;
     }
 
@@ -764,18 +669,18 @@ import Icon from '../components/Icon.astro';
         font-size: 1.15rem;
         font-weight: 600;
         margin-bottom: 0.75rem;
-        color: #6366f1;
+        color: var(--primary);
     }
 
     .diff-card p {
-        color: #555;
+        color: var(--text-secondary);
         line-height: 1.6;
     }
 
     /* Who It's For Section */
     .audience-section {
         padding: 6rem 0;
-        background: #f8fafc;
+        background: var(--bg-subtle);
     }
 
     .audience-grid {
@@ -791,7 +696,7 @@ import Icon from '../components/Icon.astro';
         border-radius: 12px;
         text-align: center;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-        border: 1px solid #f1f5f9;
+        border: 1px solid var(--border-light);
         transition: all 0.3s ease;
     }
 
@@ -809,7 +714,7 @@ import Icon from '../components/Icon.astro';
     .audience-card h3 {
         font-size: 1.1rem;
         font-weight: 600;
-        color: #1a1a1a;
+        color: var(--text);
     }
 
     .audience-note {
@@ -817,7 +722,7 @@ import Icon from '../components/Icon.astro';
         max-width: 700px;
         margin: 0 auto;
         font-size: 1.125rem;
-        color: #555;
+        color: var(--text-secondary);
     }
 
     /* Strategic Outcome Section */
@@ -832,7 +737,7 @@ import Icon from '../components/Icon.astro';
 
     .strategic-content > p {
         font-size: 1.125rem;
-        color: #555;
+        color: var(--text-secondary);
         line-height: 1.8;
         text-align: center;
         margin-bottom: 1.5rem;
@@ -864,7 +769,7 @@ import Icon from '../components/Icon.astro';
         width: 50px;
         height: 50px;
         min-width: 50px;
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        background: var(--gradient-primary);
         border-radius: 12px;
         display: flex;
         align-items: center;
@@ -874,7 +779,7 @@ import Icon from '../components/Icon.astro';
 
     .outcome-item p {
         font-weight: 500;
-        color: #333;
+        color: var(--text);
     }
 
     .strategic-closing {
@@ -889,47 +794,6 @@ import Icon from '../components/Icon.astro';
         font-size: 1.15rem;
         font-weight: 500;
         color: #4c1d95;
-    }
-
-    /* CTA Section */
-    .cta-section {
-        padding: 6rem 0;
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-        color: white;
-        text-align: center;
-    }
-
-    .cta-section h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-    }
-
-    .cta-section p {
-        font-size: 1.125rem;
-        margin-bottom: 2rem;
-        opacity: 0.9;
-        max-width: 650px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .cta-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-    }
-
-    /* Scroll Progress */
-    .scroll-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 3px;
-        background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
-        z-index: 9999;
-        transition: width 0.1s ease;
     }
 
     /* Responsive */
@@ -971,14 +835,6 @@ import Icon from '../components/Icon.astro';
             grid-template-columns: repeat(2, 1fr);
         }
 
-        .cta-buttons {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .section-header h2 {
-            font-size: 2rem;
-        }
     }
   </style>
 
@@ -999,7 +855,7 @@ import Icon from '../components/Icon.astro';
           </div>
 
           <div class="hero-image">
-              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Modern sales team using AI-powered tools to prepare personalised outreach" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Modern sales team using AI-powered tools to prepare personalised outreach" width="2070" height="1380" loading="lazy">
           </div>
 
           <div class="stats">
@@ -1131,7 +987,7 @@ import Icon from '../components/Icon.astro';
                   </div>
               </div>
 
-              <p style="text-align: center; font-weight: 600; font-size: 1.2rem; color: #333;">Saving your BDM at least half a day every day. Every call is automatically prepared.</p>
+              <p style="text-align: center; font-weight: 600; font-size: 1.2rem; color: var(--text);">Saving your BDM at least half a day every day. Every call is automatically prepared.</p>
 
               <div class="solution-results">
                   <div class="solution-result">
