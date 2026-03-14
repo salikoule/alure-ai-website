@@ -6,7 +6,7 @@ import { BOOKING_URL } from '../config';
 import heroScreenshot from '../assets/images/hero-screenshot.png';
 ---
 
-<BaseLayout title="Alure.ai - Automatically Turn Cold Outreach Into Warm Conversations" description="Alure.ai automatically conducts research and script personalisation — saving 4-5 hours per day per sales rep." currentPage="home">
+<BaseLayout title="Alure.ai - Book 1 Qualified B2B Appointment Per Day" description="Alure.ai automatically researches prospects and generates personalised warm call scripts — saving 4-5 hours per day per sales rep." currentPage="home">
   <style>
     /* Hero Section */
     .hero {
@@ -47,6 +47,76 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
         gap: 1rem;
         justify-content: center;
         margin-bottom: 3rem;
+    }
+
+    .sales-reality-block {
+        margin: 3rem auto 0;
+        max-width: 700px;
+        padding: 2.5rem;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .sales-reality-block h3 {
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .sales-funnel-visual {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .funnel-step {
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        font-weight: 500;
+        color: white;
+        font-size: 0.95rem;
+    }
+
+    .funnel-arrow {
+        color: var(--primary-light);
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    .sales-reality-copy {
+        text-align: center;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 0.75rem;
+    }
+
+    .sales-reality-features {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sales-reality-features li {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.95rem;
+    }
+
+    .sales-reality-features li::before {
+        content: '✓ ';
+        color: #86efac;
+        font-weight: 700;
     }
 
     .hero-image {
@@ -364,6 +434,62 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
         letter-spacing: 0.3px;
     }
 
+    /* Pre-CRM Section */
+    .precrm-section {
+        padding: 6rem 0;
+        background: var(--bg-subtle);
+    }
+
+    .precrm-content {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .precrm-diagram {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .precrm-step {
+        padding: 0.75rem 1.5rem;
+        background: white;
+        border-radius: 8px;
+        font-weight: 600;
+        color: var(--text);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        min-width: 200px;
+        text-align: center;
+    }
+
+    .precrm-step.precrm-highlight {
+        background: var(--gradient-primary);
+        color: white;
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    }
+
+    .precrm-arrow {
+        color: var(--primary);
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .precrm-explanation {
+        font-size: 1.125rem;
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+    }
+
+    .precrm-tagline {
+        font-size: 1rem;
+        color: var(--primary);
+        font-weight: 600;
+    }
+
     /* How It Works Section */
     .process {
         padding: 6rem 0;
@@ -456,6 +582,69 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
         left: 0;
         color: var(--primary-light);
     }
+
+    /* Before vs After Section */
+    .before-after-section {
+        padding: 6rem 0;
+        background: var(--bg-subtle);
+    }
+
+    .before-after-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .before-after-card {
+        padding: 2.5rem;
+        border-radius: 16px;
+        border: 1px solid var(--border-light);
+    }
+
+    .before-after-card.without {
+        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+        border-color: #fca5a5;
+    }
+
+    .before-after-card.with {
+        background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+        border-color: #86efac;
+    }
+
+    .before-after-card h3 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        margin-bottom: 1.25rem;
+    }
+
+    .before-after-card.without h3 { color: #dc2626; }
+    .before-after-card.with h3 { color: #16a34a; }
+
+    .before-after-card ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .before-after-card ul li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        color: var(--text);
+        font-weight: 500;
+    }
+
+    .before-after-card ul li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        font-weight: 700;
+    }
+
+    .before-after-card.without ul li::before { color: #dc2626; }
+    .before-after-card.with ul li::before { color: #16a34a; }
 
     /* Benefits Section */
     .benefits-section {
@@ -587,7 +776,7 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
 
     .funnel-stats {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 1.5rem;
         margin: 3rem 0;
     }
@@ -838,6 +1027,18 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
             grid-template-columns: repeat(2, 1fr);
         }
 
+        .before-after-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .sales-funnel-visual {
+            flex-direction: column;
+        }
+
+        .funnel-arrow {
+            transform: rotate(90deg);
+        }
+
     }
   </style>
 
@@ -848,13 +1049,32 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
   <section class="hero">
       <div class="container">
           <div class="hero-content">
-              <h1>Automatically Turn Cold Outreach<br>Into Warm Conversations</h1>
-              <p>Alure.ai automatically conducts research and script personalisation — saving 4-5 hours per day per sales rep.</p>
+              <h1>Book 1 Qualified B2B<br>Appointment Per Day</h1>
+              <p>Alure.ai automatically researches prospects and generates personalised warm call scripts — saving 4–5 hours per day per sales rep.</p>
 
               <div class="hero-cta">
                   <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener noreferrer">Book a Strategy Session</a>
-                  <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+                  <a href="/demo" class="btn btn-secondary">Watch the 3-Minute Demo</a>
               </div>
+          </div>
+
+          <div class="sales-reality-block">
+              <h3>How One BDM Books 1 Appointment Per Day</h3>
+              <div class="sales-funnel-visual">
+                  <span class="funnel-step">70 calls per day</span>
+                  <span class="funnel-arrow">→</span>
+                  <span class="funnel-step">10 conversations</span>
+                  <span class="funnel-arrow">→</span>
+                  <span class="funnel-step">5 interested prospects</span>
+                  <span class="funnel-arrow">→</span>
+                  <span class="funnel-step">1–2 appointments booked</span>
+              </div>
+              <p class="sales-reality-copy">Alure.ai prepares every call automatically.</p>
+              <ul class="sales-reality-features">
+                  <li>Prospect research</li>
+                  <li>Business insights</li>
+                  <li>Personalised warm call script</li>
+              </ul>
           </div>
 
           <div class="hero-image">
@@ -932,7 +1152,7 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
   <section class="shift-section">
       <div class="container">
           <div class="section-header">
-              <h2>Stop Cold Calling. Start Warm Calling.</h2>
+              <h2>Cold Calls Fail. Warm Calls Work.</h2>
           </div>
           <div class="shift-content">
               <p>Cold calls fail because they lack relevance. Warm calls work because they show understanding.</p>
@@ -958,7 +1178,7 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
   <section class="solution-section" id="features">
       <div class="container">
           <div class="section-header">
-              <h2>Alure.ai Performs the Research</h2>
+              <h2>Alure.ai Performs the Research Automatically</h2>
           </div>
           <div class="solution-content">
               <p>Alure.ai is built specifically for B2B sales teams who need to turn cold leads into warm prospects at scale.</p>
@@ -1007,48 +1227,100 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
       </div>
   </section>
 
+  <!-- Section 3b: Pre-CRM Intelligence Layer -->
+  <section class="precrm-section">
+      <div class="container">
+          <div class="section-header">
+              <h2>A Pre-CRM Intelligence Layer for Sales Teams</h2>
+          </div>
+          <div class="precrm-content">
+              <div class="precrm-diagram">
+                  <span class="precrm-step">Lead list</span>
+                  <span class="precrm-arrow">↓</span>
+                  <span class="precrm-step precrm-highlight">Alure.ai research + script</span>
+                  <span class="precrm-arrow">↓</span>
+                  <span class="precrm-step">BDM call</span>
+                  <span class="precrm-arrow">↓</span>
+                  <span class="precrm-step">CRM entry</span>
+              </div>
+              <p class="precrm-explanation">Most sales tools operate inside the CRM. Alure works <strong>before</strong> the CRM, preparing every conversation before your sales team picks up the phone.</p>
+              <p class="precrm-tagline">Lead list → Alure.ai → Calls → CRM</p>
+          </div>
+      </div>
+  </section>
+
   <!-- Section 4: How It Works -->
   <section class="process" id="how-it-works">
       <div class="container">
           <div class="section-header">
-              <h2>A Structured System, Not Random Automation</h2>
+              <h2>A Structured Sales System</h2>
           </div>
 
           <div class="steps-grid">
               <div class="step-card">
                   <div class="step-number">1</div>
-                  <h3>Identify Your ICP</h3>
-                  <p>Define your Ideal Customer Profile and build a targeted list.</p>
+                  <h3>Define Your Ideal Customer Profile</h3>
+                  <p>Identify your target market and build a targeted list.</p>
               </div>
 
               <div class="step-card">
                   <div class="step-number">2</div>
-                  <h3>Connect and Warm the Audience</h3>
-                  <p>To improve performance, we recommend using existing LinkedIn connections, as the prospects are slightly warmer. Otherwise, using a cold list will suffice.</p>
+                  <h3>Upload or Build Your Prospect List</h3>
+                  <p>Import your lead list or build one from your ideal customer criteria.</p>
               </div>
 
               <div class="step-card">
                   <div class="step-number">3</div>
-                  <h3>Personalisation</h3>
+                  <h3>Alure Generates Personalised Call Preparation</h3>
                   <p>Alure.ai analyses each prospect and creates structured, personalised call scripts automatically.</p>
               </div>
 
               <div class="step-card">
                   <div class="step-number">4</div>
-                  <h3>Execute with Discipline</h3>
-                  <p>Your team makes warm calls using a proven structure:</p>
-                  <ul>
-                      <li>Reference the warm connection</li>
-                      <li>Demonstrate research</li>
-                      <li>Present a valid business reason</li>
-                      <li>Ask a relevant question</li>
-                      <li>Push for a short appointment</li>
-                  </ul>
+                  <h3>BDMs Execute Warm Calls</h3>
+                  <p>Your team makes warm calls using a proven structure: demonstrate research, present a valid business reason, and ask relevant questions.</p>
+              </div>
+
+              <div class="step-card">
+                  <div class="step-number">5</div>
+                  <h3>Appointments Are Booked and Recorded</h3>
+                  <p>Appointments flow into your CRM. The result is a controlled, repeatable performance.</p>
               </div>
           </div>
 
           <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
-              <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9); font-weight: 500;">The result is not just activity. It is a controlled, repeatable performance.</p>
+              <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9); font-weight: 500;">This emphasises discipline rather than automation hype.</p>
+          </div>
+      </div>
+  </section>
+
+  <!-- Section 4b: Before vs After Alure -->
+  <section class="before-after-section">
+      <div class="container">
+          <div class="section-header">
+              <h2>Before Alure vs After Alure</h2>
+          </div>
+          <div class="before-after-grid">
+              <div class="before-after-card without">
+                  <h3>Without Alure</h3>
+                  <ul>
+                      <li>BDMs research prospects manually</li>
+                      <li>Calls feel generic</li>
+                      <li>Low confidence before calls</li>
+                      <li>Scripts vary between reps</li>
+                      <li>Appointment flow is inconsistent</li>
+                  </ul>
+              </div>
+              <div class="before-after-card with">
+                  <h3>With Alure</h3>
+                  <ul>
+                      <li>Research completed automatically</li>
+                      <li>Every call starts warm</li>
+                      <li>BDMs know exactly what to say</li>
+                      <li>Consistent call structure</li>
+                      <li>Predictable appointment flow</li>
+                  </ul>
+              </div>
           </div>
       </div>
   </section>
@@ -1113,15 +1385,19 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
   <section class="commercial-section">
       <div class="container">
           <div class="section-header">
-              <h2>From Activity to Appointments</h2>
+              <h2>From Activity to Predictable Appointments</h2>
           </div>
           <div class="commercial-content">
-              <p>A disciplined BDM making 60–70 calls per day typically reaches:</p>
+              <p>Typical daily performance for a disciplined BDM:</p>
 
               <div class="funnel-stats">
                   <div class="funnel-item">
+                      <span class="funnel-number">60–70</span>
+                      <span class="funnel-label">Calls per day</span>
+                  </div>
+                  <div class="funnel-item">
                       <span class="funnel-number">10</span>
-                      <span class="funnel-label">Live conversations</span>
+                      <span class="funnel-label">Conversations</span>
                   </div>
                   <div class="funnel-item">
                       <span class="funnel-number">5</span>
@@ -1133,7 +1409,7 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
                   </div>
               </div>
 
-              <p>With the right structure and preparation, this becomes <strong>predictable</strong>.</p>
+              <p>When preparation is automated, this performance becomes <strong>repeatable</strong>. Alure improves call confidence, conversation relevance, and appointment conversion.</p>
 
               <div class="commercial-note">
                   <p>Alure.ai does not replace your sales team. It makes them <strong>sharper, faster, and more effective</strong>.</p>
@@ -1178,7 +1454,7 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
   <section class="audience-section">
       <div class="container">
           <div class="section-header">
-              <h2>Ideal For</h2>
+              <h2>Built for B2B Sales Teams</h2>
           </div>
 
           <div class="audience-grid">
@@ -1195,16 +1471,16 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
                   <h3>Software Companies</h3>
               </div>
               <div class="audience-card">
-                  <div class="audience-icon"><Icon name="clipboard" size={32} /></div>
-                  <h3>Professional Service Firms</h3>
+                  <div class="audience-icon"><Icon name="shield" size={32} /></div>
+                  <h3>Cybersecurity Firms</h3>
               </div>
               <div class="audience-card">
-                  <div class="audience-icon"><Icon name="phone" size={32} /></div>
-                  <h3>B2B Sales Teams Booking First Appointments</h3>
+                  <div class="audience-icon"><Icon name="clipboard" size={32} /></div>
+                  <h3>Professional Services Firms</h3>
               </div>
           </div>
 
-          <p class="audience-note">If your business relies on high-value conversations, Alure.ai gives your team a competitive edge.</p>
+          <p class="audience-note">If your business depends on high-value conversations, Alure gives your team an advantage.</p>
       </div>
   </section>
 
@@ -1246,12 +1522,12 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
   <!-- Section 10: Call to Action -->
   <section class="cta-section">
       <div class="container">
-          <h2>Build a System That Books 1 Appointment Per Day</h2>
-          <p>If your sales team is spending hours researching instead of speaking to prospects, it is time to redesign the process. Book a Strategy &amp; Planning Session to see how Alure.ai fits into your B2B sales system.</p>
+          <h2>Build a Sales System That Books 1 Appointment Per Day</h2>
+          <p>If your sales team spends hours researching prospects before calling, the system needs redesigning. Book a Strategy &amp; Planning Session to see how Alure fits into your B2B sales engine.</p>
 
           <div class="cta-buttons">
               <a href={BOOKING_URL} class="btn btn-white" target="_blank" rel="noopener noreferrer">Book Your Strategy Session</a>
-              <a href="/demo" class="btn btn-outline">Request a Demo</a>
+              <a href="/demo" class="btn btn-outline">Watch the Demo</a>
           </div>
       </div>
   </section>
@@ -1359,7 +1635,7 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
     "name": "Alure.ai",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
-    "description": "AI-powered sales outreach automation that turns cold leads into warm conversations.",
+    "description": "A B2B appointment-generation system powered by AI. Alure.ai automatically researches prospects and generates personalised warm call scripts — saving 4-5 hours per day per sales rep.",
     "offers": {
       "@type": "Offer",
       "price": "0",
