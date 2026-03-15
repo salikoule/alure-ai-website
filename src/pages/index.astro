@@ -543,17 +543,9 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
 
     .steps-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
         margin-top: 3rem;
-    }
-
-    .steps-grid .step-card:nth-child(4) {
-        grid-column: 2;
-    }
-
-    .steps-grid .step-card:nth-child(5) {
-        grid-column: 3;
     }
 
     .step-card {
@@ -698,7 +690,7 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
 
     .benefits-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
         margin: 2rem 0;
     }
@@ -1082,11 +1074,6 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
             grid-template-columns: 1fr;
         }
 
-        .steps-grid .step-card:nth-child(4),
-        .steps-grid .step-card:nth-child(5) {
-            grid-column: auto;
-        }
-
         .benefits-grid {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -1102,19 +1089,6 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
         }
     }
 
-    @media (min-width: 769px) and (max-width: 1100px) {
-        .steps-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .steps-grid .step-card:nth-child(4) {
-            grid-column: 1;
-        }
-
-        .steps-grid .step-card:nth-child(5) {
-            grid-column: 2;
-        }
-    }
   </style>
 
   <!-- Scroll Progress Indicator -->
@@ -1352,14 +1326,8 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
 
               <div class="step-card">
                   <div class="step-number">4</div>
-                  <h3>BDMs Execute Warm Calls</h3>
-                  <p>Your team makes warm calls using a proven structure: demonstrate research, present a valid business reason, and ask relevant questions.</p>
-              </div>
-
-              <div class="step-card">
-                  <div class="step-number">5</div>
-                  <h3>Appointments Are Booked and Recorded</h3>
-                  <p>Appointments flow into your CRM. The result is a controlled, repeatable performance.</p>
+                  <h3>BDMs Execute Warm Calls & Record Appointments</h3>
+                  <p>Your team makes warm calls using a proven structure, then appointments flow into your CRM for a controlled, repeatable performance.</p>
               </div>
           </div>
 
@@ -1424,11 +1392,7 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
                   </div>
                   <div class="benefit-item">
                       <span class="benefit-number">Higher</span>
-                      <span class="benefit-label">Confidence before every call</span>
-                  </div>
-                  <div class="benefit-item">
-                      <span class="benefit-number">Consistent</span>
-                      <span class="benefit-label">Script quality across the team</span>
+                      <span class="benefit-label">Confidence & consistent script quality</span>
                   </div>
               </div>
 

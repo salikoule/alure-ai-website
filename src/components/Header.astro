@@ -34,6 +34,7 @@ const navLinks = [
       <span></span>
     </button>
 
+    <div class="mobile-menu-overlay" id="menu-overlay" aria-hidden="true"></div>
     <ul class="nav-links" id="nav-menu" role="menubar">
       {navLinks.map(link => (
         <li role="none">
@@ -64,21 +65,30 @@ const navLinks = [
     const menu = document.getElementById('nav-menu');
     if (!toggle || !menu) return;
 
+    var overlay = document.getElementById('menu-overlay');
+
+    function closeMenu() {
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.classList.remove('active');
+      menu.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.classList.remove('menu-open');
+    }
+
     toggle.addEventListener('click', function() {
-      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!isOpen));
       toggle.classList.toggle('active');
       menu.classList.toggle('open');
+      overlay.classList.toggle('open');
+      overlay.setAttribute('aria-hidden', String(isOpen));
       document.body.classList.toggle('menu-open');
     });
 
+    overlay.addEventListener('click', closeMenu);
+
     document.querySelectorAll('.nav-links a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.classList.remove('active');
-        menu.classList.remove('open');
-        document.body.classList.remove('menu-open');
-      });
+      link.addEventListener('click', closeMenu);
     });
   });
 </script>

@@ -7,11 +7,15 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "screenshot": "node scripts/screenshot.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.1",
     "@fontsource/inter": "^5.2.8",
     "astro": "^6.0.4"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
   }
 }
