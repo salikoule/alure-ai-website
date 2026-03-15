@@ -808,6 +808,7 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
         grid-template-columns: repeat(4, 1fr);
         gap: 1.5rem;
         margin: 3rem 0;
+        align-items: stretch;
     }
 
     .funnel-item {
@@ -821,7 +822,7 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-height: 140px;
+        min-height: 180px;
     }
 
     .funnel-item::after {
@@ -843,11 +844,15 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
         font-weight: 700;
         color: var(--primary);
         display: block;
+        white-space: nowrap;
     }
 
     .funnel-label {
         color: var(--text-secondary);
         font-weight: 500;
+        min-height: 2.5em;
+        display: block;
+        margin-top: 0.25rem;
     }
 
     .commercial-note {
