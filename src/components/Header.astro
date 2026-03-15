@@ -24,6 +24,7 @@ const navLinks = [
     </a>
 
     <button
+      type="button"
       class="mobile-menu-toggle"
       aria-label="Toggle navigation menu"
       aria-expanded="false"
@@ -75,7 +76,7 @@ const navLinks = [
       document.body.classList.remove('menu-open');
     }
 
-    toggle.addEventListener('click', function() {
+    function toggleMenu() {
       var isOpen = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!isOpen));
       toggle.classList.toggle('active');
@@ -83,7 +84,9 @@ const navLinks = [
       overlay.classList.toggle('open');
       overlay.setAttribute('aria-hidden', String(isOpen));
       document.body.classList.toggle('menu-open');
-    });
+    }
+
+    toggle.addEventListener('click', toggleMenu);
 
     overlay.addEventListener('click', closeMenu);
 
