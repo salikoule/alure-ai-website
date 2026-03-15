@@ -543,9 +543,17 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
 
     .steps-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
         margin-top: 3rem;
+    }
+
+    .steps-grid .step-card:nth-child(4) {
+        grid-column: 2;
+    }
+
+    .steps-grid .step-card:nth-child(5) {
+        grid-column: 3;
     }
 
     .step-card {
@@ -812,6 +820,11 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
         border-radius: 16px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 140px;
     }
 
     .funnel-item::after {
@@ -1036,7 +1049,7 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
         }
 
         .funnel-stats {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, 1fr);
         }
 
         .funnel-item::after {
@@ -1065,6 +1078,42 @@ import heroScreenshot from '../assets/images/hero-screenshot.png';
             transform: rotate(90deg);
         }
 
+        .steps-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .steps-grid .step-card:nth-child(4),
+        .steps-grid .step-card:nth-child(5) {
+            grid-column: auto;
+        }
+
+        .benefits-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .benefits-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .funnel-stats {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1100px) {
+        .steps-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .steps-grid .step-card:nth-child(4) {
+            grid-column: 1;
+        }
+
+        .steps-grid .step-card:nth-child(5) {
+            grid-column: 2;
+        }
     }
   </style>
 

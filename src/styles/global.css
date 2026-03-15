@@ -174,6 +174,7 @@ ul, ol {
   width: 100%;
   top: 0;
   z-index: 1000;
+  padding-top: env(safe-area-inset-top);
 }
 
 .nav-container {
@@ -217,7 +218,7 @@ ul, ol {
 }
 
 .nav-links a {
-  color: var(--text-secondary);
+  color: var(--text);
   font-weight: 500;
   font-size: var(--font-sm);
   transition: color 0.3s;
@@ -246,7 +247,8 @@ ul, ol {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
-  z-index: 1001;
+  z-index: 1002;
+  position: relative;
 }
 
 .mobile-menu-toggle span {
@@ -825,19 +827,20 @@ textarea.form-control {
   .nav-links {
     display: none;
     position: fixed;
-    top: 0;
+    top: calc(72px + env(safe-area-inset-top));
     left: 0;
     right: 0;
     bottom: 0;
     background: var(--bg);
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
     gap: 0;
-    z-index: 999;
-    padding: 5rem 1.5rem 2rem;
+    z-index: 1001;
+    padding: 2rem 1.5rem 2rem;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   }
 
   .nav-links.open {
@@ -847,7 +850,7 @@ textarea.form-control {
   .nav-links li {
     width: 100%;
     text-align: center;
-    padding: 0.75rem 0;
+    padding: 0.875rem 0;
     border-bottom: 1px solid var(--border);
   }
 
